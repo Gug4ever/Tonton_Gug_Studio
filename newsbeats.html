@@ -6,78 +6,20 @@
   <title>Newsbeats — Tonton Gug Studio</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .nb-hero {
-      background: linear-gradient(135deg, #0a0f1e 0%, #1a1200 100%);
-      border-bottom: 1px solid var(--border);
-      padding: 4rem 2rem;
-    }
-    .nb-hero-inner {
-      max-width: 1100px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      gap: 3rem;
-      flex-wrap: wrap;
-    }
-    .nb-logo-box {
-      background: #111;
-      border-radius: 16px;
-      padding: 1.5rem 2rem;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-shrink: 0;
-    }
-    .nb-logo-box img {
-      height: 80px;
-    }
-    .nb-hero-text h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: clamp(2rem, 4vw, 3rem);
-      font-weight: 800;
-      margin-bottom: 0.75rem;
-    }
+    .nb-hero { background: linear-gradient(135deg, #0a0f1e 0%, #1a1200 100%); border-bottom: 1px solid var(--border); padding: 4rem 2rem; }
+    .nb-hero-inner { max-width: 1100px; margin: 0 auto; display: flex; align-items: center; gap: 3rem; flex-wrap: wrap; }
+    .nb-logo-box { background: #111; border-radius: 16px; padding: 1.5rem 2rem; display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+    .nb-logo-box img { height: 80px; }
+    .nb-hero-text h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 800; margin-bottom: 0.75rem; }
     .nb-hero-text h1 span { color: var(--orange); }
     .nb-hero-text p { color: var(--muted); font-size: 1.05rem; max-width: 520px; }
-
-    .features-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 1.25rem;
-      margin-top: 2rem;
-    }
-    .feature {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-    }
+    .features-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; margin-top: 2rem; }
+    .feature { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; }
     .feature-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
-    .feature h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      margin-bottom: 0.5rem;
-    }
+    .feature h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 0.5rem; }
     .feature p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
-
-    .app-link-box {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 2.5rem;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      gap: 2rem;
-      flex-wrap: wrap;
-      margin-top: 2rem;
-    }
-    .app-link-box h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: 1.3rem;
-      font-weight: 700;
-      margin-bottom: 0.4rem;
-    }
+    .app-link-box { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2.5rem; display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap; margin-top: 2rem; }
+    .app-link-box h3 { font-family: 'Montserrat', sans-serif; font-size: 1.3rem; font-weight: 700; margin-bottom: 0.4rem; }
     .app-link-box p { color: var(--muted); font-size: 0.95rem; }
   </style>
 </head>
@@ -93,75 +35,75 @@
       </svg>
     </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="newsbeats.html" class="active">Newsbeats</a></li>
-      <li><a href="books.html">Books</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
       <li><a href="finance.html">Finance</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="newsbeats.html" class="active">Newsbeats</a></li>
       <li><a href="bio.html">Bio</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+    </div>
   </nav>
 
-  <!-- HERO -->
   <div class="nb-hero">
     <div class="nb-hero-inner">
       <div class="nb-logo-box">
         <img src="assets/newsbeats-logo.png" alt="Newsbeats" />
       </div>
       <div class="nb-hero-text">
-        <p class="section-label" style="margin-bottom:0.5rem;">Projet</p>
+        <p class="section-label" style="margin-bottom:0.5rem;" data-i18n="nb.label">Projet</p>
         <h1><span>News</span>beats</h1>
-        <p>L'app qui transforme l'actualité en expérience musicale. Reste informé — autrement.</p>
+        <p data-i18n="nb.tagline">L'app qui transforme l'actualité en expérience musicale. Reste informé — autrement.</p>
       </div>
     </div>
   </div>
 
-  <!-- CONTENT -->
   <section>
-    <p class="section-label">À propos</p>
-    <h2 class="section-title">C'est quoi Newsbeats ?</h2>
-    <p class="section-sub">
-      Newsbeats fusionne deux univers en apparence opposés : l'information et la musique.
-      L'idée ? Rendre la consommation d'actualité plus engageante, plus fluide — avec une ambiance sonore qui accompagne chaque article.
-    </p>
+    <p class="section-label" data-i18n="nb.about.label">À propos</p>
+    <h2 class="section-title" data-i18n="nb.about.title">C'est quoi Newsbeats ?</h2>
+    <p class="section-sub" data-i18n="nb.about.subtitle">Newsbeats fusionne deux univers en apparence opposés : l'information et la musique.</p>
 
     <div class="features-grid">
       <div class="feature">
         <div class="feature-icon">📰</div>
-        <h3>Actualité en temps réel</h3>
-        <p>Les dernières news agrégées et présentées de manière claire, sans le bruit des réseaux sociaux.</p>
+        <h3 data-i18n="feat.1.title">Actualité en temps réel</h3>
+        <p data-i18n="feat.1.desc">Les dernières news agrégées et présentées de manière claire, sans le bruit des réseaux sociaux.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">🎧</div>
-        <h3>Ambiance musicale</h3>
-        <p>Une sélection musicale adaptée au ton de l'article — pour une lecture plus immersive.</p>
+        <h3 data-i18n="feat.2.title">Ambiance musicale</h3>
+        <p data-i18n="feat.2.desc">Une sélection musicale adaptée au ton de l'article — pour une lecture plus immersive.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">⚡</div>
-        <h3>Interface rapide</h3>
-        <p>Conçue pour être fluide et intuitive. L'info, sans friction.</p>
+        <h3 data-i18n="feat.3.title">Interface rapide</h3>
+        <p data-i18n="feat.3.desc">Conçue pour être fluide et intuitive. L'info, sans friction.</p>
       </div>
       <div class="feature">
         <div class="feature-icon">🌍</div>
-        <h3>Multi-sources</h3>
-        <p>Plusieurs sources, plusieurs perspectives — pour une vision équilibrée de l'actualité.</p>
+        <h3 data-i18n="feat.4.title">Multi-sources</h3>
+        <p data-i18n="feat.4.desc">Plusieurs sources, plusieurs perspectives — pour une vision équilibrée de l'actualité.</p>
       </div>
     </div>
 
     <div class="app-link-box">
       <div>
-        <h3>Essayer l'application</h3>
-        <p>Newsbeats est disponible en ligne — accès direct depuis le navigateur.</p>
+        <h3 data-i18n="nb.cta.title">Essayer l'application</h3>
+        <p data-i18n="nb.cta.desc">Newsbeats est disponible en ligne — accès direct depuis le navigateur.</p>
       </div>
-      <!-- Remplace le # par l'URL de ton app Newsbeats -->
-      <a href="#" class="btn btn-primary" target="_blank" rel="noopener">Ouvrir Newsbeats →</a>
+      <a href="#" class="btn btn-primary" target="_blank" rel="noopener" data-i18n="nb.cta.btn">Ouvrir Newsbeats →</a>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 <span>Tonton Gug Studio</span>. Tous droits réservés.</p>
+    <p data-i18n-html="footer.text">© 2025 <span>Tonton Gug Studio</span>. Tous droits réservés.</p>
   </footer>
 
+  <script src="translations.js"></script>
   <script src="main.js"></script>
 </body>
 </html>

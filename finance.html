@@ -6,93 +6,23 @@
   <title>Finance — Tonton Gug Studio</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .slides-tabs {
-      display: flex;
-      gap: 0.5rem;
-      margin-bottom: 1.5rem;
-      flex-wrap: wrap;
-    }
-    .tab-btn {
-      background: var(--card);
-      border: 1px solid var(--border);
-      color: var(--muted);
-      padding: 0.5rem 1.1rem;
-      border-radius: 8px;
-      font-size: 0.88rem;
-      font-weight: 500;
-      cursor: pointer;
-      transition: all 0.2s;
-      font-family: 'Inter', sans-serif;
-    }
-    .tab-btn:hover, .tab-btn.active {
-      border-color: var(--orange);
-      color: var(--orange);
-      background: rgba(245,166,35,0.08);
-    }
-    .slide-panel {
-      display: none;
-    }
-    .slide-panel.active {
-      display: block;
-    }
-    .slides-embed {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      aspect-ratio: 16/9;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 1rem;
-    }
-    .slides-embed iframe {
-      width: 100%;
-      height: 100%;
-      border: none;
-    }
-    .slides-placeholder {
-      text-align: center;
-      color: var(--muted);
-      padding: 2rem;
-    }
+    .slides-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
+    .tab-btn { background: var(--card); border: 1px solid var(--border); color: var(--muted); padding: 0.5rem 1.1rem; border-radius: 8px; font-size: 0.88rem; font-weight: 500; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
+    .tab-btn:hover, .tab-btn.active { border-color: var(--orange); color: var(--orange); background: rgba(245,166,35,0.08); }
+    .slide-panel { display: none; }
+    .slide-panel.active { display: block; }
+    .slides-embed { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+    .slides-embed iframe { width: 100%; height: 100%; border: none; }
+    .slides-placeholder { text-align: center; color: var(--muted); padding: 2rem; }
     .slides-placeholder .big-icon { font-size: 3rem; margin-bottom: 1rem; }
-    .slides-placeholder h3 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      color: var(--text);
-      margin-bottom: 0.5rem;
-    }
+    .slides-placeholder h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
     .slides-placeholder p { font-size: 0.9rem; line-height: 1.6; }
-    .slides-placeholder code {
-      background: rgba(255,255,255,0.06);
-      padding: 0.2rem 0.5rem;
-      border-radius: 4px;
-      font-size: 0.82rem;
-      color: var(--orange);
-    }
-
-    .concepts-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
-      gap: 1rem;
-      margin-top: 3rem;
-    }
-    .concept {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 1.5rem;
-      transition: border-color 0.2s;
-    }
+    .slides-placeholder code { background: rgba(255,255,255,0.06); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.82rem; color: var(--orange); }
+    .concepts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin-top: 3rem; }
+    .concept { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; transition: border-color 0.2s; }
     .concept:hover { border-color: var(--orange); }
     .concept .icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
-    .concept h4 {
-      font-family: 'Montserrat', sans-serif;
-      font-weight: 700;
-      font-size: 0.95rem;
-      margin-bottom: 0.4rem;
-    }
+    .concept h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
     .concept p { color: var(--muted); font-size: 0.85rem; line-height: 1.5; }
   </style>
 </head>
@@ -108,49 +38,38 @@
       </svg>
     </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="newsbeats.html">Newsbeats</a></li>
-      <li><a href="books.html">Books</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
       <li><a href="finance.html" class="active">Finance</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="newsbeats.html">Newsbeats</a></li>
       <li><a href="bio.html">Bio</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+    </div>
   </nav>
 
   <section>
-    <p class="section-label">Cours</p>
-    <h1 class="section-title">Finance & Marchés</h1>
-    <p class="section-sub">Des slides clairs pour comprendre la finance — des bases aux stratégies d'investissement.</p>
+    <p class="section-label" data-i18n="finance.label">Cours</p>
+    <h1 class="section-title" data-i18n="finance.title">Finance & Marchés</h1>
+    <p class="section-sub" data-i18n="finance.subtitle">Des slides clairs pour comprendre la finance — des bases aux stratégies d'investissement.</p>
 
-    <!--
-      COMMENT AJOUTER TES SLIDES :
-      Option 1 — Google Slides :
-        Fichier → Partager → Publier sur le web → Intégrer → copie le lien src de l'iframe
-        Remplace "COLLE_TON_LIEN_ICI" ci-dessous
-
-      Option 2 — PDF :
-        Upload le PDF dans /assets/ et remplace l'iframe par :
-        <embed src="assets/ton-fichier.pdf" type="application/pdf" style="width:100%;height:100%" />
-    -->
-
-    <div class="slides-tabs" id="slideTabs">
-      <button class="tab-btn active" onclick="showSlide(0)">Module 1</button>
-      <button class="tab-btn" onclick="showSlide(1)">Module 2</button>
-      <button class="tab-btn" onclick="showSlide(2)">Module 3</button>
-      <!-- Ajoute autant de boutons que de modules -->
+    <div class="slides-tabs">
+      <button class="tab-btn active" onclick="showSlide(0)" data-i18n="tab.1">Module 1</button>
+      <button class="tab-btn" onclick="showSlide(1)" data-i18n="tab.2">Module 2</button>
+      <button class="tab-btn" onclick="showSlide(2)" data-i18n="tab.3">Module 3</button>
     </div>
 
     <div class="slide-panel active" id="slide-0">
       <div class="slides-embed">
-        <!--
-          REMPLACE le src ci-dessous par ton lien Google Slides embed :
-          <iframe src="https://docs.google.com/presentation/d/TON_ID/embed?..."></iframe>
-        -->
+        <!-- <iframe src="COLLE_TON_LIEN_GOOGLE_SLIDES_ICI"></iframe> -->
         <div class="slides-placeholder">
           <div class="big-icon">📊</div>
-          <h3>Module 1 — Les bases</h3>
-          <p>Colle ici ton lien Google Slides ou PDF.<br/>
-          Dans le fichier <code>finance.html</code>, remplace ce bloc par ton <code>&lt;iframe&gt;</code>.</p>
+          <h3 data-i18n="mod.1.title">Module 1 — Les bases</h3>
+          <p>Colle ton lien <code>Google Slides</code> ou PDF dans <code>finance.html</code></p>
         </div>
       </div>
     </div>
@@ -159,7 +78,7 @@
       <div class="slides-embed">
         <div class="slides-placeholder">
           <div class="big-icon">📈</div>
-          <h3>Module 2 — Les marchés</h3>
+          <h3 data-i18n="mod.2.title">Module 2 — Les marchés</h3>
           <p>Slides du module 2 à intégrer ici.</p>
         </div>
       </div>
@@ -169,56 +88,32 @@
       <div class="slides-embed">
         <div class="slides-placeholder">
           <div class="big-icon">💼</div>
-          <h3>Module 3 — Investir</h3>
+          <h3 data-i18n="mod.3.title">Module 3 — Investir</h3>
           <p>Slides du module 3 à intégrer ici.</p>
         </div>
       </div>
     </div>
 
-    <!-- THÈMES ABORDÉS -->
-    <div style="margin-top: 4rem;">
-      <p class="section-label">Au programme</p>
-      <h2 class="section-title" style="font-size:1.6rem;">Ce qu'on couvre</h2>
+    <div style="margin-top:4rem;">
+      <p class="section-label" data-i18n="concepts.label">Au programme</p>
+      <h2 class="section-title" style="font-size:1.6rem;" data-i18n="concepts.title">Ce qu'on couvre</h2>
     </div>
 
     <div class="concepts-grid">
-      <div class="concept">
-        <div class="icon">🏦</div>
-        <h4>Les bases de la finance</h4>
-        <p>Taux d'intérêt, inflation, actifs, passifs — les fondamentaux pour ne plus être perdu.</p>
-      </div>
-      <div class="concept">
-        <div class="icon">📉</div>
-        <h4>Comprendre les marchés</h4>
-        <p>Comment fonctionnent les marchés actions, obligataires, et comment les lire.</p>
-      </div>
-      <div class="concept">
-        <div class="icon">💹</div>
-        <h4>Investir intelligemment</h4>
-        <p>ETF, diversification, horizon de placement — construire un portefeuille solide.</p>
-      </div>
-      <div class="concept">
-        <div class="icon">🧮</div>
-        <h4>Analyser une entreprise</h4>
-        <p>Lire un bilan, comprendre les ratios, évaluer la santé financière d'une société.</p>
-      </div>
-      <div class="concept">
-        <div class="icon">🌍</div>
-        <h4>Macro-économie</h4>
-        <p>Les grandes forces qui dirigent l'économie mondiale et leur impact sur tes investissements.</p>
-      </div>
-      <div class="concept">
-        <div class="icon">🛡️</div>
-        <h4>Gérer le risque</h4>
-        <p>Ne pas perdre de l'argent, c'est aussi gagner. Stratégies de gestion du risque.</p>
-      </div>
+      <div class="concept"><div class="icon">🏦</div><h4 data-i18n="concept.1.title">Les bases de la finance</h4><p data-i18n="concept.1.desc">Taux d'intérêt, inflation, actifs, passifs — les fondamentaux pour ne plus être perdu.</p></div>
+      <div class="concept"><div class="icon">📉</div><h4 data-i18n="concept.2.title">Comprendre les marchés</h4><p data-i18n="concept.2.desc">Comment fonctionnent les marchés actions, obligataires, et comment les lire.</p></div>
+      <div class="concept"><div class="icon">💹</div><h4 data-i18n="concept.3.title">Investir intelligemment</h4><p data-i18n="concept.3.desc">ETF, diversification, horizon de placement — construire un portefeuille solide.</p></div>
+      <div class="concept"><div class="icon">🧮</div><h4 data-i18n="concept.4.title">Analyser une entreprise</h4><p data-i18n="concept.4.desc">Lire un bilan, comprendre les ratios, évaluer la santé financière d'une société.</p></div>
+      <div class="concept"><div class="icon">🌍</div><h4 data-i18n="concept.5.title">Macro-économie</h4><p data-i18n="concept.5.desc">Les grandes forces qui dirigent l'économie mondiale et leur impact sur tes investissements.</p></div>
+      <div class="concept"><div class="icon">🛡️</div><h4 data-i18n="concept.6.title">Gérer le risque</h4><p data-i18n="concept.6.desc">Ne pas perdre de l'argent, c'est aussi gagner. Stratégies de gestion du risque.</p></div>
     </div>
   </section>
 
   <footer>
-    <p>© 2025 <span>Tonton Gug Studio</span>. Tous droits réservés.</p>
+    <p data-i18n-html="footer.text">© 2025 <span>Tonton Gug Studio</span>. Tous droits réservés.</p>
   </footer>
 
+  <script src="translations.js"></script>
   <script src="main.js"></script>
   <script>
     function showSlide(index) {

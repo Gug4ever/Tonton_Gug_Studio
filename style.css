@@ -51,10 +51,13 @@ nav {
 }
 
 .nav-logo img {
-  height: 42px;
-  border-radius: 8px;
-  background: white;
-  padding: 3px 6px;
+  /* Crop to show only the TGS icon mark (left portion of the image) */
+  display: block;
+  height: 58px;
+  width: 72px;
+  object-fit: cover;
+  object-position: left center;
+  border-radius: 6px;
 }
 
 .nav-logo-text {
@@ -111,6 +114,31 @@ nav {
 }
 
 .nav-toggle svg { display: block; }
+
+/* ===== LANG SWITCHER ===== */
+.lang-switcher {
+  display: flex;
+  gap: 0.2rem;
+  flex-shrink: 0;
+}
+.lang-btn {
+  background: none;
+  border: 1px solid var(--border);
+  color: var(--muted);
+  font-family: 'Inter', sans-serif;
+  font-size: 0.72rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  padding: 0.28rem 0.55rem;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.lang-btn:hover, .lang-btn.active {
+  border-color: var(--orange);
+  color: var(--orange);
+  background: rgba(245,166,35,0.08);
+}
 
 /* ===== HERO ===== */
 .hero {

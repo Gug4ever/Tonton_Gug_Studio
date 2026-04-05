@@ -3,7 +3,6 @@ function toggleNav() {
   document.getElementById('navLinks').classList.toggle('open');
 }
 
-// Ferme le menu si on clique ailleurs
 document.addEventListener('click', (e) => {
   const nav = document.getElementById('navLinks');
   if (nav && !e.target.closest('nav')) nav.classList.remove('open');
@@ -25,7 +24,7 @@ if (form) {
     };
 
     btn.disabled = true;
-    btn.textContent = 'Envoi en cours...';
+    btn.querySelector('span').textContent = t('form.sending');
     status.textContent = '';
     status.className = 'form-status';
 
@@ -37,18 +36,18 @@ if (form) {
       });
 
       if (res.ok) {
-        status.textContent = '✓ Message envoyé ! Je te réponds dès que possible.';
+        status.textContent = t('form.success');
         status.className = 'form-status success';
         form.reset();
       } else {
         throw new Error('server error');
       }
     } catch {
-      status.textContent = '✗ Erreur lors de l\'envoi. Réessaie ou contacte-moi directement.';
+      status.textContent = t('form.error');
       status.className = 'form-status error';
     } finally {
       btn.disabled = false;
-      btn.textContent = 'Envoyer le message';
+      btn.querySelector('span').textContent = t('form.submit');
     }
   });
 }

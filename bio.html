@@ -6,114 +6,47 @@
   <title>Bio — Tonton Gug Studio</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .bio-section {
-      max-width: 1100px;
-      margin: 0 auto;
-      padding: 4rem 2rem;
-    }
-    .bio-grid {
-      display: grid;
-      grid-template-columns: 280px 1fr;
-      gap: 4rem;
-      align-items: start;
-      margin-top: 2rem;
-    }
+    .bio-section { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+    .bio-grid { display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start; margin-top: 2rem; }
     .bio-left { display: flex; flex-direction: column; gap: 1.5rem; }
     .bio-photo {
-      width: 100%;
-      aspect-ratio: 1;
+      width: 100%; aspect-ratio: 1;
       background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
-      border-radius: var(--radius);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      color: var(--muted);
-      font-size: 0.85rem;
-      border: 1px solid var(--border);
-      overflow: hidden;
+      border-radius: var(--radius); display: flex; align-items: center; justify-content: center;
+      color: var(--muted); border: 1px solid var(--border); overflow: hidden;
     }
     .bio-photo img { width: 100%; height: 100%; object-fit: cover; }
     .bio-photo-placeholder { text-align: center; padding: 2rem; }
     .bio-photo-placeholder .icon { font-size: 3rem; margin-bottom: 0.5rem; }
-
-    .bio-links {
-      display: flex;
-      flex-direction: column;
-      gap: 0.5rem;
-    }
+    .bio-links { display: flex; flex-direction: column; gap: 0.5rem; }
     .bio-link {
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-      padding: 0.65rem 1rem;
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 8px;
-      color: var(--muted);
-      text-decoration: none;
-      font-size: 0.88rem;
-      transition: all 0.2s;
+      display: flex; align-items: center; gap: 0.75rem;
+      padding: 0.65rem 1rem; background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; color: var(--muted); text-decoration: none;
+      font-size: 0.88rem; transition: all 0.2s;
     }
     .bio-link:hover { border-color: var(--orange); color: var(--orange); }
-    .bio-link .link-icon { font-size: 1rem; }
-
-    .bio-right h1 {
-      font-family: 'Montserrat', sans-serif;
-      font-size: clamp(2rem, 3.5vw, 2.8rem);
-      font-weight: 800;
-      margin-bottom: 0.4rem;
+    .bio-right h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; margin-bottom: 0.4rem; }
+    .bio-role { color: var(--orange); font-weight: 600; font-size: 1rem; margin-bottom: 2rem; }
+    .bio-text { color: var(--muted); line-height: 1.85; margin-bottom: 1rem; font-size: 0.97rem; }
+    .bio-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0 2.5rem; }
+    .tag { background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.2); color: var(--orange); font-size: 0.8rem; font-weight: 500; padding: 0.3rem 0.9rem; border-radius: 999px; }
+    .cert-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem; }
+    .cert-badge {
+      display: flex; align-items: center; gap: 0.6rem;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: 8px; padding: 0.6rem 1rem;
+      font-size: 0.85rem; font-weight: 600;
     }
-    .bio-role {
-      color: var(--orange);
-      font-weight: 600;
-      font-size: 1rem;
-      margin-bottom: 2rem;
-    }
-    .bio-text {
-      color: var(--muted);
-      line-height: 1.85;
-      margin-bottom: 1rem;
-      font-size: 0.97rem;
-    }
-
-    .bio-tags {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1.5rem 0 2.5rem;
-    }
-    .tag {
-      background: rgba(245,166,35,0.1);
-      border: 1px solid rgba(245,166,35,0.2);
-      color: var(--orange);
-      font-size: 0.8rem;
-      font-weight: 500;
-      padding: 0.3rem 0.9rem;
-      border-radius: 999px;
-    }
-
-    .projects-mini {
-      display: grid;
-      grid-template-columns: 1fr 1fr;
-      gap: 0.75rem;
-    }
-    .project-mini {
-      background: var(--card);
-      border: 1px solid var(--border);
-      border-radius: 10px;
-      padding: 1rem 1.25rem;
-      text-decoration: none;
-      color: var(--text);
-      transition: border-color 0.2s;
-      display: flex;
-      align-items: center;
-      gap: 0.75rem;
-    }
+    .cert-badge .cert-icon { font-size: 1.2rem; }
+    .cert-badge .cert-name { color: var(--text); }
+    .cert-badge .cert-org { color: var(--muted); font-size: 0.75rem; font-weight: 400; }
+    .projects-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
+    .project-mini { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; text-decoration: none; color: var(--text); transition: border-color 0.2s; display: flex; align-items: center; gap: 0.75rem; }
     .project-mini:hover { border-color: var(--orange); }
     .project-mini .picon { font-size: 1.3rem; }
     .project-mini div h4 { font-size: 0.9rem; font-weight: 600; }
     .project-mini div p { font-size: 0.78rem; color: var(--muted); }
-
     @media (max-width: 768px) {
       .bio-grid { grid-template-columns: 1fr; gap: 2rem; }
       .bio-left { flex-direction: row; flex-wrap: wrap; }
@@ -135,17 +68,22 @@
       </svg>
     </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html">Accueil</a></li>
-      <li><a href="newsbeats.html">Newsbeats</a></li>
-      <li><a href="books.html">Books</a></li>
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
       <li><a href="finance.html">Finance</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="newsbeats.html">Newsbeats</a></li>
       <li><a href="bio.html" class="active">Bio</a></li>
-      <li><a href="index.html#contact">Contact</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+    </div>
   </nav>
 
   <div class="bio-section">
-    <p class="section-label">À propos</p>
+    <p class="section-label" data-i18n="bio.label">À propos</p>
 
     <div class="bio-grid">
 
@@ -155,80 +93,88 @@
           <!--
             Pour ajouter ta photo :
             <img src="assets/photo.jpg" alt="Guillaume" />
-            Sinon, ce bloc placeholder reste affiché.
           -->
           <div class="bio-photo-placeholder">
             <div class="icon">👤</div>
-            <p>Ta photo ici</p>
+            <p data-i18n="bio.photo.ph">Ta photo ici</p>
           </div>
         </div>
 
         <div class="bio-links">
-          <!-- Remplace les # par tes vraies URLs -->
-          <a href="#" class="bio-link" target="_blank" rel="noopener">
-            <span class="link-icon">🐦</span> Twitter / X
-          </a>
-          <a href="#" class="bio-link" target="_blank" rel="noopener">
-            <span class="link-icon">💼</span> LinkedIn
-          </a>
-          <a href="#" class="bio-link" target="_blank" rel="noopener">
-            <span class="link-icon">📦</span> GitHub
+          <a href="https://uk.linkedin.com/in/guillaume-limouzineau-01129733" class="bio-link" target="_blank" rel="noopener">
+            <span>💼</span> LinkedIn
           </a>
           <a href="index.html#contact" class="bio-link">
-            <span class="link-icon">✉️</span> Me contacter
+            <span>✉️</span> <span data-i18n="bio.link.contact">Me contacter</span>
           </a>
         </div>
       </div>
 
       <!-- RIGHT -->
       <div class="bio-right">
-        <!-- Remplace "Guillaume" par ton vrai prénom si tu veux -->
-        <h1>Guillaume</h1>
-        <p class="bio-role">Créateur · Tonton Gug Studio</p>
+        <h1>Guillaume Limouzineau</h1>
+        <p class="bio-role" data-i18n="bio.role">Créateur · Tonton Gug Studio</p>
+
+        <!-- Certifications -->
+        <div class="cert-row">
+          <div class="cert-badge">
+            <span class="cert-icon">🏅</span>
+            <div>
+              <div class="cert-name">CAIA</div>
+              <div class="cert-org">Chartered Alternative Investment Analyst</div>
+            </div>
+          </div>
+          <div class="cert-badge">
+            <span class="cert-icon">📊</span>
+            <div>
+              <div class="cert-name">CFA</div>
+              <div class="cert-org">CFA Institute</div>
+            </div>
+          </div>
+        </div>
 
         <!--
-          Remplace ces paragraphes par ta vraie bio.
-          Parle de toi : ton parcours, ta vision, ce qui t'anime.
+          BIO TEXT — à personnaliser avec ton parcours réel.
+          Ajoute des fichiers dans le dossier /career/ sur le bureau
+          et dis-le moi, je mettrai à jour automatiquement.
         -->
-        <p class="bio-text">
+        <p class="bio-text" data-i18n="bio.p1">
           Je crée des choses. Des livres, des apps, des contenus — parce que j'ai des idées et l'envie de les concrétiser.
           Tonton Gug Studio c'est l'espace où tout ça se retrouve, sous un même toit.
         </p>
-        <p class="bio-text">
-          Le jour je fais [ton métier / ta mission principale]. Le reste du temps, je construis des projets qui me passionnent :
-          Newsbeats pour repenser la façon dont on consomme l'info, des livres pour les petites filles qui ont besoin d'histoires qui leur ressemblent,
-          et des cours de finance pour démocratiser ce que l'école n'enseigne pas assez.
+        <p class="bio-text" data-i18n="bio.p2">
+          Finance de métier, créatif de nature. CAIA et CFA charterholder, je navigue entre les marchés le jour
+          et je construis des projets qui me passionnent le reste du temps : Newsbeats, des livres pour les petites filles,
+          et des cours de finance pour rendre accessible ce que l'école n'enseigne pas assez.
         </p>
-        <p class="bio-text">
-          La curiosité comme moteur. La création comme langage.
-        </p>
+        <p class="bio-text" data-i18n="bio.p3">La curiosité comme moteur. La création comme langage.</p>
 
         <div class="bio-tags">
-          <span class="tag">Finance</span>
-          <span class="tag">Tech</span>
-          <span class="tag">Écriture</span>
-          <span class="tag">Entrepreneuriat</span>
-          <span class="tag">Musique</span>
-          <span class="tag">Jeunesse</span>
+          <span class="tag" data-i18n="tag.finance">Finance</span>
+          <span class="tag" data-i18n="tag.tech">Tech</span>
+          <span class="tag" data-i18n="tag.writing">Écriture</span>
+          <span class="tag" data-i18n="tag.entrepreneurship">Entrepreneuriat</span>
+          <span class="tag" data-i18n="tag.music">Musique</span>
+          <span class="tag" data-i18n="tag.youth">Jeunesse</span>
         </div>
 
-        <p class="section-label" style="margin-bottom:1rem;">Mes projets</p>
+        <p class="section-label" style="margin-bottom:1rem;" data-i18n="bio.projects.label">Mes projets</p>
         <div class="projects-mini">
-          <a href="newsbeats.html" class="project-mini">
-            <span class="picon">🎵</span>
-            <div><h4>Newsbeats</h4><p>News × Musique</p></div>
+          <a href="finance.html" class="project-mini">
+            <span class="picon">📈</span>
+            <div><h4>Finance</h4><p data-i18n="card.finance.link">Voir les cours →</p></div>
           </a>
           <a href="books.html" class="project-mini">
             <span class="picon">📚</span>
-            <div><h4>Books</h4><p>Livres jeunesse</p></div>
+            <div><h4>Books</h4><p data-i18n="card.books.link">Voir les livres →</p></div>
           </a>
-          <a href="finance.html" class="project-mini">
-            <span class="picon">📈</span>
-            <div><h4>Finance</h4><p>Cours & slides</p></div>
+          <a href="newsbeats.html" class="project-mini">
+            <span class="picon">🎵</span>
+            <div><h4>Newsbeats</h4><p data-i18n="card.newsbeats.link">Découvrir →</p></div>
           </a>
           <a href="index.html#contact" class="project-mini">
             <span class="picon">✉️</span>
-            <div><h4>Contact</h4><p>On collabore ?</p></div>
+            <div><h4 data-i18n="nav.contact">Contact</h4><p data-i18n="contact.subtitle" style="font-size:0.72rem"></p></div>
           </a>
         </div>
       </div>
@@ -237,9 +183,10 @@
   </div>
 
   <footer>
-    <p>© 2025 <span>Tonton Gug Studio</span>. Tous droits réservés.</p>
+    <p data-i18n-html="footer.text">© 2025 <span>Tonton Gug Studio</span>. Tous droits réservés.</p>
   </footer>
 
+  <script src="translations.js"></script>
   <script src="main.js"></script>
 </body>
 </html>
