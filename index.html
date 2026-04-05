@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Tonton Gug Studio</title>
+  <meta name="description" content="Tonton Gug Studio — créateur de projets : Newsbeats, livres jeunesse, cours de finance et plus encore." />
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- NAVBAR -->
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="assets/tgs-logo.jpeg" alt="TGS" />
+      <div class="nav-logo-text">
+        Tonton Gug
+        <span>Studio</span>
+      </div>
+    </a>
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" class="active">Accueil</a></li>
+      <li><a href="newsbeats.html">Newsbeats</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="finance.html">Finance</a></li>
+      <li><a href="bio.html">Bio</a></li>
+      <li><a href="#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <section class="hero">
+    <div class="hero-badge">Tonton Gug Studio</div>
+    <h1>Des projets créés<br/>avec <em>passion</em> &amp; vision.</h1>
+    <p>Musique, livres, finance, tech — un studio pour rassembler tout ce qui prend forme.</p>
+    <div class="hero-cta">
+      <a href="#projects" class="btn btn-primary">Découvrir les projets</a>
+      <a href="bio.html" class="btn btn-outline">Qui suis-je ?</a>
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- PROJECTS -->
+  <section id="projects">
+    <p class="section-label">Projets</p>
+    <h2 class="section-title">Ce que je crée</h2>
+    <p class="section-sub">Un ensemble de projets variés, chacun avec sa propre identité et son propre univers.</p>
+
+    <div class="cards-grid">
+
+      <a href="newsbeats.html" class="card">
+        <div class="card-icon">🎵</div>
+        <h3>Newsbeats</h3>
+        <p>L'actualité rencontre la musique. Une app qui transforme les news en expérience sonore unique.</p>
+        <span class="card-arrow">Découvrir →</span>
+      </a>
+
+      <a href="books.html" class="card">
+        <div class="card-icon">📚</div>
+        <h3>Books</h3>
+        <p>Des livres illustrés pour les petites filles, publiés sous pen name. Des histoires qui inspirent et font rêver.</p>
+        <span class="card-arrow">Voir les livres →</span>
+      </a>
+
+      <a href="finance.html" class="card">
+        <div class="card-icon">📈</div>
+        <h3>Finance</h3>
+        <p>Des cours et slides pour démocratiser la finance. Comprendre les marchés, investir intelligemment.</p>
+        <span class="card-arrow">Voir les cours →</span>
+      </a>
+
+      <a href="bio.html" class="card">
+        <div class="card-icon">👤</div>
+        <h3>Bio</h3>
+        <p>Qui est derrière tout ça ? Un profil, un parcours, une vision — tout est là.</p>
+        <span class="card-arrow">En savoir plus →</span>
+      </a>
+
+    </div>
+  </section>
+
+  <div class="divider"></div>
+
+  <!-- CONTACT -->
+  <div class="contact-section" id="contact">
+    <div class="contact-inner">
+      <p class="section-label">Contact</p>
+      <h2 class="section-title">On se parle ?</h2>
+      <p class="section-sub">Une idée, une collaboration, une question — envoie un message.</p>
+
+      <form class="form" id="contactForm">
+        <div class="form-row">
+          <input type="text"  name="name"    placeholder="Ton prénom"  required />
+          <input type="email" name="email"   placeholder="Ton email"    required />
+        </div>
+        <input type="text" name="subject" placeholder="Sujet" />
+        <textarea name="message" placeholder="Ton message..." required></textarea>
+        <button type="submit" class="btn btn-primary" style="align-self:center; min-width:180px;">
+          Envoyer le message
+        </button>
+        <p class="form-status" id="formStatus"></p>
+      </form>
+    </div>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <p>© 2025 <span>Tonton Gug Studio</span>. Tous droits réservés.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

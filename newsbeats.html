@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Newsbeats — Tonton Gug Studio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .nb-hero {
+      background: linear-gradient(135deg, #0a0f1e 0%, #1a1200 100%);
+      border-bottom: 1px solid var(--border);
+      padding: 4rem 2rem;
+    }
+    .nb-hero-inner {
+      max-width: 1100px;
+      margin: 0 auto;
+      display: flex;
+      align-items: center;
+      gap: 3rem;
+      flex-wrap: wrap;
+    }
+    .nb-logo-box {
+      background: #111;
+      border-radius: 16px;
+      padding: 1.5rem 2rem;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+    }
+    .nb-logo-box img {
+      height: 80px;
+    }
+    .nb-hero-text h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 800;
+      margin-bottom: 0.75rem;
+    }
+    .nb-hero-text h1 span { color: var(--orange); }
+    .nb-hero-text p { color: var(--muted); font-size: 1.05rem; max-width: 520px; }
+
+    .features-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 1.25rem;
+      margin-top: 2rem;
+    }
+    .feature {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+    .feature-icon { font-size: 1.75rem; margin-bottom: 0.75rem; }
+    .feature h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .feature p { color: var(--muted); font-size: 0.9rem; line-height: 1.6; }
+
+    .app-link-box {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2.5rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 2rem;
+      flex-wrap: wrap;
+      margin-top: 2rem;
+    }
+    .app-link-box h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 1.3rem;
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+    .app-link-box p { color: var(--muted); font-size: 0.95rem; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="assets/tgs-logo.jpeg" alt="TGS" />
+      <div class="nav-logo-text">Tonton Gug <span>Studio</span></div>
+    </a>
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="newsbeats.html" class="active">Newsbeats</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="finance.html">Finance</a></li>
+      <li><a href="bio.html">Bio</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <!-- HERO -->
+  <div class="nb-hero">
+    <div class="nb-hero-inner">
+      <div class="nb-logo-box">
+        <img src="assets/newsbeats-logo.png" alt="Newsbeats" />
+      </div>
+      <div class="nb-hero-text">
+        <p class="section-label" style="margin-bottom:0.5rem;">Projet</p>
+        <h1><span>News</span>beats</h1>
+        <p>L'app qui transforme l'actualité en expérience musicale. Reste informé — autrement.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- CONTENT -->
+  <section>
+    <p class="section-label">À propos</p>
+    <h2 class="section-title">C'est quoi Newsbeats ?</h2>
+    <p class="section-sub">
+      Newsbeats fusionne deux univers en apparence opposés : l'information et la musique.
+      L'idée ? Rendre la consommation d'actualité plus engageante, plus fluide — avec une ambiance sonore qui accompagne chaque article.
+    </p>
+
+    <div class="features-grid">
+      <div class="feature">
+        <div class="feature-icon">📰</div>
+        <h3>Actualité en temps réel</h3>
+        <p>Les dernières news agrégées et présentées de manière claire, sans le bruit des réseaux sociaux.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🎧</div>
+        <h3>Ambiance musicale</h3>
+        <p>Une sélection musicale adaptée au ton de l'article — pour une lecture plus immersive.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">⚡</div>
+        <h3>Interface rapide</h3>
+        <p>Conçue pour être fluide et intuitive. L'info, sans friction.</p>
+      </div>
+      <div class="feature">
+        <div class="feature-icon">🌍</div>
+        <h3>Multi-sources</h3>
+        <p>Plusieurs sources, plusieurs perspectives — pour une vision équilibrée de l'actualité.</p>
+      </div>
+    </div>
+
+    <div class="app-link-box">
+      <div>
+        <h3>Essayer l'application</h3>
+        <p>Newsbeats est disponible en ligne — accès direct depuis le navigateur.</p>
+      </div>
+      <!-- Remplace le # par l'URL de ton app Newsbeats -->
+      <a href="#" class="btn btn-primary" target="_blank" rel="noopener">Ouvrir Newsbeats →</a>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 <span>Tonton Gug Studio</span>. Tous droits réservés.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>

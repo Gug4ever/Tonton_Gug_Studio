@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Books — Tonton Gug Studio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .pen-name-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      background: rgba(245,166,35,0.1);
+      border: 1px solid rgba(245,166,35,0.3);
+      color: var(--orange);
+      font-size: 0.85rem;
+      font-weight: 600;
+      padding: 0.4rem 1rem;
+      border-radius: 999px;
+      margin-bottom: 2rem;
+    }
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(190px, 1fr));
+      gap: 1.5rem;
+      margin-top: 1rem;
+    }
+    .book-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s;
+      cursor: pointer;
+    }
+    .book-card:hover {
+      transform: translateY(-5px);
+      border-color: var(--orange);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.4);
+    }
+    .book-cover {
+      width: 100%;
+      aspect-ratio: 2/3;
+      background: linear-gradient(135deg, var(--navy-mid), #0d2050);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 0.5rem;
+      color: var(--muted);
+      font-size: 2.5rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .book-cover img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      position: absolute;
+      inset: 0;
+    }
+    .book-cover-placeholder {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 0.5rem;
+    }
+    .book-cover-placeholder p {
+      font-size: 0.7rem;
+      color: var(--muted);
+    }
+    .book-info {
+      padding: 1rem;
+    }
+    .book-info h4 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      font-size: 0.95rem;
+      margin-bottom: 0.3rem;
+      color: var(--text);
+    }
+    .book-info .author {
+      color: var(--orange);
+      font-size: 0.78rem;
+      font-weight: 600;
+    }
+    .book-info .desc {
+      color: var(--muted);
+      font-size: 0.8rem;
+      margin-top: 0.3rem;
+      line-height: 1.5;
+    }
+
+    .about-books {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 2rem;
+      margin-top: 3rem;
+      display: flex;
+      gap: 1.5rem;
+      align-items: flex-start;
+    }
+    .about-books .icon { font-size: 2rem; flex-shrink: 0; }
+    .about-books h3 {
+      font-family: 'Montserrat', sans-serif;
+      font-weight: 700;
+      margin-bottom: 0.5rem;
+    }
+    .about-books p { color: var(--muted); font-size: 0.92rem; line-height: 1.7; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="assets/tgs-logo.jpeg" alt="TGS" />
+      <div class="nav-logo-text">Tonton Gug <span>Studio</span></div>
+    </a>
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html">Accueil</a></li>
+      <li><a href="newsbeats.html">Newsbeats</a></li>
+      <li><a href="books.html" class="active">Books</a></li>
+      <li><a href="finance.html">Finance</a></li>
+      <li><a href="bio.html">Bio</a></li>
+      <li><a href="index.html#contact">Contact</a></li>
+    </ul>
+  </nav>
+
+  <section>
+    <p class="section-label">Publications</p>
+    <h1 class="section-title">Livres jeunesse</h1>
+    <p class="section-sub">Des histoires illustrées pour les petites filles — publiées sous pen name, avec amour et intention.</p>
+
+    <div class="pen-name-badge">
+      ✍️ Publiés sous pen name
+    </div>
+
+    <!--
+      POUR AJOUTER UN LIVRE : copie un bloc .book-card
+      Remplace le titre, l'auteur, la description
+      Pour une couverture : ajoute <img src="assets/nom-du-livre.jpg" alt="..."> dans .book-cover
+    -->
+    <div class="books-grid">
+
+      <div class="book-card">
+        <div class="book-cover">
+          <!-- <img src="assets/livre1.jpg" alt="Titre du livre" /> -->
+          <div class="book-cover-placeholder">📖<p>Ajouter couverture</p></div>
+        </div>
+        <div class="book-info">
+          <h4>Titre du livre 1</h4>
+          <p class="author">Pen Name</p>
+          <p class="desc">Une courte description de ce livre et de son univers.</p>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover">
+          <div class="book-cover-placeholder">📖<p>Ajouter couverture</p></div>
+        </div>
+        <div class="book-info">
+          <h4>Titre du livre 2</h4>
+          <p class="author">Pen Name</p>
+          <p class="desc">Une courte description de ce livre et de son univers.</p>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover">
+          <div class="book-cover-placeholder">📖<p>Ajouter couverture</p></div>
+        </div>
+        <div class="book-info">
+          <h4>Titre du livre 3</h4>
+          <p class="author">Pen Name</p>
+          <p class="desc">Une courte description de ce livre et de son univers.</p>
+        </div>
+      </div>
+
+      <div class="book-card">
+        <div class="book-cover">
+          <div class="book-cover-placeholder">📖<p>Ajouter couverture</p></div>
+        </div>
+        <div class="book-info">
+          <h4>Titre du livre 4</h4>
+          <p class="author">Pen Name</p>
+          <p class="desc">Une courte description de ce livre et de son univers.</p>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="about-books">
+      <div class="icon">💡</div>
+      <div>
+        <h3>Pourquoi ces livres ?</h3>
+        <p>
+          Parce que les petites filles méritent des histoires qui leur ressemblent — des héroïnes courageuses, des univers colorés, des messages qui restent.
+          Ces livres sont pensés pour inspirer dès le plus jeune âge, avec des valeurs simples et profondes.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 <span>Tonton Gug Studio</span>. Tous droits réservés.</p>
+  </footer>
+
+  <script src="main.js"></script>
+</body>
+</html>
