@@ -42,94 +42,146 @@
       padding: 0.35rem 1rem; border-radius: 999px; margin-top: 1.25rem;
     }
 
+    /* GALLERY GRID */
     .works-grid {
       display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-      gap: 2rem;
+      grid-template-columns: repeat(12, 1fr);
+      gap: 1.25rem;
       margin-top: 1rem;
     }
+
     .work-card {
       background: var(--card);
       border: 1px solid var(--border);
       border-radius: var(--radius);
       overflow: hidden;
-      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+      display: flex;
+      flex-direction: column;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+      cursor: default;
     }
     .work-card:hover {
-      transform: translateY(-6px);
+      transform: translateY(-5px);
       border-color: var(--orange);
-      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+      box-shadow: 0 20px 50px rgba(0,0,0,0.55);
     }
+
+    /* Layout: first spans full width (image left / text right) */
+    .work-card.w-full {
+      grid-column: 1 / -1;
+      flex-direction: row;
+    }
+    .work-card.w-full .work-image {
+      flex: 1; min-height: 380px; aspect-ratio: unset;
+    }
+    .work-card.w-full .work-body {
+      flex: 1; display: flex; flex-direction: column; justify-content: center;
+    }
+
+    /* Then 2+2 layout: first pair slightly taller */
+    .work-card.w-half { grid-column: span 6; }
+
+    /* Image zone */
     .work-image {
-      width: 100%; aspect-ratio: 4/3;
-      background: linear-gradient(135deg, #0d1b3e, #1a0a00);
-      display: flex; align-items: center; justify-content: center;
-      position: relative; overflow: hidden;
+      width: 100%;
+      aspect-ratio: 4/3;
+      background: #0a0f1e;
+      position: relative;
+      overflow: hidden;
+      flex-shrink: 0;
     }
     .work-image img {
-      width: 100%; height: 100%; object-fit: cover;
-      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.5s ease;
     }
-    .work-image-placeholder {
-      font-size: 3.5rem; opacity: 0.4;
+    .work-card:hover .work-image img {
+      transform: scale(1.04);
     }
     .work-num {
-      position: absolute; top: 0.75rem; left: 0.75rem;
-      background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+      position: absolute; top: 0.85rem; left: 0.85rem;
+      background: rgba(0,0,0,0.65); backdrop-filter: blur(6px);
       color: var(--orange); font-size: 0.68rem; font-weight: 800;
       letter-spacing: 0.15em; text-transform: uppercase;
-      padding: 0.25rem 0.65rem; border-radius: 999px;
-      border: 1px solid rgba(245,166,35,0.3);
+      padding: 0.28rem 0.7rem; border-radius: 999px;
+      border: 1px solid rgba(245,166,35,0.35);
     }
-    .work-body { padding: 1.5rem; }
+    /* Colour dot overlay — character colour */
+    .work-dot {
+      position: absolute; bottom: 0.85rem; right: 0.85rem;
+      width: 14px; height: 14px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+
+    /* Text zone */
+    .work-body { padding: 1.6rem; }
     .work-title {
       font-family: 'Montserrat', sans-serif; font-weight: 800;
-      font-size: 1.15rem; color: var(--text); margin-bottom: 0.3rem;
+      font-size: 1.1rem; color: var(--text); margin-bottom: 0.2rem;
     }
     .work-subtitle {
-      font-size: 0.75rem; color: var(--orange); font-weight: 600;
-      letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem;
+      font-size: 0.72rem; color: var(--orange); font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 1rem;
     }
     .work-desc {
-      color: var(--muted); font-size: 0.85rem; line-height: 1.75;
+      color: var(--muted); font-size: 0.85rem; line-height: 1.8;
       font-style: italic;
     }
     .work-meta {
-      display: flex; gap: 0.75rem; margin-top: 1.1rem; flex-wrap: wrap;
+      display: flex; gap: 0.6rem; margin-top: 1.1rem; flex-wrap: wrap;
     }
     .meta-chip {
-      font-size: 0.7rem; color: var(--muted); background: rgba(255,255,255,0.04);
+      font-size: 0.68rem; color: var(--muted);
+      background: rgba(255,255,255,0.04);
       border: 1px solid var(--border); border-radius: 999px;
       padding: 0.2rem 0.6rem;
     }
 
-    /* Featured first work — wider */
-    .work-card.featured {
-      grid-column: 1 / -1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+    /* Lightbox overlay */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,0.92); align-items: center; justify-content: center;
+      cursor: zoom-out;
     }
-    .work-card.featured .work-image {
-      aspect-ratio: unset;
-      min-height: 300px;
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 90vw; max-height: 90vh;
+      object-fit: contain; border-radius: 8px;
+      box-shadow: 0 0 60px rgba(0,0,0,0.8);
     }
-    @media (max-width: 640px) {
-      .work-card.featured { grid-template-columns: 1fr; }
-      .work-card.featured .work-image { min-height: 240px; }
+    .lightbox-close {
+      position: fixed; top: 1.5rem; right: 1.5rem;
+      color: white; font-size: 2rem; cursor: pointer; line-height: 1;
+      background: rgba(255,255,255,0.1); border-radius: 50%;
+      width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
     }
 
+    /* Artist note */
     .artist-note {
-      margin-top: 3.5rem;
+      margin-top: 3rem;
       background: var(--card); border: 1px solid var(--border);
       border-radius: var(--radius); padding: 2rem 2.5rem;
       display: flex; gap: 1.5rem; align-items: flex-start;
     }
     .artist-note .icon { font-size: 2rem; flex-shrink: 0; margin-top: 0.2rem; }
     .artist-note h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 0.5rem; }
-    .artist-note p { color: var(--muted); font-size: 0.9rem; line-height: 1.75; }
+    .artist-note p { color: var(--muted); font-size: 0.9rem; line-height: 1.8; }
+
+    @media (max-width: 768px) {
+      .work-card.w-full { flex-direction: column; }
+      .work-card.w-full .work-image { min-height: 260px; }
+      .work-card.w-half { grid-column: 1 / -1; }
+    }
   </style>
 </head>
 <body>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-close" onclick="closeLightbox()">✕</div>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
 
   <nav>
     <a href="index.html" class="nav-logo">
@@ -164,40 +216,42 @@
     <div class="arts-intro">
       <div class="ai-label" data-i18n="arts.series.label">Série I — 2024/2025</div>
       <h2 data-i18n="arts.series.title">M&M's in Their Natural Environment</h2>
-      <p data-i18n="arts.series.desc">Cette première série interroge la tension fondamentale entre l'artifice du packaging industriel et la brutalité organique des grands paysages. Des images construites par intelligence artificielle, dans lesquelles la boîte M&M's est intégrée physiquement — en relief — sur un support aluminium. L'objet de consommation n'est plus représenté : il est présent. Chaque œuvre est un geste de réappropriation. Une invitation à percevoir autrement ce qu'on croyait connaître.</p>
+      <p data-i18n="arts.series.desc">Cette première série interroge la tension fondamentale entre l'artifice du packaging industriel et la brutalité organique des grands paysages. Des images construites par intelligence artificielle, dans lesquelles la boîte M&M's est intégrée physiquement — en relief — sur un support aluminium. L'objet de consommation n'est plus représenté : il est présent. Chaque personnage — jaune, rouge, bleu, vert, orange — traverse un environnement qui le dépasse, l'absorbe, ou l'effraye. Chacun à sa manière.</p>
       <div class="series-tag" data-i18n="arts.series.tag">🎨 5 œuvres · Impression sur aluminium · Série limitée</div>
     </div>
 
     <div class="works-grid">
 
-      <!-- FEATURED: Désert -->
-      <div class="work-card featured">
-        <div class="work-image">
-          <div class="work-image-placeholder">🏜️</div>
+      <!-- I — DÉSERT (Jaune) — featured full width -->
+      <div class="work-card w-full">
+        <div class="work-image" style="cursor:zoom-in;" onclick="openLightbox('assets/mm-desert.jpg','M&M\'s — Désert')">
+          <img src="assets/mm-desert.jpg" alt="M&M's — Désert" />
           <div class="work-num">I / V</div>
+          <div class="work-dot" style="background:#f5c800;"></div>
         </div>
         <div class="work-body">
           <div class="work-title" data-i18n="arts.w1.title">M&M's — Désert</div>
-          <div class="work-subtitle" data-i18n="arts.w1.sub">Aridité & Persistance</div>
-          <p class="work-desc" data-i18n="arts.w1.desc">Dans ce premier opus, la boîte M&M's emerge d'une étendue ocre et silencieuse. Le désert, espace d'une radicalité géographique absolue, n'écrase pas l'objet — il le révèle. Ce qui résiste à l'érosion n'est pas la matière, mais l'intention. L'œuvre pose la question de ce qui demeure quand tout le superflu est brûlé par la chaleur : la couleur, le signe, l'obstination de la forme.</p>
+          <div class="work-subtitle" data-i18n="arts.w1.sub">Naïveté & Terra Incognita</div>
+          <p class="work-desc" data-i18n="arts.w1.desc">Il a le pas incertain de celui qui croit savoir où il va. Le lasso — pas entier, juste assez pour y croire — pend à sa main comme un espoir trop léger pour cette chaleur. Le Jaune dans le désert, c'est la naïveté qui affronte l'infini sans le savoir : jean, chapeau de cowboy, l'attirail de la conquête porté par quelqu'un qui n'a probablement jamais rien conquis. Et pourtant il avance. Ce déséquilibre entre l'équipement et la situation — entre la posture et la réalité — est peut-être la définition exacte du courage.</p>
           <div class="work-meta">
             <span class="meta-chip">Impression sur aluminium</span>
             <span class="meta-chip">Série I</span>
-            <span class="meta-chip">2024</span>
+            <span class="meta-chip">2025</span>
           </div>
         </div>
       </div>
 
-      <!-- Forêt -->
-      <div class="work-card">
-        <div class="work-image">
-          <div class="work-image-placeholder">🌲</div>
+      <!-- II — FORÊT (Bleu) -->
+      <div class="work-card w-half">
+        <div class="work-image" style="cursor:zoom-in;" onclick="openLightbox('assets/mm-foret.jpg','M&M\'s — Forêt')">
+          <img src="assets/mm-foret.jpg" alt="M&M's — Forêt" />
           <div class="work-num">II / V</div>
+          <div class="work-dot" style="background:#3b82f6;"></div>
         </div>
         <div class="work-body">
           <div class="work-title" data-i18n="arts.w2.title">M&M's — Forêt</div>
-          <div class="work-subtitle" data-i18n="arts.w2.sub">Densité & Camouflage</div>
-          <p class="work-desc" data-i18n="arts.w2.desc">La forêt est un espace de multiplicité — rien n'y est jamais seul. La boîte disparaît partiellement dans la végétation, non pas vaincue, mais intégrée. L'œuvre explore le paradoxe de la visibilité : ce qui se cache le mieux est ce qui appartient pleinement à son environnement. Une méditation sur l'appartenance et l'effacement volontaire du bruit.</p>
+          <div class="work-subtitle" data-i18n="arts.w2.sub">Errance & Résilience</div>
+          <p class="work-desc" data-i18n="arts.w2.desc">Il court vers nous. Mais vient-il d'être retrouvé — ou fuit-il quelque chose ? Après des mois à errer dans la forêt, chapeau d'aventurier vissé sur la tête et sac à dos cabossé, le Bleu surgit de la végétation avec l'énergie du survivant. L'œuvre pose la question fondamentale de toute errance : à quel moment le chemin perdu devient-il le vrai chemin ?</p>
           <div class="work-meta">
             <span class="meta-chip">Impression sur aluminium</span>
             <span class="meta-chip">Série I</span>
@@ -205,16 +259,17 @@
         </div>
       </div>
 
-      <!-- Ville -->
-      <div class="work-card">
-        <div class="work-image">
-          <div class="work-image-placeholder">🏙️</div>
+      <!-- III — VILLE (Rouge) -->
+      <div class="work-card w-half">
+        <div class="work-image" style="cursor:zoom-in;" onclick="openLightbox('assets/mm-ville.jpg','M&M\'s — Ville')">
+          <img src="assets/mm-ville.jpg" alt="M&M's — Ville" />
           <div class="work-num">III / V</div>
+          <div class="work-dot" style="background:#ef4444;"></div>
         </div>
         <div class="work-body">
           <div class="work-title" data-i18n="arts.w3.title">M&M's — Ville</div>
-          <div class="work-subtitle" data-i18n="arts.w3.sub">Saturation & Miroir</div>
-          <p class="work-desc" data-i18n="arts.w3.desc">Ici, la mise en abyme atteint son point de friction maximal : l'objet de consommation face à la ville qui l'a produit. La boîte n'est plus une anomalie dans le paysage urbain — elle en est le reflet condensé. Couleurs saturées, lignes dures, densité totale. L'œuvre interroge l'origine : qui contient quoi ?</p>
+          <div class="work-subtitle" data-i18n="arts.w3.sub">Hubris & Asphalte</div>
+          <p class="work-desc" data-i18n="arts.w3.desc">Il ne doute pas. C'est ce qui le rend fascinant — et légèrement insupportable. Le Rouge en ville avance au milieu des gratte-ciel avec la certitude tranquille de celui qui se pense chez lui partout : chapeau melon impeccable, attaché-case à la main, petites chaussures de ville qui claquent sur l'asphalte. L'œuvre interroge la confiance comme construction sociale. Ou peut-être juste comme tempérament.</p>
           <div class="work-meta">
             <span class="meta-chip">Impression sur aluminium</span>
             <span class="meta-chip">Série I</span>
@@ -222,16 +277,17 @@
         </div>
       </div>
 
-      <!-- Montagne -->
-      <div class="work-card">
-        <div class="work-image">
-          <div class="work-image-placeholder">⛰️</div>
+      <!-- IV — MONTAGNE (Verte) -->
+      <div class="work-card w-half">
+        <div class="work-image" style="cursor:zoom-in;" onclick="openLightbox('assets/mm-montagne.jpg','M&M\'s — Montagne')">
+          <img src="assets/mm-montagne.jpg" alt="M&M's — Montagne" />
           <div class="work-num">IV / V</div>
+          <div class="work-dot" style="background:#22c55e;"></div>
         </div>
         <div class="work-body">
           <div class="work-title" data-i18n="arts.w4.title">M&M's — Montagne</div>
-          <div class="work-subtitle" data-i18n="arts.w4.sub">Verticalité & Échelle</div>
-          <p class="work-desc" data-i18n="arts.w4.desc">La montagne impose une verticalité qui écrase les proportions humaines. Placée à son pied — ou peut-être à son sommet — la boîte M&M's joue avec l'échelle jusqu'à l'absurde. L'œuvre convoque Caspar David Friedrich autant qu'un rayon de supermarché. Ce qui était trivial devient monumental. Ce qui était immense devient relatif.</p>
+          <div class="work-subtitle" data-i18n="arts.w4.sub">Insouciance & Altitude</div>
+          <p class="work-desc" data-i18n="arts.w4.desc">Elle saute. C'est tout. Dans la neige immaculée, sous un ciel d'une clarté insultante, la Verte saute — lunettes de soleil sur le front, sourire aux lèvres, sans calcul ni pose. Les conditions sont idylliques, elle le sait, et elle en profite sans s'en excuser. Dans un monde qui performe en permanence, l'insouciance pure est peut-être la posture la plus radicale qui soit.</p>
           <div class="work-meta">
             <span class="meta-chip">Impression sur aluminium</span>
             <span class="meta-chip">Série I</span>
@@ -239,16 +295,17 @@
         </div>
       </div>
 
-      <!-- Océan -->
-      <div class="work-card">
-        <div class="work-image">
-          <div class="work-image-placeholder">🌊</div>
+      <!-- V — OCÉAN (Orange) -->
+      <div class="work-card w-half">
+        <div class="work-image" style="cursor:zoom-in;" onclick="openLightbox('assets/mm-ocean.jpg','M&M\'s — Océan')">
+          <img src="assets/mm-ocean.jpg" alt="M&M's — Océan" />
           <div class="work-num">V / V</div>
+          <div class="work-dot" style="background:#f97316;"></div>
         </div>
         <div class="work-body">
           <div class="work-title" data-i18n="arts.w5.title">M&M's — Océan</div>
-          <div class="work-subtitle" data-i18n="arts.w5.sub">Immersion & Dissolution</div>
-          <p class="work-desc" data-i18n="arts.w5.desc">Dernier volet de la série, l'Océan est l'espace de la dissolution totale. La boîte flotte, résiste, ou sombre — l'œuvre ne tranche pas. Ce qui importe, c'est le mouvement : celui de la vague, celui du regard qui cherche à accrocher quelque chose de stable dans un univers liquide. Une conclusion ouverte, à l'image de la mer elle-même.</p>
+          <div class="work-subtitle" data-i18n="arts.w5.sub">Abysses & Effroi</div>
+          <p class="work-desc" data-i18n="arts.w5.desc">Quelque chose est là, dans les profondeurs. L'Orange le sait. Ses palmes, sa bouteille de plongée, tout son équipement ne lui est d'aucun secours face à ce qu'il ne peut pas nommer. Requin ? Ombre ? Les mystères de l'océan ne se laissent pas inventorier. L'œuvre explore cette zone limite où la préparation cède à l'effroi. On peut être parfaitement équipé et avoir peur quand même. C'est peut-être là sa leçon.</p>
           <div class="work-meta">
             <span class="meta-chip">Impression sur aluminium</span>
             <span class="meta-chip">Série I</span>
@@ -274,5 +331,19 @@
 
   <script src="translations.js"></script>
   <script src="main.js"></script>
+  <script>
+    function openLightbox(src, alt) {
+      const lb = document.getElementById('lightbox');
+      const img = document.getElementById('lightbox-img');
+      img.src = src; img.alt = alt;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
 </body>
 </html>
