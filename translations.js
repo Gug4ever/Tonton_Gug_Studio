@@ -52,6 +52,9 @@ const LANG_DATA = {
     'nb.cta.title': "Essayer l'application",
     'nb.cta.desc': 'Newsbeats est disponible en ligne — accès direct depuis le navigateur.',
     'nb.cta.btn': 'Ouvrir Newsbeats →',
+    'nb.pitch.title': 'Pitch Deck — Pre-Seed 2026',
+    'nb.pitch.desc': 'Présentation investisseurs — vision, modèle, traction et roadmap.',
+    'nb.pitch.btn': 'Télécharger le PDF →',
 
     'books.label': 'Publications',
     'books.title': 'Livres jeunesse',
@@ -177,6 +180,9 @@ const LANG_DATA = {
     'nb.cta.title': 'Try the app',
     'nb.cta.desc': 'Newsbeats is available online — direct access from your browser.',
     'nb.cta.btn': 'Open Newsbeats →',
+    'nb.pitch.title': 'Pitch Deck — Pre-Seed 2026',
+    'nb.pitch.desc': 'Investor presentation — vision, model, traction and roadmap.',
+    'nb.pitch.btn': 'Download PDF →',
 
     'books.label': 'Publications',
     'books.title': "Children's books",
@@ -210,8 +216,8 @@ const LANG_DATA = {
 
     'bio.label': 'About',
     'bio.role': 'Creator · Tonton Gug Studio',
-    'bio.p1': 'I create things. Books, apps, content — because I have ideas and the drive to bring them to life. Tonton Gug Studio is the space where it all comes together, under one roof.',
-    'bio.p2': "By day I do [your job / main mission]. The rest of the time, I build projects I'm passionate about: Newsbeats to rethink how we consume information, books for little girls who need stories that look like them, and finance courses to democratize what school doesn't teach enough.",
+    'bio.p1': '15+ years in Investment Banking across Paris, London and Hong Kong. Specialised in corporate advisory — event driven financing and rating advisory — across BNP Paribas, Société Générale CIB, MUFG and Edmond de Rothschild.',
+    'bio.p2': "On the side, I create: Newsbeats to rethink how we consume news, books for little girls who deserve stories that look like them, finance courses built on 15 years of markets — and a series of aluminium works.",
     'bio.p3': 'Curiosity as an engine. Creation as a language.',
     'bio.photo.ph': 'Your photo here',
     'bio.link.contact': 'Contact me',
@@ -275,6 +281,9 @@ const LANG_DATA = {
     'nb.cta.title': 'Probar la aplicación',
     'nb.cta.desc': 'Newsbeats está disponible en línea — acceso directo desde el navegador.',
     'nb.cta.btn': 'Abrir Newsbeats →',
+    'nb.pitch.title': 'Pitch Deck — Pre-Seed 2026',
+    'nb.pitch.desc': 'Presentación para inversores — visión, modelo, tracción y hoja de ruta.',
+    'nb.pitch.btn': 'Descargar PDF →',
 
     'books.label': 'Publicaciones',
     'books.title': 'Libros infantiles',
@@ -308,8 +317,8 @@ const LANG_DATA = {
 
     'bio.label': 'Acerca de',
     'bio.role': 'Creador · Tonton Gug Studio',
-    'bio.p1': 'Creo cosas. Libros, apps, contenido — porque tengo ideas y ganas de llevarlas a cabo. Tonton Gug Studio es el espacio donde todo se reúne, bajo un mismo techo.',
-    'bio.p2': 'De día me dedico a [tu trabajo / misión principal]. El resto del tiempo, construyo proyectos que me apasionan: Newsbeats para repensar cómo consumimos la información, libros para niñas que necesitan historias que se les parezcan, y cursos de finanzas para democratizar lo que la escuela no enseña suficientemente.',
+    'bio.p1': 'Más de 15 años en Investment Banking entre París, Londres y Hong Kong. Especializado en corporate advisory — event driven financing y rating advisory — en BNP Paribas, Société Générale CIB, MUFG y Edmond de Rothschild.',
+    'bio.p2': 'En paralelo, creo: Newsbeats para replantear cómo consumimos la información, libros para niñas que merecen historias que se les parezcan, cursos de finanzas basados en 15 años de mercados — y una serie de obras sobre aluminio.',
     'bio.p3': 'La curiosidad como motor. La creación como lenguaje.',
     'bio.photo.ph': 'Tu foto aquí',
     'bio.link.contact': 'Contactarme',
