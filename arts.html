@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arts — Tonton Gug Studio</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    .arts-intro {
+      background: linear-gradient(135deg, #0a0f1e 0%, #1a0a00 100%);
+      border-radius: var(--radius);
+      padding: 2.5rem 3rem;
+      margin-bottom: 3rem;
+      position: relative;
+      overflow: hidden;
+    }
+    .arts-intro::before {
+      content: '';
+      position: absolute;
+      top: -60px; right: -60px;
+      width: 220px; height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 70%);
+    }
+    .arts-intro .ai-label {
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--orange); font-weight: 700; margin-bottom: 0.75rem;
+    }
+    .arts-intro h2 {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: clamp(1.4rem, 3vw, 2rem); color: white;
+      margin-bottom: 1rem; line-height: 1.3;
+    }
+    .arts-intro p {
+      color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.75;
+      max-width: 680px; font-style: italic;
+    }
+    .series-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.3);
+      color: var(--orange); font-size: 0.8rem; font-weight: 600;
+      padding: 0.35rem 1rem; border-radius: 999px; margin-top: 1.25rem;
+    }
+
+    .works-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 1rem;
+    }
+    .work-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      overflow: hidden;
+      transition: transform 0.25s, border-color 0.25s, box-shadow 0.25s;
+    }
+    .work-card:hover {
+      transform: translateY(-6px);
+      border-color: var(--orange);
+      box-shadow: 0 16px 40px rgba(0,0,0,0.5);
+    }
+    .work-image {
+      width: 100%; aspect-ratio: 4/3;
+      background: linear-gradient(135deg, #0d1b3e, #1a0a00);
+      display: flex; align-items: center; justify-content: center;
+      position: relative; overflow: hidden;
+    }
+    .work-image img {
+      width: 100%; height: 100%; object-fit: cover;
+      position: absolute; inset: 0;
+    }
+    .work-image-placeholder {
+      font-size: 3.5rem; opacity: 0.4;
+    }
+    .work-num {
+      position: absolute; top: 0.75rem; left: 0.75rem;
+      background: rgba(0,0,0,0.6); backdrop-filter: blur(4px);
+      color: var(--orange); font-size: 0.68rem; font-weight: 800;
+      letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.25rem 0.65rem; border-radius: 999px;
+      border: 1px solid rgba(245,166,35,0.3);
+    }
+    .work-body { padding: 1.5rem; }
+    .work-title {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 1.15rem; color: var(--text); margin-bottom: 0.3rem;
+    }
+    .work-subtitle {
+      font-size: 0.75rem; color: var(--orange); font-weight: 600;
+      letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .work-desc {
+      color: var(--muted); font-size: 0.85rem; line-height: 1.75;
+      font-style: italic;
+    }
+    .work-meta {
+      display: flex; gap: 0.75rem; margin-top: 1.1rem; flex-wrap: wrap;
+    }
+    .meta-chip {
+      font-size: 0.7rem; color: var(--muted); background: rgba(255,255,255,0.04);
+      border: 1px solid var(--border); border-radius: 999px;
+      padding: 0.2rem 0.6rem;
+    }
+
+    /* Featured first work — wider */
+    .work-card.featured {
+      grid-column: 1 / -1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+    }
+    .work-card.featured .work-image {
+      aspect-ratio: unset;
+      min-height: 300px;
+    }
+    @media (max-width: 640px) {
+      .work-card.featured { grid-template-columns: 1fr; }
+      .work-card.featured .work-image { min-height: 240px; }
+    }
+
+    .artist-note {
+      margin-top: 3.5rem;
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem 2.5rem;
+      display: flex; gap: 1.5rem; align-items: flex-start;
+    }
+    .artist-note .icon { font-size: 2rem; flex-shrink: 0; margin-top: 0.2rem; }
+    .artist-note h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 0.5rem; }
+    .artist-note p { color: var(--muted); font-size: 0.9rem; line-height: 1.75; }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="index.html" class="nav-logo">
+      <img src="assets/tgs-icon.png" alt="Tonton Gug Studio" /><div class="nav-logo-text">Tonton Gug <span>Studio</span></div>
+    </a>
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
+      <li><a href="finance.html">Finance</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="newsbeats.html">Newsbeats</a></li>
+      <li><a href="arts.html" class="active">Arts</a></li>
+      <li><a href="bio.html">Bio</a></li>
+      <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
+    </ul>
+    <div class="lang-switcher">
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
+    </div>
+  </nav>
+
+  <section>
+    <p class="section-label" data-i18n="arts.label">Œuvres</p>
+    <h1 class="section-title" data-i18n="arts.title">Arts Plastiques</h1>
+    <p class="section-sub" data-i18n="arts.subtitle">Une série de compositions sur boîte métallique M&M's — matière populaire au service d'une réflexion sur le paysage et la présence.</p>
+
+    <div class="arts-intro">
+      <div class="ai-label" data-i18n="arts.series.label">Série I — 2024/2025</div>
+      <h2 data-i18n="arts.series.title">M&M's in Their Natural Environment</h2>
+      <p data-i18n="arts.series.desc">Cette première série interroge la tension fondamentale entre l'artifice du packaging industriel et la brutalité organique des grands paysages. En choisissant la boîte M&M's comme support — objet de consommation par excellence, symbole d'une culture de masse mondialisée — l'artiste opère un renversement : c'est la confiserie qui voyage, qui s'imprègne du territoire, qui se dissout dans le réel. Chaque œuvre est un geste de réappropriation. Une invitation à percevoir autrement ce qu'on croyait connaître.</p>
+      <div class="series-tag" data-i18n="arts.series.tag">🎨 5 œuvres · Acrylique sur métal · Série limitée</div>
+    </div>
+
+    <div class="works-grid">
+
+      <!-- FEATURED: Désert -->
+      <div class="work-card featured">
+        <div class="work-image">
+          <img src="assets/mm1.jpg" alt="M&M's — Désert" />
+          <div class="work-num">I / V</div>
+        </div>
+        <div class="work-body">
+          <div class="work-title" data-i18n="arts.w1.title">M&M's — Désert</div>
+          <div class="work-subtitle" data-i18n="arts.w1.sub">Aridité & Persistance</div>
+          <p class="work-desc" data-i18n="arts.w1.desc">Dans ce premier opus, la boîte M&M's emerge d'une étendue ocre et silencieuse. Le désert, espace d'une radicalité géographique absolue, n'écrase pas l'objet — il le révèle. Ce qui résiste à l'érosion n'est pas la matière, mais l'intention. L'œuvre pose la question de ce qui demeure quand tout le superflu est brûlé par la chaleur : la couleur, le signe, l'obstination de la forme.</p>
+          <div class="work-meta">
+            <span class="meta-chip">Acrylique sur métal</span>
+            <span class="meta-chip">Série I</span>
+            <span class="meta-chip">2024</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Forêt -->
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-image-placeholder">🌲</div>
+          <div class="work-num">II / V</div>
+        </div>
+        <div class="work-body">
+          <div class="work-title" data-i18n="arts.w2.title">M&M's — Forêt</div>
+          <div class="work-subtitle" data-i18n="arts.w2.sub">Densité & Camouflage</div>
+          <p class="work-desc" data-i18n="arts.w2.desc">La forêt est un espace de multiplicité — rien n'y est jamais seul. La boîte disparaît partiellement dans la végétation, non pas vaincue, mais intégrée. L'œuvre explore le paradoxe de la visibilité : ce qui se cache le mieux est ce qui appartient pleinement à son environnement. Une méditation sur l'appartenance et l'effacement volontaire du bruit.</p>
+          <div class="work-meta">
+            <span class="meta-chip">Acrylique sur métal</span>
+            <span class="meta-chip">Série I</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Ville -->
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-image-placeholder">🏙️</div>
+          <div class="work-num">III / V</div>
+        </div>
+        <div class="work-body">
+          <div class="work-title" data-i18n="arts.w3.title">M&M's — Ville</div>
+          <div class="work-subtitle" data-i18n="arts.w3.sub">Saturation & Miroir</div>
+          <p class="work-desc" data-i18n="arts.w3.desc">Ici, la mise en abyme atteint son point de friction maximal : l'objet de consommation face à la ville qui l'a produit. La boîte n'est plus une anomalie dans le paysage urbain — elle en est le reflet condensé. Couleurs saturées, lignes dures, densité totale. L'œuvre interroge l'origine : qui contient quoi ?</p>
+          <div class="work-meta">
+            <span class="meta-chip">Acrylique sur métal</span>
+            <span class="meta-chip">Série I</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Montagne -->
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-image-placeholder">⛰️</div>
+          <div class="work-num">IV / V</div>
+        </div>
+        <div class="work-body">
+          <div class="work-title" data-i18n="arts.w4.title">M&M's — Montagne</div>
+          <div class="work-subtitle" data-i18n="arts.w4.sub">Verticalité & Échelle</div>
+          <p class="work-desc" data-i18n="arts.w4.desc">La montagne impose une verticalité qui écrase les proportions humaines. Placée à son pied — ou peut-être à son sommet — la boîte M&M's joue avec l'échelle jusqu'à l'absurde. L'œuvre convoque Caspar David Friedrich autant qu'un rayon de supermarché. Ce qui était trivial devient monumental. Ce qui était immense devient relatif.</p>
+          <div class="work-meta">
+            <span class="meta-chip">Acrylique sur métal</span>
+            <span class="meta-chip">Série I</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Océan -->
+      <div class="work-card">
+        <div class="work-image">
+          <div class="work-image-placeholder">🌊</div>
+          <div class="work-num">V / V</div>
+        </div>
+        <div class="work-body">
+          <div class="work-title" data-i18n="arts.w5.title">M&M's — Océan</div>
+          <div class="work-subtitle" data-i18n="arts.w5.sub">Immersion & Dissolution</div>
+          <p class="work-desc" data-i18n="arts.w5.desc">Dernier volet de la série, l'Océan est l'espace de la dissolution totale. La boîte flotte, résiste, ou sombre — l'œuvre ne tranche pas. Ce qui importe, c'est le mouvement : celui de la vague, celui du regard qui cherche à accrocher quelque chose de stable dans un univers liquide. Une conclusion ouverte, à l'image de la mer elle-même.</p>
+          <div class="work-meta">
+            <span class="meta-chip">Acrylique sur métal</span>
+            <span class="meta-chip">Série I</span>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="artist-note">
+      <div class="icon">🎨</div>
+      <div>
+        <h3 data-i18n="arts.note.title">Note de l'artiste</h3>
+        <p data-i18n="arts.note.desc">Ces tableaux sont nés d'une impulsion simple : prendre ce qui traîne sur un bureau — une vieille boîte M&M's — et voir ce qu'on peut en faire. Pas de manifeste, pas de programme. Juste de la peinture, du métal, et cinq paysages imaginaires. Le reste, c'est vous qui l'inventez.</p>
+      </div>
+    </div>
+
+  </section>
+
+  <footer>
+    <p data-i18n-html="footer.text">© 2025 <span>Tonton Gug Studio</span>. Tous droits réservés.</p>
+  </footer>
+
+  <script src="translations.js"></script>
+  <script src="main.js"></script>
+</body>
+</html>

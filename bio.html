@@ -6,52 +6,68 @@
   <title>Bio — Tonton Gug Studio</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .bio-section { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
-    .bio-grid { display: grid; grid-template-columns: 280px 1fr; gap: 4rem; align-items: start; margin-top: 2rem; }
-    .bio-left { display: flex; flex-direction: column; gap: 1.5rem; }
-    .bio-photo {
-      width: 100%; aspect-ratio: 1;
-      background: linear-gradient(135deg, var(--navy-mid), var(--navy-light));
-      border-radius: var(--radius); display: flex; align-items: center; justify-content: center;
-      color: var(--muted); border: 1px solid var(--border); overflow: hidden;
+    .bio-wrap { max-width: 1100px; margin: 0 auto; padding: 4rem 2rem; }
+    .bio-grid { display: grid; grid-template-columns: 290px 1fr; gap: 4rem; align-items: start; }
+
+    /* LEFT */
+    .bio-left { display: flex; flex-direction: column; gap: 1.25rem; }
+    .bio-photo-wrap {
+      width: 100%; aspect-ratio: 1; border-radius: 50%;
+      overflow: hidden; border: 4px solid white;
+      box-shadow: 0 8px 32px rgba(0,0,0,0.15);
     }
-    .bio-photo img { width: 100%; height: 100%; object-fit: cover; }
-    .bio-photo-placeholder { text-align: center; padding: 2rem; }
-    .bio-photo-placeholder .icon { font-size: 3rem; margin-bottom: 0.5rem; }
-    .bio-links { display: flex; flex-direction: column; gap: 0.5rem; }
+    .bio-photo-wrap img { width: 100%; height: 100%; object-fit: cover; object-position: center 20%; }
     .bio-link {
       display: flex; align-items: center; gap: 0.75rem;
-      padding: 0.65rem 1rem; background: var(--card); border: 1px solid var(--border);
-      border-radius: 8px; color: var(--muted); text-decoration: none;
-      font-size: 0.88rem; transition: all 0.2s;
+      padding: 0.7rem 1rem; background: #f8fafc; border: 1px solid #e2e8f0;
+      border-radius: 8px; color: #475569; text-decoration: none;
+      font-size: 0.88rem; font-weight: 500; transition: all 0.2s;
     }
     .bio-link:hover { border-color: var(--orange); color: var(--orange); }
-    .bio-right h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 800; margin-bottom: 0.4rem; }
-    .bio-role { color: var(--orange); font-weight: 600; font-size: 1rem; margin-bottom: 2rem; }
-    .bio-text { color: var(--muted); line-height: 1.85; margin-bottom: 1rem; font-size: 0.97rem; }
-    .bio-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0 2.5rem; }
-    .tag { background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.2); color: var(--orange); font-size: 0.8rem; font-weight: 500; padding: 0.3rem 0.9rem; border-radius: 999px; }
-    .cert-row { display: flex; gap: 0.75rem; flex-wrap: wrap; margin-bottom: 2rem; }
-    .cert-badge {
-      display: flex; align-items: center; gap: 0.6rem;
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: 8px; padding: 0.6rem 1rem;
-      font-size: 0.85rem; font-weight: 600;
+
+    /* RIGHT */
+    .bio-right h1 { font-family: 'Montserrat', sans-serif; font-size: clamp(1.8rem, 3vw, 2.4rem); font-weight: 800; color: var(--navy); margin-bottom: 0.2rem; }
+    .bio-tagline { color: var(--orange); font-weight: 700; font-size: 0.88rem; letter-spacing: 0.1em; text-transform: uppercase; margin-bottom: 2rem; }
+
+    /* CREDENTIALS */
+    .creds { display: flex; flex-direction: column; gap: 0.6rem; margin-bottom: 2.5rem; }
+    .cred {
+      display: flex; align-items: center; gap: 1rem;
+      background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.85rem 1.1rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
     }
-    .cert-badge .cert-icon { font-size: 1.2rem; }
-    .cert-badge .cert-name { color: var(--text); }
-    .cert-badge .cert-org { color: var(--muted); font-size: 0.75rem; font-weight: 400; }
-    .projects-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 0.75rem; }
-    .project-mini { background: var(--card); border: 1px solid var(--border); border-radius: 10px; padding: 1rem 1.25rem; text-decoration: none; color: var(--text); transition: border-color 0.2s; display: flex; align-items: center; gap: 0.75rem; }
-    .project-mini:hover { border-color: var(--orange); }
-    .project-mini .picon { font-size: 1.3rem; }
-    .project-mini div h4 { font-size: 0.9rem; font-weight: 600; }
-    .project-mini div p { font-size: 0.78rem; color: var(--muted); }
-    @media (max-width: 768px) {
-      .bio-grid { grid-template-columns: 1fr; gap: 2rem; }
-      .bio-left { flex-direction: row; flex-wrap: wrap; }
-      .bio-photo { width: 180px; height: 180px; aspect-ratio: unset; }
-      .bio-links { flex: 1; min-width: 180px; }
+    .cred:hover { border-color: var(--orange); box-shadow: 0 2px 12px rgba(245,166,35,0.12); }
+    .cred-icon { font-size: 1.6rem; flex-shrink: 0; }
+    .cred-logo { height: 32px; width: auto; object-fit: contain; flex-shrink: 0; border-radius: 3px; }
+    .cred-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.92rem; color: var(--navy); }
+    .cred-org { color: var(--muted); font-size: 0.8rem; }
+
+    /* BIO TEXT */
+    .bio-p { color: #4b5563; line-height: 1.85; margin-bottom: 0.9rem; font-size: 0.96rem; }
+
+    /* EXPERIENCE TIMELINE */
+    .xp-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.85rem; color: var(--navy); letter-spacing: 0.1em; text-transform: uppercase; border-left: 3px solid var(--orange); padding-left: 0.75rem; margin: 1.75rem 0 1rem; }
+    .timeline { display: flex; flex-direction: column; gap: 0.5rem; padding-left: 0.5rem; }
+    .tl-item { display: flex; gap: 1rem; align-items: flex-start; position: relative; padding-left: 1rem; }
+    .tl-item::before { content: ''; position: absolute; left: -2px; top: 7px; width: 8px; height: 8px; background: var(--orange); border-radius: 50%; flex-shrink: 0; }
+    .tl-company { font-weight: 700; font-size: 0.9rem; color: var(--navy); }
+    .tl-role { font-size: 0.82rem; color: #64748b; margin-top: 1px; }
+    .tl-date { font-size: 0.76rem; color: var(--muted); margin-top: 1px; }
+
+    /* TAGS */
+    .bio-tags { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.75rem 0 2rem; }
+    .tag { background: rgba(26,45,90,0.07); border: 1px solid rgba(26,45,90,0.13); color: var(--navy); font-size: 0.78rem; font-weight: 600; padding: 0.28rem 0.85rem; border-radius: 999px; }
+
+    /* PROJECTS MINI */
+    .projects-mini { display: grid; grid-template-columns: 1fr 1fr; gap: 0.65rem; }
+    .pm { background: #f8fafc; border: 1px solid #e2e8f0; border-radius: 10px; padding: 0.9rem 1.1rem; text-decoration: none; color: var(--navy); transition: border-color 0.2s; display: flex; align-items: center; gap: 0.65rem; }
+    .pm:hover { border-color: var(--orange); }
+    .pm h4 { font-size: 0.88rem; font-weight: 700; color: var(--navy); }
+    .pm p { font-size: 0.75rem; color: var(--muted); }
+
+    @media (max-width: 800px) {
+      .bio-grid { grid-template-columns: 1fr; }
+      .bio-photo-wrap { max-width: 220px; margin: 0 auto; }
       .projects-mini { grid-template-columns: 1fr; }
     }
   </style>
@@ -60,7 +76,7 @@
 
   <nav>
     <a href="index.html" class="nav-logo">
-      <img src="assets/tgs-icon.png" alt="Tonton Gug Studio" />
+      <img src="assets/tgs-icon.png" alt="Tonton Gug Studio" /><div class="nav-logo-text">Tonton Gug <span>Studio</span></div>
     </a>
     <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -72,6 +88,7 @@
       <li><a href="finance.html">Finance</a></li>
       <li><a href="books.html">Books</a></li>
       <li><a href="newsbeats.html">Newsbeats</a></li>
+      <li><a href="arts.html">Arts</a></li>
       <li><a href="bio.html" class="active">Bio</a></li>
       <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
@@ -82,103 +99,147 @@
     </div>
   </nav>
 
-  <div class="bio-section">
+  <div class="bio-wrap">
     <p class="section-label" data-i18n="bio.label">À propos</p>
 
     <div class="bio-grid">
 
       <!-- LEFT -->
       <div class="bio-left">
-        <div class="bio-photo">
-          <!--
-            Pour ajouter ta photo :
-            <img src="assets/photo.jpg" alt="Guillaume" />
-          -->
-          <div class="bio-photo-placeholder">
-            <div class="icon">👤</div>
-            <p data-i18n="bio.photo.ph">Ta photo ici</p>
-          </div>
+        <div class="bio-photo-wrap">
+          <img src="assets/guillaume.jpg" alt="Guillaume Limouzineau de Bellegarde" />
         </div>
-
-        <div class="bio-links">
-          <a href="https://uk.linkedin.com/in/guillaume-limouzineau-01129733" class="bio-link" target="_blank" rel="noopener">
-            <span>💼</span> LinkedIn
-          </a>
-          <a href="index.html#contact" class="bio-link">
-            <span>✉️</span> <span data-i18n="bio.link.contact">Me contacter</span>
-          </a>
-        </div>
+        <a href="https://uk.linkedin.com/in/guillaume-limouzineau-01129733" class="bio-link" target="_blank" rel="noopener">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="#0077b5"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+          LinkedIn
+        </a>
+        <a href="index.html#contact" class="bio-link">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+          <span data-i18n="bio.link.contact">Me contacter</span>
+        </a>
       </div>
 
       <!-- RIGHT -->
       <div class="bio-right">
-        <h1>Guillaume Limouzineau</h1>
-        <p class="bio-role" data-i18n="bio.role">Créateur · Tonton Gug Studio</p>
+        <h1>Guillaume Limouzineau<br/>de Bellegarde</h1>
+        <p class="bio-tagline">Finance · Créateur · Tonton Gug Studio</p>
 
-        <!-- Certifications -->
-        <div class="cert-row">
-          <div class="cert-badge">
-            <span class="cert-icon">🏅</span>
+        <!-- CREDENTIALS -->
+        <div class="creds">
+          <div class="cred">
+            <span class="cred-icon">🎓</span>
+            <img class="cred-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/e/e5/EDHEC_Business_School_logo.svg/320px-EDHEC_Business_School_logo.svg.png" alt="EDHEC" onerror="this.style.display='none'" />
             <div>
-              <div class="cert-name">CAIA</div>
-              <div class="cert-org">Chartered Alternative Investment Analyst</div>
+              <div class="cred-title">Master of Science in Finance</div>
+              <div class="cred-org">EDHEC Business School</div>
             </div>
           </div>
-          <div class="cert-badge">
-            <span class="cert-icon">📊</span>
+          <div class="cred">
+            <span class="cred-icon">📜</span>
+            <img class="cred-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/3/34/CFA_Institute_Logo.svg/320px-CFA_Institute_Logo.svg.png" alt="CFA Institute" onerror="this.style.display='none'" />
             <div>
-              <div class="cert-name">CFA</div>
-              <div class="cert-org">CFA Institute</div>
+              <div class="cred-title">CFA Charterholder</div>
+              <div class="cred-org">CFA Institute — August 2015</div>
+            </div>
+          </div>
+          <div class="cred">
+            <span class="cred-icon">📜</span>
+            <img class="cred-logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/b/b2/CAIA_Association_logo.svg/320px-CAIA_Association_logo.svg.png" alt="CAIA Association" onerror="this.style.display='none'" />
+            <div>
+              <div class="cred-title">CAIA Charterholder</div>
+              <div class="cred-org">CAIA Association — February 2017</div>
             </div>
           </div>
         </div>
 
-        <!--
-          BIO TEXT — à personnaliser avec ton parcours réel.
-          Ajoute des fichiers dans le dossier /career/ sur le bureau
-          et dis-le moi, je mettrai à jour automatiquement.
-        -->
-        <p class="bio-text" data-i18n="bio.p1">
-          Je crée des choses. Des livres, des apps, des contenus — parce que j'ai des idées et l'envie de les concrétiser.
-          Tonton Gug Studio c'est l'espace où tout ça se retrouve, sous un même toit.
-        </p>
-        <p class="bio-text" data-i18n="bio.p2">
-          Finance de métier, créatif de nature. CAIA et CFA charterholder, je navigue entre les marchés le jour
-          et je construis des projets qui me passionnent le reste du temps : Newsbeats, des livres pour les petites filles,
-          et des cours de finance pour rendre accessible ce que l'école n'enseigne pas assez.
-        </p>
-        <p class="bio-text" data-i18n="bio.p3">La curiosité comme moteur. La création comme langage.</p>
+        <!-- BIO TEXT -->
+        <p class="bio-p" data-i18n="bio.p1">Plus de 15 ans d'expérience en Investment Banking et Asset Management, entre Paris, Londres et Hong Kong. Un parcours construit au cœur des grandes institutions financières — BNP Paribas, Société Générale, MUFG, Edmond de Rothschild — avec une conviction forte : la finance doit être accessible à tous.</p>
+        <p class="bio-p" data-i18n="bio.p2">En parallèle, je crée : Newsbeats pour repenser la consommation de l'info, des livres pour les petites filles, des cours de finance pour transmettre ce que 15 ans de marchés m'ont appris — et des tableaux en M&Ms.</p>
+
+        <!-- EXPERIENCE -->
+        <div class="xp-title">Investment Banking</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div>
+              <div class="tl-company">MUFG</div>
+              <div class="tl-role">Director — Global Corporate & IB Division, EMEA Corporate Advisory</div>
+              <div class="tl-date">Oct 2020 – Present · London</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div>
+              <div class="tl-company">MUFG</div>
+              <div class="tl-role">Vice President — IB Division, EMEA Leveraged Finance & Strategic Advisory</div>
+              <div class="tl-date">Jun 2017 – Sep 2020 · London</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div>
+              <div class="tl-company">MUFG</div>
+              <div class="tl-role">Senior Associate — IB Division, EMEA Strategic Finance</div>
+              <div class="tl-date">Dec 2016 – May 2017 · London</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div>
+              <div class="tl-company">Société Générale — SGCIB</div>
+              <div class="tl-role">Associate — Global Markets, IR & FX Derivatives, Market Risk Advisory</div>
+              <div class="tl-date">Jun 2014 – Nov 2016 · London</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div>
+              <div class="tl-company">Société Générale — SGCIB</div>
+              <div class="tl-role">Analyst — Global Markets, IR & FX Derivatives, Market Risk Advisory</div>
+              <div class="tl-date">Mar 2013 – May 2014 · London</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div>
+              <div class="tl-company">BNP Paribas Corporate & Institutional Banking</div>
+              <div class="tl-role">Assistant Credit Analyst</div>
+              <div class="tl-date">Sep 2008 – Feb 2009</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="xp-title">Asset Management</div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div>
+              <div class="tl-company">Edmond de Rothschild Asset Management</div>
+              <div class="tl-role">Equity Analyst — International Equities</div>
+              <div class="tl-date">Sep 2010 – Aug 2011 · Paris</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div>
+              <div class="tl-company">BNP Paribas Investment Partners (Sigma Asia)</div>
+              <div class="tl-role">Junior Fund Manager</div>
+              <div class="tl-date">Oct 2011 – Nov 2011 · Hong Kong</div>
+            </div>
+          </div>
+        </div>
 
         <div class="bio-tags">
-          <span class="tag" data-i18n="tag.finance">Finance</span>
+          <span class="tag">Investment Banking</span>
+          <span class="tag">Asset Management</span>
+          <span class="tag">Derivatives</span>
+          <span class="tag">Equity</span>
+          <span class="tag">Fixed Income</span>
           <span class="tag" data-i18n="tag.tech">Tech</span>
           <span class="tag" data-i18n="tag.writing">Écriture</span>
-          <span class="tag" data-i18n="tag.entrepreneurship">Entrepreneuriat</span>
-          <span class="tag" data-i18n="tag.music">Musique</span>
-          <span class="tag" data-i18n="tag.youth">Jeunesse</span>
+          <span class="tag">Art</span>
         </div>
 
         <p class="section-label" style="margin-bottom:1rem;" data-i18n="bio.projects.label">Mes projets</p>
         <div class="projects-mini">
-          <a href="finance.html" class="project-mini">
-            <span class="picon">📈</span>
-            <div><h4>Finance</h4><p data-i18n="card.finance.link">Voir les cours →</p></div>
-          </a>
-          <a href="books.html" class="project-mini">
-            <span class="picon">📚</span>
-            <div><h4>Books</h4><p data-i18n="card.books.link">Voir les livres →</p></div>
-          </a>
-          <a href="newsbeats.html" class="project-mini">
-            <span class="picon">🎵</span>
-            <div><h4>Newsbeats</h4><p data-i18n="card.newsbeats.link">Découvrir →</p></div>
-          </a>
-          <a href="index.html#contact" class="project-mini">
-            <span class="picon">✉️</span>
-            <div><h4 data-i18n="nav.contact">Contact</h4><p data-i18n="contact.subtitle" style="font-size:0.72rem"></p></div>
-          </a>
+          <a href="finance.html" class="pm"><span>📈</span><div><h4>Finance</h4><p data-i18n="card.finance.link">Voir les cours →</p></div></a>
+          <a href="books.html" class="pm"><span>📚</span><div><h4>Books</h4><p data-i18n="card.books.link">Voir les livres →</p></div></a>
+          <a href="newsbeats.html" class="pm"><span>🎵</span><div><h4>Newsbeats</h4><p data-i18n="card.newsbeats.link">Découvrir →</p></div></a>
+          <a href="arts.html" class="pm"><span>🎨</span><div><h4>Arts</h4><p>M&M Series →</p></div></a>
         </div>
       </div>
-
     </div>
   </div>
 

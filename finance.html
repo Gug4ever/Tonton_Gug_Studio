@@ -6,31 +6,74 @@
   <title>Finance — Tonton Gug Studio</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .slides-tabs { display: flex; gap: 0.5rem; margin-bottom: 1.5rem; flex-wrap: wrap; }
-    .tab-btn { background: var(--card); border: 1px solid var(--border); color: var(--muted); padding: 0.5rem 1.1rem; border-radius: 8px; font-size: 0.88rem; font-weight: 500; cursor: pointer; transition: all 0.2s; font-family: 'Inter', sans-serif; }
-    .tab-btn:hover, .tab-btn.active { border-color: var(--orange); color: var(--orange); background: rgba(245,166,35,0.08); }
-    .slide-panel { display: none; }
-    .slide-panel.active { display: block; }
-    .slides-embed { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; aspect-ratio: 16/9; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
-    .slides-embed iframe { width: 100%; height: 100%; border: none; }
-    .slides-placeholder { text-align: center; color: var(--muted); padding: 2rem; }
-    .slides-placeholder .big-icon { font-size: 3rem; margin-bottom: 1rem; }
-    .slides-placeholder h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; color: var(--text); margin-bottom: 0.5rem; }
-    .slides-placeholder p { font-size: 0.9rem; line-height: 1.6; }
-    .slides-placeholder code { background: rgba(255,255,255,0.06); padding: 0.2rem 0.5rem; border-radius: 4px; font-size: 0.82rem; color: var(--orange); }
-    .concepts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 1rem; margin-top: 3rem; }
-    .concept { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 1.5rem; transition: border-color 0.2s; }
-    .concept:hover { border-color: var(--orange); }
-    .concept .icon { font-size: 1.5rem; margin-bottom: 0.75rem; }
-    .concept h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.4rem; }
-    .concept p { color: var(--muted); font-size: 0.85rem; line-height: 1.5; }
+    .seminar-intro {
+      background: linear-gradient(135deg, var(--navy) 0%, #0d1b3e 100%);
+      border-radius: var(--radius);
+      padding: 2rem 2.5rem;
+      margin-bottom: 3rem;
+      display: flex;
+      align-items: center;
+      gap: 2rem;
+      flex-wrap: wrap;
+    }
+    .seminar-intro .si-icon { font-size: 3rem; flex-shrink: 0; }
+    .seminar-intro h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.4rem; color: white; margin-bottom: 0.4rem; }
+    .seminar-intro p { color: rgba(255,255,255,0.7); font-size: 0.92rem; line-height: 1.6; }
+    .seminar-stats { display: flex; gap: 1.5rem; margin-top: 1rem; flex-wrap: wrap; }
+    .stat { text-align: center; }
+    .stat-n { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.8rem; color: var(--orange); }
+    .stat-l { font-size: 0.75rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em; }
+
+    .day-block { margin-bottom: 2.5rem; }
+    .day-header {
+      display: flex; align-items: center; gap: 1rem;
+      margin-bottom: 1.25rem;
+    }
+    .day-label {
+      background: var(--navy); color: white;
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase;
+      padding: 0.35rem 1rem; border-radius: 999px;
+    }
+    .day-divider { flex: 1; height: 1px; background: #e2e8f0; }
+
+    .sessions-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
+    .session-card {
+      background: #f8fafc; border: 1px solid #e2e8f0;
+      border-radius: var(--radius); padding: 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .session-card:hover { border-color: var(--orange); box-shadow: 0 4px 16px rgba(245,166,35,0.1); }
+    .session-time {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--orange);
+      background: rgba(245,166,35,0.1); border-radius: 999px;
+      padding: 0.2rem 0.7rem; margin-bottom: 0.75rem;
+    }
+    .session-num { font-size: 0.7rem; color: var(--muted); font-weight: 600; margin-bottom: 0.3rem; }
+    .session-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 1rem; color: var(--navy); margin-bottom: 0.75rem; line-height: 1.3; }
+    .session-downloads { display: flex; gap: 0.5rem; flex-wrap: wrap; }
+    .dl-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      padding: 0.4rem 0.85rem; border-radius: 6px;
+      font-size: 0.78rem; font-weight: 600; text-decoration: none;
+      transition: all 0.2s; border: 1px solid;
+    }
+    .dl-pdf { color: #dc2626; border-color: #fca5a5; background: #fef2f2; }
+    .dl-pdf:hover { background: #dc2626; color: white; border-color: #dc2626; }
+    .dl-ppt { color: #d97706; border-color: #fcd34d; background: #fffbeb; }
+    .dl-ppt:hover { background: #d97706; color: white; border-color: #d97706; }
+    .dl-soon { color: var(--muted); border-color: #e2e8f0; background: #f8fafc; cursor: default; font-size: 0.72rem; }
+
+    @media (max-width: 640px) { .sessions-row { grid-template-columns: 1fr; } }
   </style>
 </head>
 <body>
 
   <nav>
     <a href="index.html" class="nav-logo">
-      <img src="assets/tgs-icon.png" alt="Tonton Gug Studio" />
+      <img src="assets/tgs-icon.png" alt="Tonton Gug Studio" /><div class="nav-logo-text">Tonton Gug <span>Studio</span></div>
     </a>
     <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -42,6 +85,7 @@
       <li><a href="finance.html" class="active">Finance</a></li>
       <li><a href="books.html">Books</a></li>
       <li><a href="newsbeats.html">Newsbeats</a></li>
+      <li><a href="arts.html">Arts</a></li>
       <li><a href="bio.html">Bio</a></li>
       <li><a href="index.html#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
@@ -55,58 +99,163 @@
   <section>
     <p class="section-label" data-i18n="finance.label">Cours</p>
     <h1 class="section-title" data-i18n="finance.title">Finance & Marchés</h1>
-    <p class="section-sub" data-i18n="finance.subtitle">Des slides clairs pour comprendre la finance — des bases aux stratégies d'investissement.</p>
+    <p class="section-sub" data-i18n="finance.subtitle">Un programme complet en 5 jours — 10 sessions pour maîtriser les fondamentaux de la finance, des marchés et de l'investissement.</p>
 
-    <div class="slides-tabs">
-      <button class="tab-btn active" onclick="showSlide(0)" data-i18n="tab.1">Module 1</button>
-      <button class="tab-btn" onclick="showSlide(1)" data-i18n="tab.2">Module 2</button>
-      <button class="tab-btn" onclick="showSlide(2)" data-i18n="tab.3">Module 3</button>
-    </div>
-
-    <div class="slide-panel active" id="slide-0">
-      <div class="slides-embed">
-        <!-- <iframe src="COLLE_TON_LIEN_GOOGLE_SLIDES_ICI"></iframe> -->
-        <div class="slides-placeholder">
-          <div class="big-icon">📊</div>
-          <h3 data-i18n="mod.1.title">Module 1 — Les bases</h3>
-          <p>Colle ton lien <code>Google Slides</code> ou PDF dans <code>finance.html</code></p>
+    <!-- SEMINAR INTRO -->
+    <div class="seminar-intro">
+      <div class="si-icon">🏛️</div>
+      <div style="flex:1">
+        <h2>Finance Intensive — Séminaire 5 jours</h2>
+        <p>Conçu par un CFA & CAIA Charterholder avec 15+ ans en Investment Banking et Asset Management. Chaque session couvre une thématique clé avec slides téléchargeables en PDF et PPTX.</p>
+        <div class="seminar-stats">
+          <div class="stat"><div class="stat-n">5</div><div class="stat-l">Jours</div></div>
+          <div class="stat"><div class="stat-n">10</div><div class="stat-l">Sessions</div></div>
+          <div class="stat"><div class="stat-n">2</div><div class="stat-l">Sessions/jour</div></div>
+          <div class="stat"><div class="stat-n">CFA</div><div class="stat-l">Niveau</div></div>
         </div>
       </div>
     </div>
 
-    <div class="slide-panel" id="slide-1">
-      <div class="slides-embed">
-        <div class="slides-placeholder">
-          <div class="big-icon">📈</div>
-          <h3 data-i18n="mod.2.title">Module 2 — Les marchés</h3>
-          <p>Slides du module 2 à intégrer ici.</p>
+    <!-- DAY 1 -->
+    <div class="day-block">
+      <div class="day-header">
+        <span class="day-label">Jour 1</span>
+        <div class="day-divider"></div>
+      </div>
+      <div class="sessions-row">
+        <div class="session-card">
+          <div class="session-time">🌅 Matin</div>
+          <div class="session-num">Session 01</div>
+          <div class="session-title">Time Value of Money</div>
+          <div class="session-downloads">
+            <a href="assets/finance/S01_Time_Value_of_Money.pdf" class="dl-btn dl-pdf" download>📄 PDF</a>
+            <a href="assets/finance/S01_Time_Value_of_Money.pptx" class="dl-btn dl-ppt" download>📊 PPTX</a>
+          </div>
+        </div>
+        <div class="session-card">
+          <div class="session-time">🌆 Après-midi</div>
+          <div class="session-num">Session 02</div>
+          <div class="session-title">Statistics & Probability</div>
+          <div class="session-downloads">
+            <a href="assets/finance/S02_Statistics_and_Probability.pdf" class="dl-btn dl-pdf" download>📄 PDF</a>
+            <a href="assets/finance/S02_Statistics_and_Probability.pptx" class="dl-btn dl-ppt" download>📊 PPTX</a>
+          </div>
         </div>
       </div>
     </div>
 
-    <div class="slide-panel" id="slide-2">
-      <div class="slides-embed">
-        <div class="slides-placeholder">
-          <div class="big-icon">💼</div>
-          <h3 data-i18n="mod.3.title">Module 3 — Investir</h3>
-          <p>Slides du module 3 à intégrer ici.</p>
+    <!-- DAY 2 -->
+    <div class="day-block">
+      <div class="day-header">
+        <span class="day-label">Jour 2</span>
+        <div class="day-divider"></div>
+      </div>
+      <div class="sessions-row">
+        <div class="session-card">
+          <div class="session-time">🌅 Matin</div>
+          <div class="session-num">Session 03</div>
+          <div class="session-title">Microeconomics</div>
+          <div class="session-downloads">
+            <a href="assets/finance/S03_Microeconomics.pdf" class="dl-btn dl-pdf" download>📄 PDF</a>
+            <a href="assets/finance/S03_Microeconomics.pptx" class="dl-btn dl-ppt" download>📊 PPTX</a>
+          </div>
+        </div>
+        <div class="session-card">
+          <div class="session-time">🌆 Après-midi</div>
+          <div class="session-num">Session 04</div>
+          <div class="session-title">Macroeconomics</div>
+          <div class="session-downloads">
+            <a href="assets/finance/S04_Macroeconomics.pdf" class="dl-btn dl-pdf" download>📄 PDF</a>
+            <a href="assets/finance/S04_Macroeconomics.pptx" class="dl-btn dl-ppt" download>📊 PPTX</a>
+          </div>
         </div>
       </div>
     </div>
 
-    <div style="margin-top:4rem;">
-      <p class="section-label" data-i18n="concepts.label">Au programme</p>
-      <h2 class="section-title" style="font-size:1.6rem;" data-i18n="concepts.title">Ce qu'on couvre</h2>
+    <!-- DAY 3 -->
+    <div class="day-block">
+      <div class="day-header">
+        <span class="day-label">Jour 3</span>
+        <div class="day-divider"></div>
+      </div>
+      <div class="sessions-row">
+        <div class="session-card">
+          <div class="session-time">🌅 Matin</div>
+          <div class="session-num">Session 05</div>
+          <div class="session-title">Financial Statements I</div>
+          <div class="session-downloads">
+            <a href="assets/finance/S05_Financial_Statements_I.pdf" class="dl-btn dl-pdf" download>📄 PDF</a>
+            <a href="assets/finance/S05_Financial_Statements_I.pptx" class="dl-btn dl-ppt" download>📊 PPTX</a>
+          </div>
+        </div>
+        <div class="session-card">
+          <div class="session-time">🌆 Après-midi</div>
+          <div class="session-num">Session 06</div>
+          <div class="session-title">Financial Statements II</div>
+          <div class="session-downloads">
+            <a href="assets/finance/S06_Financial_Statements_II.pdf" class="dl-btn dl-pdf" download>📄 PDF</a>
+            <a href="assets/finance/S06_Financial_Statements_II.pptx" class="dl-btn dl-ppt" download>📊 PPTX</a>
+          </div>
+        </div>
+      </div>
     </div>
 
-    <div class="concepts-grid">
-      <div class="concept"><div class="icon">🏦</div><h4 data-i18n="concept.1.title">Les bases de la finance</h4><p data-i18n="concept.1.desc">Taux d'intérêt, inflation, actifs, passifs — les fondamentaux pour ne plus être perdu.</p></div>
-      <div class="concept"><div class="icon">📉</div><h4 data-i18n="concept.2.title">Comprendre les marchés</h4><p data-i18n="concept.2.desc">Comment fonctionnent les marchés actions, obligataires, et comment les lire.</p></div>
-      <div class="concept"><div class="icon">💹</div><h4 data-i18n="concept.3.title">Investir intelligemment</h4><p data-i18n="concept.3.desc">ETF, diversification, horizon de placement — construire un portefeuille solide.</p></div>
-      <div class="concept"><div class="icon">🧮</div><h4 data-i18n="concept.4.title">Analyser une entreprise</h4><p data-i18n="concept.4.desc">Lire un bilan, comprendre les ratios, évaluer la santé financière d'une société.</p></div>
-      <div class="concept"><div class="icon">🌍</div><h4 data-i18n="concept.5.title">Macro-économie</h4><p data-i18n="concept.5.desc">Les grandes forces qui dirigent l'économie mondiale et leur impact sur tes investissements.</p></div>
-      <div class="concept"><div class="icon">🛡️</div><h4 data-i18n="concept.6.title">Gérer le risque</h4><p data-i18n="concept.6.desc">Ne pas perdre de l'argent, c'est aussi gagner. Stratégies de gestion du risque.</p></div>
+    <!-- DAY 4 -->
+    <div class="day-block">
+      <div class="day-header">
+        <span class="day-label">Jour 4</span>
+        <div class="day-divider"></div>
+      </div>
+      <div class="sessions-row">
+        <div class="session-card">
+          <div class="session-time">🌅 Matin</div>
+          <div class="session-num">Session 07</div>
+          <div class="session-title">Corporate Finance</div>
+          <div class="session-downloads">
+            <a href="assets/finance/S07_Corporate_Finance.pdf" class="dl-btn dl-pdf" download>📄 PDF</a>
+            <a href="assets/finance/S07_Corporate_Finance.pptx" class="dl-btn dl-ppt" download>📊 PPTX</a>
+          </div>
+        </div>
+        <div class="session-card">
+          <div class="session-time">🌆 Après-midi</div>
+          <div class="session-num">Session 08</div>
+          <div class="session-title">Equity Investments</div>
+          <div class="session-downloads">
+            <a href="assets/finance/S08_Equity_Investments.pdf" class="dl-btn dl-pdf" download>📄 PDF</a>
+            <a href="assets/finance/S08_Equity_Investments.pptx" class="dl-btn dl-ppt" download>📊 PPTX</a>
+          </div>
+        </div>
+      </div>
     </div>
+
+    <!-- DAY 5 -->
+    <div class="day-block">
+      <div class="day-header">
+        <span class="day-label">Jour 5</span>
+        <div class="day-divider"></div>
+      </div>
+      <div class="sessions-row">
+        <div class="session-card">
+          <div class="session-time">🌅 Matin</div>
+          <div class="session-num">Session 09</div>
+          <div class="session-title">Fixed Income</div>
+          <div class="session-downloads">
+            <a href="assets/finance/S09_Fixed_Income.pdf" class="dl-btn dl-pdf" download>📄 PDF</a>
+            <a href="assets/finance/S09_Fixed_Income.pptx" class="dl-btn dl-ppt" download>📊 PPTX</a>
+          </div>
+        </div>
+        <div class="session-card">
+          <div class="session-time">🌆 Après-midi</div>
+          <div class="session-num">Session 10</div>
+          <div class="session-title">Derivatives, Alternatives & Portfolio Management</div>
+          <div class="session-downloads">
+            <a href="assets/finance/S10_Derivatives_Alternatives_Portfolio.pdf" class="dl-btn dl-pdf" download>📄 PDF</a>
+            <a href="assets/finance/S10_Derivatives_Alternatives_Portfolio.pptx" class="dl-btn dl-ppt" download>📊 PPTX</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
   </section>
 
   <footer>
@@ -115,11 +264,5 @@
 
   <script src="translations.js"></script>
   <script src="main.js"></script>
-  <script>
-    function showSlide(index) {
-      document.querySelectorAll('.slide-panel').forEach((p, i) => p.classList.toggle('active', i === index));
-      document.querySelectorAll('.tab-btn').forEach((b, i) => b.classList.toggle('active', i === index));
-    }
-  </script>
 </body>
 </html>

@@ -45,14 +45,34 @@ nav {
 .nav-logo {
   display: flex;
   align-items: center;
+  gap: 0.9rem;
   text-decoration: none;
   flex-shrink: 0;
 }
 
 .nav-logo img {
   display: block;
-  height: 80px;
+  height: 92px;
   width: auto;
+}
+
+.nav-logo-text {
+  font-family: 'Montserrat', sans-serif;
+  font-weight: 800;
+  font-size: 1.15rem;
+  letter-spacing: 0.04em;
+  color: var(--navy);
+  line-height: 1.1;
+}
+
+.nav-logo-text span {
+  display: block;
+  font-size: 0.68rem;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  color: var(--orange);
+  margin-top: 2px;
 }
 
 .nav-links {
