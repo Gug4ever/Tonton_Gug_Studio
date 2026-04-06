@@ -6,25 +6,128 @@
   <title>Books — Tonton Gug Studio</title>
   <link rel="stylesheet" href="style.css" />
   <style>
-    .pen-name-badge { display: inline-flex; align-items: center; gap: 0.5rem; background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.3); color: var(--orange); font-size: 0.85rem; font-weight: 600; padding: 0.4rem 1rem; border-radius: 999px; margin-bottom: 2rem; }
-    .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(190px, 1fr)); gap: 1.5rem; margin-top: 1rem; }
-    .book-card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); overflow: hidden; transition: transform 0.2s, border-color 0.2s, box-shadow 0.2s; }
-    .book-card:hover { transform: translateY(-5px); border-color: var(--orange); box-shadow: 0 12px 32px rgba(0,0,0,0.4); }
-    .book-cover { width: 100%; aspect-ratio: 2/3; background: linear-gradient(135deg, var(--navy-mid), #0d2050); display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 0.5rem; position: relative; overflow: hidden; }
-    .book-cover img { width: 100%; height: 100%; object-fit: cover; position: absolute; inset: 0; }
-    .book-cover-placeholder { display: flex; flex-direction: column; align-items: center; gap: 0.5rem; font-size: 2.5rem; }
-    .book-cover-placeholder p { font-size: 0.7rem; color: var(--muted); }
-    .book-info { padding: 1rem; }
-    .book-info h4 { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; margin-bottom: 0.3rem; color: var(--text); }
-    .book-info .author { color: var(--orange); font-size: 0.78rem; font-weight: 600; }
-    .book-info .desc { color: var(--muted); font-size: 0.8rem; margin-top: 0.3rem; line-height: 1.5; }
-    .about-books { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 2rem; margin-top: 3rem; display: flex; gap: 1.5rem; align-items: flex-start; }
-    .about-books .icon { font-size: 2rem; flex-shrink: 0; }
+    .series-intro {
+      background: linear-gradient(135deg, #0a0f1e 0%, #1a0a00 100%);
+      border-radius: var(--radius); padding: 2.5rem 3rem;
+      margin-bottom: 3rem; position: relative; overflow: hidden;
+    }
+    .series-intro::before {
+      content: ''; position: absolute; top: -60px; right: -60px;
+      width: 220px; height: 220px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(245,166,35,0.12) 0%, transparent 70%);
+    }
+    .series-intro .si-label {
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--orange); font-weight: 700; margin-bottom: 0.75rem;
+    }
+    .series-intro h2 {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: clamp(1.4rem, 3vw, 2rem); color: white;
+      margin-bottom: 1rem; line-height: 1.3;
+    }
+    .series-intro p {
+      color: rgba(255,255,255,0.65); font-size: 0.95rem;
+      line-height: 1.75; max-width: 680px;
+    }
+    .series-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(245,166,35,0.1); border: 1px solid rgba(245,166,35,0.3);
+      color: var(--orange); font-size: 0.8rem; font-weight: 600;
+      padding: 0.35rem 1rem; border-radius: 999px; margin-top: 1.25rem;
+    }
+
+    /* Books grid */
+    .books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 1.75rem;
+    }
+    .book-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      transition: transform 0.28s, border-color 0.28s, box-shadow 0.28s;
+      display: flex; flex-direction: column;
+    }
+    .book-card:hover {
+      transform: translateY(-7px);
+      border-color: var(--orange);
+      box-shadow: 0 18px 45px rgba(0,0,0,0.55);
+    }
+    .book-cover {
+      width: 100%; aspect-ratio: 3/4;
+      background: linear-gradient(135deg, #0d1b3e, #1a0a00);
+      position: relative; overflow: hidden; cursor: zoom-in;
+    }
+    .book-cover img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.5s ease;
+    }
+    .book-card:hover .book-cover img { transform: scale(1.04); }
+
+    .book-info { padding: 1.1rem 1.2rem; flex: 1; display: flex; flex-direction: column; }
+    .book-name {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 1rem; color: var(--text); margin-bottom: 0.15rem;
+    }
+    .book-era {
+      font-size: 0.7rem; color: var(--orange); font-weight: 700;
+      letter-spacing: 0.08em; text-transform: uppercase; margin-bottom: 0.6rem;
+    }
+    .book-desc {
+      color: var(--muted); font-size: 0.8rem; line-height: 1.6; flex: 1;
+    }
+    .book-tag {
+      display: inline-block; margin-top: 0.75rem;
+      font-size: 0.68rem; color: var(--muted);
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: 999px; padding: 0.18rem 0.55rem;
+    }
+
+    /* Pen name badge */
+    .pen-name-badge {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.25);
+      color: var(--orange); font-size: 0.82rem; font-weight: 600;
+      padding: 0.38rem 1rem; border-radius: 999px; margin-bottom: 2rem;
+    }
+
+    /* Lightbox */
+    .lightbox {
+      display: none; position: fixed; inset: 0; z-index: 999;
+      background: rgba(0,0,0,0.92); align-items: center; justify-content: center;
+      cursor: zoom-out;
+    }
+    .lightbox.open { display: flex; }
+    .lightbox img {
+      max-width: 85vw; max-height: 88vh;
+      object-fit: contain; border-radius: 10px;
+      box-shadow: 0 0 80px rgba(0,0,0,0.8);
+    }
+    .lightbox-close {
+      position: fixed; top: 1.5rem; right: 1.5rem;
+      color: white; font-size: 1.5rem; cursor: pointer;
+      background: rgba(255,255,255,0.1); border-radius: 50%;
+      width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
+    }
+
+    /* About box */
+    .about-books {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem 2.5rem;
+      margin-top: 3rem; display: flex; gap: 1.5rem; align-items: flex-start;
+    }
+    .about-books .icon { font-size: 2rem; flex-shrink: 0; margin-top: 0.2rem; }
     .about-books h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 0.5rem; }
-    .about-books p { color: var(--muted); font-size: 0.92rem; line-height: 1.7; }
+    .about-books p { color: var(--muted); font-size: 0.92rem; line-height: 1.75; }
   </style>
 </head>
 <body>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <div class="lightbox-close" onclick="closeLightbox()">✕</div>
+    <img id="lightbox-img" src="" alt="" />
+  </div>
 
   <nav>
     <a href="index.html" class="nav-logo">
@@ -56,57 +159,102 @@
     <h1 class="section-title" data-i18n="books.title">Livres jeunesse</h1>
     <p class="section-sub" data-i18n="books.subtitle">Des histoires illustrées pour les petites filles — publiées sous pen name, avec amour et intention.</p>
 
+    <div class="series-intro">
+      <div class="si-label" data-i18n="books.series.label">Série — Femmes qui ont changé le monde</div>
+      <h2 data-i18n="books.series.title">Grandes femmes, petites héroïnes</h2>
+      <p data-i18n="books.series.desc">Six portraits de femmes extraordinaires, racontés pour les enfants. Des scientifiques, des aventurières, des résistantes, des reines — des figures qui ont bousculé leur époque et dont l'histoire mérite d'être transmise dès le plus jeune âge. Chaque livre, une vie. Chaque vie, une leçon.</p>
+      <div class="series-tag" data-i18n="books.series.tag">📚 6 livres · Illustré · Sous pen name</div>
+    </div>
+
     <div class="pen-name-badge" data-i18n="books.pen-name">✍️ Publiés sous pen name</div>
 
     <div class="books-grid">
+
+      <!-- 1. Ada Lovelace -->
       <div class="book-card">
-        <div class="book-cover">
-          <!-- <img src="assets/livre1.jpg" alt="Titre" /> -->
-          <div class="book-cover-placeholder">📖<p data-i18n="books.cover.ph">Ajouter couverture</p></div>
+        <div class="book-cover" onclick="openLightbox('assets/books/ada-lovelace.png','Ada Lovelace')">
+          <img src="assets/books/ada-lovelace.png" alt="Ada Lovelace" />
         </div>
         <div class="book-info">
-          <h4>Titre du livre 1</h4>
-          <p class="author">Pen Name</p>
-          <p class="desc">Une courte description de ce livre et de son univers.</p>
+          <div class="book-name" data-i18n="book.ada.name">Ada Lovelace</div>
+          <div class="book-era" data-i18n="book.ada.era">1815 – 1852 · Mathématiques</div>
+          <p class="book-desc" data-i18n="book.ada.desc">Elle a écrit le premier algorithme de l'histoire — un siècle avant l'invention de l'ordinateur. Ada ne voulait pas qu'on lui dise ce qu'une femme ne pouvait pas faire.</p>
+          <span class="book-tag" data-i18n="book.tag.science">Science & Innovation</span>
         </div>
       </div>
+
+      <!-- 2. Marie Curie -->
       <div class="book-card">
-        <div class="book-cover">
-          <div class="book-cover-placeholder">📖<p data-i18n="books.cover.ph">Ajouter couverture</p></div>
+        <div class="book-cover" onclick="openLightbox('assets/books/marie-curie.png','Marie Curie')">
+          <img src="assets/books/marie-curie.png" alt="Marie Curie" />
         </div>
         <div class="book-info">
-          <h4>Titre du livre 2</h4>
-          <p class="author">Pen Name</p>
-          <p class="desc">Une courte description de ce livre et de son univers.</p>
+          <div class="book-name" data-i18n="book.marie.name">Marie Curie</div>
+          <div class="book-era" data-i18n="book.marie.era">1867 – 1934 · Physique & Chimie</div>
+          <p class="book-desc" data-i18n="book.marie.desc">Deux prix Nobel. Une seule personne. Marie a découvert la radioactivité dans un laboratoire qu'on lui refusait, dans une époque qui lui fermait ses portes. Elle les a toutes ouvertes.</p>
+          <span class="book-tag" data-i18n="book.tag.science">Science & Innovation</span>
         </div>
       </div>
+
+      <!-- 3. Rosa Parks -->
       <div class="book-card">
-        <div class="book-cover">
-          <div class="book-cover-placeholder">📖<p data-i18n="books.cover.ph">Ajouter couverture</p></div>
+        <div class="book-cover" onclick="openLightbox('assets/books/rosa-parks.png','Rosa Parks')">
+          <img src="assets/books/rosa-parks.png" alt="Rosa Parks" />
         </div>
         <div class="book-info">
-          <h4>Titre du livre 3</h4>
-          <p class="author">Pen Name</p>
-          <p class="desc">Une courte description de ce livre et de son univers.</p>
+          <div class="book-name" data-i18n="book.rosa.name">Rosa Parks</div>
+          <div class="book-era" data-i18n="book.rosa.era">1913 – 2005 · Droits civiques</div>
+          <p class="book-desc" data-i18n="book.rosa.desc">Le 1er décembre 1955, Rosa a refusé de se lever dans un bus. Ce geste simple a déclenché un mouvement. On n'a pas besoin de crier pour changer le monde — parfois, il suffit de rester assis.</p>
+          <span class="book-tag" data-i18n="book.tag.courage">Courage & Justice</span>
         </div>
       </div>
+
+      <!-- 4. Amelia Earhart -->
       <div class="book-card">
-        <div class="book-cover">
-          <div class="book-cover-placeholder">📖<p data-i18n="books.cover.ph">Ajouter couverture</p></div>
+        <div class="book-cover" onclick="openLightbox('assets/books/amelia-earhart.png','Amelia Earhart')">
+          <img src="assets/books/amelia-earhart.png" alt="Amelia Earhart" />
         </div>
         <div class="book-info">
-          <h4>Titre du livre 4</h4>
-          <p class="author">Pen Name</p>
-          <p class="desc">Une courte description de ce livre et de son univers.</p>
+          <div class="book-name" data-i18n="book.amelia.name">Amelia Earhart</div>
+          <div class="book-era" data-i18n="book.amelia.era">1897 – 1937 · Aviation</div>
+          <p class="book-desc" data-i18n="book.amelia.desc">La première femme à traverser l'Atlantique en avion, seule. Amelia regardait le ciel comme d'autres regardent le sol — comme quelque chose qui lui appartenait.</p>
+          <span class="book-tag" data-i18n="book.tag.adventure">Aventure & Pionnière</span>
         </div>
       </div>
+
+      <!-- 5. Cléopâtre -->
+      <div class="book-card">
+        <div class="book-cover" onclick="openLightbox('assets/books/cleopatra.png','Cléopâtre')">
+          <img src="assets/books/cleopatra.png" alt="Cléopâtre" />
+        </div>
+        <div class="book-info">
+          <div class="book-name" data-i18n="book.cleo.name">Cléopâtre</div>
+          <div class="book-era" data-i18n="book.cleo.era">69 – 30 av. J.-C. · Egypte</div>
+          <p class="book-desc" data-i18n="book.cleo.desc">Reine d'Égypte à 18 ans, polyglotte, stratège, philosophe. Cléopâtre n'était pas seulement belle — elle était la femme la plus puissante et la plus instruite de son temps.</p>
+          <span class="book-tag" data-i18n="book.tag.power">Pouvoir & Diplomatie</span>
+        </div>
+      </div>
+
+      <!-- 6. Sacagawea -->
+      <div class="book-card">
+        <div class="book-cover" onclick="openLightbox('assets/books/sacagawea.png','Sacagawea')">
+          <img src="assets/books/sacagawea.png" alt="Sacagawea" />
+        </div>
+        <div class="book-info">
+          <div class="book-name" data-i18n="book.saca.name">Sacagawea</div>
+          <div class="book-era" data-i18n="book.saca.era">~1788 – 1812 · Exploration</div>
+          <p class="book-desc" data-i18n="book.saca.desc">Guide de l'expédition Lewis & Clark, elle a traversé l'Amérique sauvage avec un nourrisson dans les bras. Sans elle, l'une des plus grandes explorations de l'histoire aurait échoué.</p>
+          <span class="book-tag" data-i18n="book.tag.adventure">Aventure & Pionnière</span>
+        </div>
+      </div>
+
     </div>
 
     <div class="about-books">
       <div class="icon">💡</div>
       <div>
         <h3 data-i18n="books.about.title">Pourquoi ces livres ?</h3>
-        <p data-i18n="books.about.desc">Parce que les petites filles méritent des histoires qui leur ressemblent — des héroïnes courageuses, des univers colorés, des messages qui restent.</p>
+        <p data-i18n="books.about.desc">Parce que les petites filles méritent des histoires qui leur ressemblent — des héroïnes courageuses, des univers colorés, des messages qui restent. Ces six femmes ont changé le monde. Ces six livres sont là pour s'en souvenir.</p>
       </div>
     </div>
   </section>
@@ -117,5 +265,19 @@
 
   <script src="translations.js"></script>
   <script src="main.js"></script>
+  <script>
+    function openLightbox(src, alt) {
+      const lb = document.getElementById('lightbox');
+      document.getElementById('lightbox-img').src = src;
+      document.getElementById('lightbox-img').alt = alt;
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+    function closeLightbox() {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+    document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+  </script>
 </body>
 </html>
