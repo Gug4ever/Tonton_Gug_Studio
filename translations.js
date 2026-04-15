@@ -132,6 +132,7 @@ const LANG_DATA = {
     'arts.w5.title': "M&M's — Océan",
     'arts.w5.sub': 'Abysses & Effroi',
     'arts.w5.desc': "Quelque chose est là, dans les profondeurs. L'Orange le sait. Ses palmes, sa bouteille de plongée, tout son équipement ne lui est d'aucun secours face à ce qu'il ne peut pas nommer. Requin ? Ombre ? Les mystères de l'océan ne se laissent pas inventorier. L'œuvre explore cette zone limite où la préparation cède à l'effroi. On peut être parfaitement équipé et avoir peur quand même.",
+    'arts.rendering.btn': '🏠 Voir en situation →',
     'arts.note.title': "Note de l'artiste",
     'arts.note.desc': "Ces œuvres sont nées d'une impulsion simple : prendre ce qui traîne sur un bureau — une vieille boîte M&M's — et voir ce qu'on peut en faire. Des images générées par IA, une boîte en relief, de l'aluminium. Pas de manifeste, pas de programme. Cinq paysages imaginaires et une boîte de bonbons. Le reste, c'est vous qui l'inventez.",
     'card.arts.desc': "Cinq œuvres sur aluminium — une série sur les grands paysages, intégrant la boîte M&M's en relief.",
@@ -191,6 +192,7 @@ const LANG_DATA = {
     'arts.w4.desc': "She jumps. That's all. In the immaculate snow, under an insultingly clear sky, Green jumps — sunglasses on her forehead, smile on her lips, no calculation, no pose. The conditions are idyllic, she knows it, and she enjoys them without apology. In a world that performs constantly, pure carefreeness may be the most radical posture there is.",
     'arts.w5.title': "M&M's — Ocean", 'arts.w5.sub': 'Abyss & Dread',
     'arts.w5.desc': "Something is there, in the depths. Orange knows it. His flippers, his scuba tank, all his equipment are no help against what he cannot name. Shark? Shadow? The mysteries of the ocean cannot be catalogued. The work explores that borderline where preparation gives way to dread. You can be perfectly equipped and still be afraid.",
+    'arts.rendering.btn': '🏠 See in situ →',
     'arts.note.title': "Artist's note",
     'arts.note.desc': "These works were born from a simple impulse: to take what was lying around on a desk — an old M&M's tin — and see what could be done with it. AI-generated images, a tin in relief, aluminium. No manifesto, no programme. Five imaginary landscapes and a box of sweets. The rest is yours to invent.",
 
@@ -334,6 +336,7 @@ const LANG_DATA = {
     'arts.w4.desc': "Salta. Es todo. En la nieve inmaculada, bajo un cielo de una claridad insultante, la Verde salta — gafas de sol en la frente, sonrisa en los labios, sin cálculo ni pose. Las condiciones son idílicas, lo sabe, y las disfruta sin disculparse. En un mundo que actúa constantemente, la despreocupación pura quizás sea la postura más radical.",
     'arts.w5.title': "M&M's — Océano", 'arts.w5.sub': 'Abismos & Terror',
     'arts.w5.desc': "Algo está ahí, en las profundidades. El Naranja lo sabe. Sus aletas, su botella de buceo, todo su equipo no le sirve de nada frente a lo que no puede nombrar. ¿Tiburón? ¿Sombra? Los misterios del océano no pueden inventariarse. La obra explora esa zona límite donde la preparación cede al terror. Se puede estar perfectamente equipado y tener miedo de todas formas.",
+    'arts.rendering.btn': '🏠 Ver en situación →',
     'arts.note.title': "Nota del artista",
     'arts.note.desc': "Estas obras nacieron de un impulso simple: tomar lo que había sobre una mesa — una vieja lata de M&M's — y ver qué se podía hacer con ella. Imágenes generadas por IA, una lata en relieve, aluminio. Sin manifiesto, sin programa. Cinco paisajes imaginarios y una caja de caramelos. El resto lo inventáis vosotros.",
 

@@ -157,6 +157,18 @@
       width: 44px; height: 44px; display: flex; align-items: center; justify-content: center;
     }
 
+    /* Rendering button */
+    .rendering-btn {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.06em;
+      color: var(--orange); background: rgba(245,166,35,0.08);
+      border: 1px solid rgba(245,166,35,0.35); border-radius: 999px;
+      padding: 0.28rem 0.85rem; cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
+      text-decoration: none; margin-top: 0.5rem;
+    }
+    .rendering-btn:hover { background: rgba(245,166,35,0.18); border-color: var(--orange); }
+
     /* Artist note */
     .artist-note {
       margin-top: 3rem;
@@ -238,6 +250,7 @@
             <span class="meta-chip">Série I</span>
             <span class="meta-chip">2025</span>
           </div>
+          <a class="rendering-btn" onclick="openLightbox('assets/mm-desert-rendering.jpg','M&M\'s — Désert · En situation')" data-i18n="arts.rendering.btn">🏠 Voir en situation →</a>
         </div>
       </div>
 
@@ -256,6 +269,7 @@
             <span class="meta-chip">Impression sur aluminium</span>
             <span class="meta-chip">Série I</span>
           </div>
+          <a class="rendering-btn" onclick="openLightbox('assets/mm-foret-rendering.jpg','M&M\'s — Forêt · En situation')" data-i18n="arts.rendering.btn">🏠 Voir en situation →</a>
         </div>
       </div>
 
@@ -274,6 +288,7 @@
             <span class="meta-chip">Impression sur aluminium</span>
             <span class="meta-chip">Série I</span>
           </div>
+          <a class="rendering-btn" onclick="openLightbox('assets/mm-ville-rendering.jpg','M&M\'s — Ville · En situation')" data-i18n="arts.rendering.btn">🏠 Voir en situation →</a>
         </div>
       </div>
 
@@ -292,6 +307,7 @@
             <span class="meta-chip">Impression sur aluminium</span>
             <span class="meta-chip">Série I</span>
           </div>
+          <a class="rendering-btn" onclick="openLightbox('assets/mm-montagne-rendering.jpg','M&M\'s — Montagne · En situation')" data-i18n="arts.rendering.btn">🏠 Voir en situation →</a>
         </div>
       </div>
 
@@ -310,6 +326,7 @@
             <span class="meta-chip">Impression sur aluminium</span>
             <span class="meta-chip">Série I</span>
           </div>
+          <a class="rendering-btn" onclick="openLightbox('assets/mm-ocean-rendering.jpg','M&M\'s — Océan · En situation')" data-i18n="arts.rendering.btn">🏠 Voir en situation →</a>
         </div>
       </div>
 
