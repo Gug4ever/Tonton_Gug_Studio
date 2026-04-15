@@ -89,7 +89,10 @@
       background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.25);
       color: var(--orange); font-size: 0.82rem; font-weight: 600;
       padding: 0.38rem 1rem; border-radius: 999px; margin-bottom: 2rem;
+      text-decoration: none; cursor: pointer;
+      transition: background 0.2s, border-color 0.2s;
     }
+    .pen-name-badge:hover { background: rgba(245,166,35,0.18); border-color: var(--orange); }
 
     /* Lightbox */
     .lightbox {
@@ -166,7 +169,7 @@
       <div class="series-tag" data-i18n="books.series.tag">📚 6 livres · Illustré · Sous pen name</div>
     </div>
 
-    <div class="pen-name-badge" data-i18n="books.pen-name">✍️ Publiés sous pen name</div>
+    <a class="pen-name-badge" href="https://daisy-harper-gray-lane.vercel.app" target="_blank" rel="noopener" data-i18n="books.pen-name">✍️ Publié sous le nom de Daisy Harper Gray Lane — Visiter le site →</a>
 
     <div class="books-grid">
 
