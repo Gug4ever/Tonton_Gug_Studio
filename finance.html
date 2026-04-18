@@ -67,6 +67,65 @@
     .dl-soon { color: var(--muted); border-color: #e2e8f0; background: #f8fafc; cursor: default; font-size: 0.72rem; }
 
     @media (max-width: 640px) { .sessions-row { grid-template-columns: 1fr; } }
+
+    /* ---- TABS ---- */
+    .fin-tabs {
+      display: flex; gap: 0.5rem; margin-bottom: 2.5rem;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 0;
+    }
+    .fin-tab {
+      padding: 0.7rem 1.4rem; font-family: 'Montserrat', sans-serif;
+      font-weight: 700; font-size: 0.85rem; letter-spacing: 0.04em;
+      cursor: pointer; border: none; background: none; color: var(--muted);
+      border-bottom: 3px solid transparent; margin-bottom: -2px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .fin-tab:hover { color: var(--text); }
+    .fin-tab.active { color: var(--orange); border-bottom-color: var(--orange); }
+    .fin-panel { display: none; }
+    .fin-panel.active { display: block; }
+
+    /* ---- NOTCHWORK PANEL ---- */
+    .nw-intro {
+      background: linear-gradient(135deg, #0a0f1e 0%, #0a1e1e 100%);
+      border-radius: var(--radius); padding: 2rem 2.5rem;
+      margin-bottom: 2.5rem; display: flex; align-items: center; gap: 2rem; flex-wrap: wrap;
+    }
+    .nw-intro .nw-icon { font-size: 3rem; flex-shrink: 0; }
+    .nw-intro h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.4rem; color: white; margin-bottom: 0.4rem; }
+    .nw-intro p { color: rgba(255,255,255,0.7); font-size: 0.92rem; line-height: 1.6; }
+    .nw-stats { display: flex; gap: 2rem; margin-top: 1rem; flex-wrap: wrap; }
+    .nw-stat { text-align: center; }
+    .nw-stat-n { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.8rem; color: #2CA5A8; }
+    .nw-stat-l { font-size: 0.75rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em; }
+
+    .nw-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem; }
+    .nw-feature {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.5rem;
+      transition: border-color 0.2s, box-shadow 0.2s;
+    }
+    .nw-feature:hover { border-color: #2CA5A8; box-shadow: 0 4px 20px rgba(44,165,168,0.12); }
+    .nw-feature-icon { font-size: 1.8rem; margin-bottom: 0.75rem; }
+    .nw-feature-title { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.95rem; color: var(--text); margin-bottom: 0.4rem; }
+    .nw-feature-desc { font-size: 0.83rem; color: var(--muted); line-height: 1.7; }
+
+    .nw-cta-block {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem 2.5rem;
+      display: flex; align-items: center; justify-content: space-between; gap: 2rem; flex-wrap: wrap;
+    }
+    .nw-cta-block h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.1rem; margin-bottom: 0.3rem; }
+    .nw-cta-block p { color: var(--muted); font-size: 0.88rem; }
+    .btn-teal {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: #2CA5A8; color: white; border-radius: 8px;
+      padding: 0.75rem 1.5rem; font-weight: 700; font-size: 0.88rem;
+      text-decoration: none; white-space: nowrap;
+      transition: background 0.2s, transform 0.2s;
+    }
+    .btn-teal:hover { background: #249396; transform: translateY(-2px); }
   </style>
 </head>
 <body>
@@ -100,6 +159,15 @@
     <p class="section-label" data-i18n="finance.label">Cours</p>
     <h1 class="section-title" data-i18n="finance.title">Finance & Marchés</h1>
     <p class="section-sub" data-i18n="finance.subtitle">Un programme complet en 5 jours — 10 sessions pour maîtriser les fondamentaux de la finance, des marchés et de l'investissement.</p>
+
+    <!-- TABS -->
+    <div class="fin-tabs">
+      <button class="fin-tab active" onclick="switchTab('seminar',this)" data-i18n="finance.tab.seminar">Fondamentaux de la Finance</button>
+      <button class="fin-tab" onclick="switchTab('notchwork',this)" data-i18n="finance.tab.notchwork">NotchWork — Rating</button>
+    </div>
+
+    <!-- PANEL 1 : SEMINAR -->
+    <div class="fin-panel active" id="panel-seminar">
 
     <!-- SEMINAR INTRO -->
     <div class="seminar-intro">
@@ -255,6 +323,57 @@
       </div>
     </div>
 
+    </div><!-- /panel-seminar -->
+
+    <!-- PANEL 2 : NOTCHWORK -->
+    <div class="fin-panel" id="panel-notchwork">
+
+      <div class="nw-intro">
+        <div class="nw-icon">📊</div>
+        <div style="flex:1">
+          <h2 data-i18n="nw.title">NotchWork</h2>
+          <p data-i18n="nw.desc">Plateforme de shadow rating alimentée par l'IA — moteur Claude Sonnet, méthodologie S&P ingérée en 1 144 chunks, RAG via embeddings OpenAI. Upload un rapport annuel, génère un shadow rating et un mémo IB complet en quelques minutes.</p>
+          <div class="nw-stats">
+            <div class="nw-stat"><div class="nw-stat-n">1 144</div><div class="nw-stat-l" data-i18n="nw.stat.chunks">Chunks S&P</div></div>
+            <div class="nw-stat"><div class="nw-stat-n">4</div><div class="nw-stat-l" data-i18n="nw.stat.steps">Étapes</div></div>
+            <div class="nw-stat"><div class="nw-stat-n">9</div><div class="nw-stat-l" data-i18n="nw.stat.slides">Slides mémo IB</div></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="nw-features">
+        <div class="nw-feature">
+          <div class="nw-feature-icon">🤖</div>
+          <div class="nw-feature-title" data-i18n="nw.f1.title">Moteur de rating IA</div>
+          <p class="nw-feature-desc" data-i18n="nw.f1.desc">Claude Sonnet analyse le rapport annuel et génère un shadow rating S&P avec forces, faiblesses, table de volatilité et conclusion — en JSON structuré.</p>
+        </div>
+        <div class="nw-feature">
+          <div class="nw-feature-icon">📚</div>
+          <div class="nw-feature-title" data-i18n="nw.f2.title">RAG Méthodologie S&P</div>
+          <p class="nw-feature-desc" data-i18n="nw.f2.desc">1 144 chunks de la méthodologie S&P indexés dans Supabase pgvector. Chaque rating s'appuie sur les passages les plus pertinents, récupérés par embeddings OpenAI.</p>
+        </div>
+        <div class="nw-feature">
+          <div class="nw-feature-icon">📄</div>
+          <div class="nw-feature-title" data-i18n="nw.f3.title">Mémo IB style</div>
+          <p class="nw-feature-desc" data-i18n="nw.f3.desc">Export automatique d'un mémo PowerPoint 9 slides — Cover, Strengths, Challenges, grilles CICRA/BRP, matrice Anchor, financials, Modifiers, Group/GRE, Conclusion.</p>
+        </div>
+        <div class="nw-feature">
+          <div class="nw-feature-icon">🌍</div>
+          <div class="nw-feature-title" data-i18n="nw.f4.title">Beyond the Big Three</div>
+          <p class="nw-feature-desc" data-i18n="nw.f4.desc">Deck de référence : 40+ slides sur l'écosystème mondial du rating — ECAI, NAIC, USPP, papier commercial, agences régionales Asie/LatAm/Afrique/MENA.</p>
+        </div>
+      </div>
+
+      <div class="nw-cta-block">
+        <div>
+          <h3 data-i18n="nw.cta.title">Accéder à la plateforme</h3>
+          <p data-i18n="nw.cta.desc">NotchWork est en ligne — shadow rating en quelques minutes à partir d'un rapport annuel.</p>
+        </div>
+        <a href="https://notchwork-gugs-projects-5c7d3f79.vercel.app" target="_blank" rel="noopener" class="btn-teal" data-i18n="nw.cta.btn">Ouvrir NotchWork →</a>
+      </div>
+
+    </div><!-- /panel-notchwork -->
+
   </section>
 
   <footer>
@@ -263,5 +382,13 @@
 
   <script src="translations.js"></script>
   <script src="main.js"></script>
+  <script>
+    function switchTab(id, btn) {
+      document.querySelectorAll('.fin-panel').forEach(p => p.classList.remove('active'));
+      document.querySelectorAll('.fin-tab').forEach(b => b.classList.remove('active'));
+      document.getElementById('panel-' + id).classList.add('active');
+      btn.classList.add('active');
+    }
+  </script>
 </body>
 </html>
