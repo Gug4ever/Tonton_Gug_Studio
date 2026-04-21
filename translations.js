@@ -100,6 +100,9 @@ const LANG_DATA = {
     'nw.cta.title': 'Accéder à la plateforme',
     'nw.cta.desc': "NotchWork est en ligne — shadow rating en quelques minutes à partir d'un rapport annuel.",
     'nw.cta.btn': 'Ouvrir NotchWork →',
+    'nw.pitch.title': 'Pitch Deck — Pre-Seed 2026',
+    'nw.pitch.desc': 'Présentation investisseurs — vision, produit, technologie et roadmap.',
+    'nw.pitch.btn': 'Télécharger le PDF →',
 
     'finance.label': 'Cours',
     'finance.title': 'Finance & Marchés',
@@ -307,6 +310,9 @@ const LANG_DATA = {
     'nw.cta.title': 'Access the platform',
     'nw.cta.desc': "NotchWork is live — shadow rating in minutes from an annual report.",
     'nw.cta.btn': 'Open NotchWork →',
+    'nw.pitch.title': 'Pitch Deck — Pre-Seed 2026',
+    'nw.pitch.desc': 'Investor presentation — vision, product, technology and roadmap.',
+    'nw.pitch.btn': 'Download PDF →',
 
     'finance.label': 'Courses',
     'finance.title': 'Finance & Markets',
@@ -477,6 +483,9 @@ const LANG_DATA = {
     'nw.cta.title': 'Acceder a la plataforma',
     'nw.cta.desc': "NotchWork está en línea — shadow rating en minutos a partir de un informe anual.",
     'nw.cta.btn': 'Abrir NotchWork →',
+    'nw.pitch.title': 'Pitch Deck — Pre-Seed 2026',
+    'nw.pitch.desc': 'Presentación para inversores — visión, producto, tecnología y hoja de ruta.',
+    'nw.pitch.btn': 'Descargar PDF →',
 
     'finance.label': 'Cursos',
     'finance.title': 'Finanzas & Mercados',
