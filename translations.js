@@ -194,7 +194,11 @@ const LANG_DATA = {
     'card.arts.desc': "Cinq œuvres sur aluminium — une série sur les grands paysages, intégrant la boîte M&M's en relief.",
     'card.arts.link': 'Voir les œuvres →',
 
+    'arts.chip.medium': 'Impression sur aluminium',
+    'arts.chip.s1': 'Série I',
+
     'bio.label': 'À propos',
+    'bio.tagline': 'Finance · Créateur · Tonton Gug Studio',
     'bio.role': 'Fondateur · Tonton Gug Studio',
     'bio.p1': "Plus de 15 ans d'expérience en Investment Banking, entre Paris, Londres et Hong Kong. Spécialisé en corporate advisory — event driven financing et rating advisory — au sein de grandes institutions financières : BNP Paribas, Société Générale CIB, MUFG, Edmond de Rothschild.",
     'bio.p2': "J'ai fondé Tonton Gug Studio pour rassembler sous un même toit ce qui prend forme en parallèle de mon métier — et y contribue en tant que créateur.",
@@ -394,7 +398,11 @@ const LANG_DATA = {
     'concept.6.title': 'Managing risk',
     'concept.6.desc': 'Not losing money is also winning. Risk management strategies.',
 
+    'arts.chip.medium': 'Aluminium print',
+    'arts.chip.s1': 'Series I',
+
     'bio.label': 'About',
+    'bio.tagline': 'Finance · Creator · Tonton Gug Studio',
     'bio.role': 'Founder · Tonton Gug Studio',
     'bio.p1': '15+ years in Investment Banking across Paris, London and Hong Kong. Specialised in corporate advisory — event driven financing and rating advisory — across BNP Paribas, Société Générale CIB, MUFG and Edmond de Rothschild.',
     'bio.p2': "I founded Tonton Gug Studio to bring together, under one roof, everything that takes shape alongside my career — and contribute to it as a creator.",
@@ -594,7 +602,11 @@ const LANG_DATA = {
     'concept.6.title': 'Gestión del riesgo',
     'concept.6.desc': 'No perder dinero también es ganar. Estrategias de gestión del riesgo.',
 
+    'arts.chip.medium': 'Impresión sobre aluminio',
+    'arts.chip.s1': 'Serie I',
+
     'bio.label': 'Acerca de',
+    'bio.tagline': 'Finanzas · Creador · Tonton Gug Studio',
     'bio.role': 'Fundador · Tonton Gug Studio',
     'bio.p1': 'Más de 15 años en Investment Banking entre París, Londres y Hong Kong. Especializado en corporate advisory — event driven financing y rating advisory — en BNP Paribas, Société Générale CIB, MUFG y Edmond de Rothschild.',
     'bio.p2': 'Fundé Tonton Gug Studio para reunir bajo un mismo techo todo lo que cobra forma en paralelo a mi carrera — y contribuir a él como creador.',
