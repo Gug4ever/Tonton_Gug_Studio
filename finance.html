@@ -412,11 +412,11 @@
         <div class="nw-icon"><img src="assets/notchwork-logo.jpeg" alt="NotchWork" style="height:56px;border-radius:10px;" /></div>
         <div style="flex:1">
           <h2 data-i18n="nw.title">NotchWork</h2>
-          <p data-i18n="nw.desc">Plateforme de shadow rating alimentée par l'IA — moteur Claude Sonnet, méthodologie S&P ingérée en 1 144 chunks, RAG via embeddings OpenAI. Upload un rapport annuel, génère un shadow rating et un mémo IB complet en quelques minutes.</p>
+          <p data-i18n="nw.desc">Plateforme de shadow rating multi-agence alimentée par l'IA — moteur Claude Sonnet 4.5, méthodologie S&P ingérée en 1 144 chunks RAG, plus 44 scorecards sectorielles Moody's extraites verbatim des PDFs publiés. Réconciliation automatique entre les deux agences si l'écart dépasse 2 notches. Upload un rapport annuel, génère deux shadow ratings parallèles et un mémo IB complet en moins de 10 minutes.</p>
           <div class="nw-stats">
-            <div class="nw-stat"><div class="nw-stat-n">1 144+</div><div class="nw-stat-l" data-i18n="nw.stat.chunks">Chunks S&P · Moody's</div></div>
-            <div class="nw-stat"><div class="nw-stat-n">4</div><div class="nw-stat-l" data-i18n="nw.stat.steps">Étapes</div></div>
-            <div class="nw-stat"><div class="nw-stat-n">9</div><div class="nw-stat-l" data-i18n="nw.stat.slides">Slides mémo IB</div></div>
+            <div class="nw-stat"><div class="nw-stat-n">2</div><div class="nw-stat-l" data-i18n="nw.stat.agencies">Agences en parallèle (S&P + Moody's)</div></div>
+            <div class="nw-stat"><div class="nw-stat-n">44</div><div class="nw-stat-l" data-i18n="nw.stat.scorecards">Scorecards Moody's</div></div>
+            <div class="nw-stat"><div class="nw-stat-n">&lt; 10 min</div><div class="nw-stat-l" data-i18n="nw.stat.time">Rapport annuel → rating</div></div>
           </div>
         </div>
       </div>
@@ -424,23 +424,23 @@
       <div class="nw-features">
         <div class="nw-feature">
           <div class="nw-feature-icon">🤖</div>
-          <div class="nw-feature-title" data-i18n="nw.f1.title">Moteur de rating IA</div>
-          <p class="nw-feature-desc" data-i18n="nw.f1.desc">Claude Sonnet analyse le rapport annuel et génère un shadow rating S&P avec forces, faiblesses, table de volatilité et conclusion — en JSON structuré.</p>
+          <div class="nw-feature-title" data-i18n="nw.f1.title">Double moteur S&P + Moody's</div>
+          <p class="nw-feature-desc" data-i18n="nw.f1.desc">Claude Sonnet 4.5 applique le framework S&P (CICRA → BRP × FRP → Anchor → Modifiers → ICR) et le scorecard sectoriel Moody's en parallèle. Sortie JSON structurée avec forces, faiblesses, sensibilités, narrative IB-style.</p>
         </div>
         <div class="nw-feature">
           <div class="nw-feature-icon">📚</div>
-          <div class="nw-feature-title" data-i18n="nw.f2.title">RAG Méthodologie S&P</div>
-          <p class="nw-feature-desc" data-i18n="nw.f2.desc">1 144 chunks de la méthodologie S&P indexés dans Supabase pgvector. Chaque rating s'appuie sur les passages les plus pertinents, récupérés par embeddings OpenAI.</p>
+          <div class="nw-feature-title" data-i18n="nw.f2.title">Méthodologies ingérées verbatim</div>
+          <p class="nw-feature-desc" data-i18n="nw.f2.desc">18 PDFs S&P + 44 scorecards Moody's (Regulated Networks, Utilities, Integrated O&G, Auto, Telecom, Pharma, REITs, Steel...) extraits mot-à-mot des publications officielles. RAG via Supabase pgvector + prompt caching pour 10× de réduction du coût input.</p>
+        </div>
+        <div class="nw-feature">
+          <div class="nw-feature-icon">⚖️</div>
+          <div class="nw-feature-title" data-i18n="nw.f3.title">Réconciliation cross-agence</div>
+          <p class="nw-feature-desc" data-i18n="nw.f3.desc">Échelle unifiée S&P ↔ Moody's. Si l'écart entre les deux ratings dépasse 2 notches (rare en pratique), les deux moteurs reprennent automatiquement avec la rating de l'autre en contexte, pour soit converger soit documenter la raison méthodologique de l'écart.</p>
         </div>
         <div class="nw-feature">
           <div class="nw-feature-icon">📄</div>
-          <div class="nw-feature-title" data-i18n="nw.f3.title">Mémo IB style</div>
-          <p class="nw-feature-desc" data-i18n="nw.f3.desc">Export automatique d'un mémo PowerPoint 9 slides — Cover, Strengths, Challenges, grilles CICRA/BRP, matrice Anchor, financials, Modifiers, Group/GRE, Conclusion.</p>
-        </div>
-        <div class="nw-feature">
-          <div class="nw-feature-icon">🌍</div>
-          <div class="nw-feature-title" data-i18n="nw.f4.title">Beyond the Big Three</div>
-          <p class="nw-feature-desc" data-i18n="nw.f4.desc">Deck de référence : 40+ slides sur l'écosystème mondial du rating — ECAI, NAIC, USPP, papier commercial, agences régionales Asie/LatAm/Afrique/MENA.</p>
+          <div class="nw-feature-title" data-i18n="nw.f4.title">Mémo IB style + Beyond the Big 3</div>
+          <p class="nw-feature-desc" data-i18n="nw.f4.desc">Export PowerPoint mémo (cover, strengths/challenges, CICRA/BRP, matrice Anchor, financials triple-colonne reported/S&P-adjusted/Moody's-adjusted, scorecard Moody's, conclusion). Plus un deck de référence 40+ slides sur l'écosystème mondial du rating — ECAI, NAIC, USPP, agences régionales.</p>
         </div>
       </div>
 
@@ -457,8 +457,8 @@
         <div style="display:flex; align-items:center; gap:1.25rem;">
           <span style="font-size:2rem;">📄</span>
           <div>
-            <div style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--text); margin-bottom:0.25rem;" data-i18n="nw.pitch.title">Pitch Deck — Pre-Seed 2026</div>
-            <div style="color:var(--muted); font-size:0.85rem;" data-i18n="nw.pitch.desc">Présentation investisseurs — vision, produit, technologie et roadmap.</div>
+            <div style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--text); margin-bottom:0.25rem;" data-i18n="nw.pitch.title">Seed Pitch Deck — 2026</div>
+            <div style="color:var(--muted); font-size:0.85rem;" data-i18n="nw.pitch.desc">24 slides — vision, produit (S&P + Moody's en parallèle), opportunité de marché, business model, GTM, équipe, roadmap. Levée £500K–£750K à £3.5M pre-money.</div>
           </div>
         </div>
         <a href="assets/notchwork-pitch.pdf" class="btn-teal" download data-i18n="nw.pitch.btn">Télécharger le PDF →</a>
