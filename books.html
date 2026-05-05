@@ -113,6 +113,23 @@
       width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
     }
 
+    /* Coming Soon overlay on book covers */
+    .book-cs-overlay {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: rgba(10,15,30,0.45);
+    }
+    .book-cs-overlay .cs-initial {
+      font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 800;
+      color: rgba(255,255,255,0.12); margin-bottom: 0.75rem; line-height: 1; letter-spacing: 0.05em;
+    }
+    .book-cs-overlay .cs-label {
+      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--orange);
+      background: rgba(245,166,35,0.15); border: 1px solid rgba(245,166,35,0.4);
+      padding: 0.22rem 0.75rem; border-radius: 999px;
+    }
+
     /* About box */
     .about-books {
       background: var(--card); border: 1px solid var(--border);
@@ -248,6 +265,38 @@
           <div class="book-era" data-i18n="book.saca.era">~1788 – 1812 · Exploration</div>
           <p class="book-desc" data-i18n="book.saca.desc">Guide de l'expédition Lewis & Clark, elle a traversé l'Amérique sauvage avec un nourrisson dans les bras. Sans elle, l'une des plus grandes explorations de l'histoire aurait échoué.</p>
           <span class="book-tag" data-i18n="book.tag.adventure">Aventure & Pionnière</span>
+        </div>
+      </div>
+
+      <!-- 7. Frida Kahlo — Coming Soon -->
+      <div class="book-card">
+        <div class="book-cover" style="cursor:default;">
+          <div class="book-cs-overlay">
+            <div class="cs-initial">FK</div>
+            <div class="cs-label">Coming Soon</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-name" data-i18n="book.frida.name">Frida Kahlo</div>
+          <div class="book-era" data-i18n="book.frida.era">1907 – 1954 · Art</div>
+          <p class="book-desc" data-i18n="book.frida.desc">Elle a peint sa douleur et sa force avec des couleurs éclatantes. Frida a transformé chaque épreuve en chef-d'œuvre — et le monde n'a jamais oublié son regard.</p>
+          <span class="book-tag" data-i18n="book.tag.art">Art & Résilience</span>
+        </div>
+      </div>
+
+      <!-- 8. Zelda Fitzgerald — Coming Soon -->
+      <div class="book-card">
+        <div class="book-cover" style="cursor:default;">
+          <div class="book-cs-overlay">
+            <div class="cs-initial">ZF</div>
+            <div class="cs-label">Coming Soon</div>
+          </div>
+        </div>
+        <div class="book-info">
+          <div class="book-name" data-i18n="book.zelda.name">Zelda Fitzgerald</div>
+          <div class="book-era" data-i18n="book.zelda.era">1900 – 1948 · Écriture & Art</div>
+          <p class="book-desc" data-i18n="book.zelda.desc">Danseuse, écrivaine, peintre — Zelda fut longtemps l'ombre d'un grand nom. Elle était, en réalité, une lumière à part entière.</p>
+          <span class="book-tag" data-i18n="book.tag.literature">Écriture & Émancipation</span>
         </div>
       </div>
 
