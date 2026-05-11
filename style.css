@@ -39,7 +39,7 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 92px;
+  height: 72px;
 }
 
 .nav-logo {
@@ -52,7 +52,7 @@ nav {
 
 .nav-logo img {
   display: block;
-  height: 92px;
+  height: 48px;
   width: auto;
 }
 
