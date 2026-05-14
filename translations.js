@@ -116,6 +116,7 @@ const LANG_DATA = {
     'book.frida.desc': "Elle a peint sa douleur et sa force avec des couleurs éclatantes. Frida a transformé chaque épreuve en chef-d'œuvre — et le monde n'a jamais oublié son regard.",
     'book.zelda.name': 'Zelda Fitzgerald', 'book.zelda.era': '1900 – 1948 · Écriture & Art',
     'book.zelda.desc': "Danseuse, écrivaine, peintre — Zelda fut longtemps l'ombre d'un grand nom. Elle était, en réalité, une lumière à part entière.",
+    'book.buy': 'Acheter', 'book.buy.soon': 'Bientôt →',
 
     'finance.tab.seminar': 'Fondamentaux de la Finance',
     'finance.tab.notchwork': 'NotchWork — Rating',
@@ -377,6 +378,7 @@ const LANG_DATA = {
     'book.frida.desc': "She painted her pain and her strength in blazing colours. Frida turned every ordeal into a masterpiece — and the world never forgot her gaze.",
     'book.zelda.name': 'Zelda Fitzgerald', 'book.zelda.era': '1900 – 1948 · Writing & Art',
     'book.zelda.desc': "Dancer, writer, painter — Zelda lived for too long in the shadow of a great name. She was, in truth, a light entirely her own.",
+    'book.buy': 'Buy', 'book.buy.soon': 'Coming soon',
 
     'finance.tab.seminar': 'Finance Fundamentals',
     'finance.tab.notchwork': 'NotchWork — Rating',
@@ -595,6 +597,7 @@ const LANG_DATA = {
     'book.frida.desc': "Pintó su dolor y su fuerza con colores deslumbrantes. Frida convirtió cada prueba en una obra maestra — y el mundo nunca olvidó su mirada.",
     'book.zelda.name': 'Zelda Fitzgerald', 'book.zelda.era': '1900 – 1948 · Escritura & Arte',
     'book.zelda.desc': "Bailarina, escritora, pintora — Zelda vivió demasiado tiempo a la sombra de un gran nombre. Era, en realidad, una luz completamente propia.",
+    'book.buy': 'Comprar', 'book.buy.soon': 'Próximamente',
 
     'finance.tab.seminar': 'Fundamentos de Finanzas',
     'finance.tab.notchwork': 'NotchWork — Rating',

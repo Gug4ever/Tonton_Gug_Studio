@@ -130,6 +130,24 @@
       padding: 0.22rem 0.75rem; border-radius: 999px;
     }
 
+    /* Buy buttons */
+    .book-buy {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 0.85rem; padding: 0.4rem 1rem;
+      background: var(--orange); color: #0a0f1e;
+      border-radius: 999px; font-size: 0.76rem; font-weight: 700;
+      text-decoration: none; transition: opacity 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .book-buy:hover { opacity: 0.82; transform: translateY(-1px); }
+    .book-buy-soon {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 0.85rem; padding: 0.4rem 1rem;
+      border: 1px dashed rgba(255,255,255,0.18); color: rgba(255,255,255,0.3);
+      border-radius: 999px; font-size: 0.76rem; font-weight: 600;
+      white-space: nowrap;
+    }
+
     /* About box */
     .about-books {
       background: var(--card); border: 1px solid var(--border);
@@ -200,6 +218,7 @@
           <div class="book-era" data-i18n="book.ada.era">1815 – 1852 · Mathématiques</div>
           <p class="book-desc" data-i18n="book.ada.desc">Elle a écrit le premier algorithme de l'histoire — un siècle avant l'invention de l'ordinateur. Ada ne voulait pas qu'on lui dise ce qu'une femme ne pouvait pas faire.</p>
           <span class="book-tag" data-i18n="book.tag.science">Science & Innovation</span>
+          <span class="book-buy-soon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy.soon">Bientôt →</span></span>
         </div>
       </div>
 
@@ -213,6 +232,7 @@
           <div class="book-era" data-i18n="book.marie.era">1867 – 1934 · Physique & Chimie</div>
           <p class="book-desc" data-i18n="book.marie.desc">Deux prix Nobel. Une seule personne. Marie a découvert la radioactivité dans un laboratoire qu'on lui refusait, dans une époque qui lui fermait ses portes. Elle les a toutes ouvertes.</p>
           <span class="book-tag" data-i18n="book.tag.science">Science & Innovation</span>
+          <a href="https://shop.ingramspark.com/b/084?params=TbLeVsWd64GmqGkGvm5bgBJlTbf87RkeKjNBkBFmB8q" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
         </div>
       </div>
 
@@ -226,6 +246,7 @@
           <div class="book-era" data-i18n="book.rosa.era">1913 – 2005 · Droits civiques</div>
           <p class="book-desc" data-i18n="book.rosa.desc">Le 1er décembre 1955, Rosa a refusé de se lever dans un bus. Ce geste simple a déclenché un mouvement. On n'a pas besoin de crier pour changer le monde — parfois, il suffit de rester assis.</p>
           <span class="book-tag" data-i18n="book.tag.courage">Courage & Justice</span>
+          <a href="https://shop.ingramspark.com/b/084?params=jiOEXz9cOBUoLqmDUFrWp1QVTXXnKuQ5HdiBFWy8hEL" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
         </div>
       </div>
 
@@ -239,6 +260,7 @@
           <div class="book-era" data-i18n="book.amelia.era">1897 – 1937 · Aviation</div>
           <p class="book-desc" data-i18n="book.amelia.desc">La première femme à traverser l'Atlantique en avion, seule. Amelia regardait le ciel comme d'autres regardent le sol — comme quelque chose qui lui appartenait.</p>
           <span class="book-tag" data-i18n="book.tag.adventure">Aventure & Pionnière</span>
+          <span class="book-buy-soon"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy.soon">Bientôt →</span></span>
         </div>
       </div>
 
@@ -252,6 +274,7 @@
           <div class="book-era" data-i18n="book.cleo.era">69 – 30 av. J.-C. · Egypte</div>
           <p class="book-desc" data-i18n="book.cleo.desc">Reine d'Égypte à 18 ans, polyglotte, stratège, philosophe. Cléopâtre n'était pas seulement belle — elle était la femme la plus puissante et la plus instruite de son temps.</p>
           <span class="book-tag" data-i18n="book.tag.power">Pouvoir & Diplomatie</span>
+          <a href="https://shop.ingramspark.com/b/084?params=iYpCa0giEfOv5NQnMzSvBGp06gUhhVVDBrapfSlisGR" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
         </div>
       </div>
 
@@ -265,6 +288,7 @@
           <div class="book-era" data-i18n="book.saca.era">~1788 – 1812 · Exploration</div>
           <p class="book-desc" data-i18n="book.saca.desc">Guide de l'expédition Lewis & Clark, elle a traversé l'Amérique sauvage avec un nourrisson dans les bras. Sans elle, l'une des plus grandes explorations de l'histoire aurait échoué.</p>
           <span class="book-tag" data-i18n="book.tag.adventure">Aventure & Pionnière</span>
+          <a href="https://shop.ingramspark.com/b/084?params=SwrR5ikHtRGpwGpZ2elZeXfQIagsYyP56oIlr5gbc9v" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
         </div>
       </div>
 
@@ -278,6 +302,7 @@
           <div class="book-era" data-i18n="book.frida.era">1907 – 1954 · Art</div>
           <p class="book-desc" data-i18n="book.frida.desc">Elle a peint sa douleur et sa force avec des couleurs éclatantes. Frida a transformé chaque épreuve en chef-d'œuvre — et le monde n'a jamais oublié son regard.</p>
           <span class="book-tag" data-i18n="book.tag.art">Art & Résilience</span>
+          <a href="https://shop.ingramspark.com/b/084?params=kmapzVzRz85uni5zyYzQfPBErgcbz7668uoPrTWILAX" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
         </div>
       </div>
 
@@ -291,6 +316,7 @@
           <div class="book-era" data-i18n="book.zelda.era">1900 – 1948 · Écriture & Art</div>
           <p class="book-desc" data-i18n="book.zelda.desc">Danseuse, écrivaine, peintre — Zelda fut longtemps l'ombre d'un grand nom. Elle était, en réalité, une lumière à part entière.</p>
           <span class="book-tag" data-i18n="book.tag.literature">Écriture & Émancipation</span>
+          <a href="https://shop.ingramspark.com/b/084?params=N9TXbCcHNXxkQUzGgshOqltvY1Jc9tf8S9xMDdDWSC1" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
         </div>
       </div>
 
