@@ -261,6 +261,74 @@
     .element-sub { font-size: 0.72rem; color: #a78bfa; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase; margin-top: 0.2rem; }
     @media (max-width: 900px) { .elements-grid { grid-template-columns: repeat(3, 1fr); } }
     @media (max-width: 560px) { .elements-grid { grid-template-columns: repeat(2, 1fr); } }
+
+    /* ---- CORRESPONDANCES (Série III) ---- */
+    .corr-intro {
+      background: linear-gradient(135deg, #0a0f1e 0%, #001a10 100%);
+      border-radius: var(--radius); padding: 2.5rem 3rem;
+      margin-bottom: 3rem; position: relative; overflow: hidden;
+    }
+    .corr-intro::before {
+      content: ''; position: absolute;
+      top: -60px; right: -60px; width: 220px; height: 220px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(34,197,94,0.12) 0%, transparent 70%);
+    }
+    .corr-intro .ai-label { font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase; color: #4ade80; font-weight: 700; margin-bottom: 0.75rem; }
+    .corr-intro h2 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: clamp(1.4rem, 3vw, 2rem); color: white; margin-bottom: 1rem; line-height: 1.3; }
+    .corr-intro p { color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.75; max-width: 680px; font-style: italic; }
+    .corr-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(34,197,94,0.08); border: 1px solid rgba(34,197,94,0.3);
+      color: #4ade80; font-size: 0.8rem; font-weight: 600;
+      padding: 0.35rem 1rem; border-radius: 999px; margin-top: 1.25rem;
+    }
+
+    .diptych { margin-bottom: 3.5rem; }
+    .diptych-images {
+      display: grid; grid-template-columns: 1fr 1fr;
+      gap: 1rem; margin-bottom: 1.25rem;
+    }
+    .diptych-img-wrap {
+      position: relative; border-radius: var(--radius); overflow: hidden;
+      aspect-ratio: 4/3; background: #0a0f1e; cursor: zoom-in;
+    }
+    .diptych-img-wrap img {
+      width: 100%; height: 100%; object-fit: cover; display: block;
+      transition: transform 0.5s ease;
+    }
+    .diptych-img-wrap:hover img { transform: scale(1.04); }
+    .diptych-badge {
+      position: absolute; top: 0.7rem; left: 0.7rem;
+      background: rgba(0,0,0,0.65); backdrop-filter: blur(6px);
+      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.15em; text-transform: uppercase;
+      padding: 0.22rem 0.65rem; border-radius: 999px;
+    }
+    .diptych-badge.env { color: var(--orange); border: 1px solid rgba(245,166,35,0.4); }
+    .diptych-badge.elem { color: #a78bfa; border: 1px solid rgba(139,92,246,0.4); }
+    .diptych-dot {
+      position: absolute; bottom: 0.7rem; right: 0.7rem;
+      width: 12px; height: 12px; border-radius: 50%;
+      border: 2px solid rgba(255,255,255,0.5);
+    }
+
+    .diptych-body {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 1.75rem 2rem;
+    }
+    .diptych-title {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: 1.1rem; color: var(--text); margin-bottom: 0.2rem;
+    }
+    .diptych-subtitle {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; margin-bottom: 1rem;
+    }
+    .diptych-desc { color: var(--muted); font-size: 0.88rem; line-height: 1.85; font-style: italic; }
+
+    @media (max-width: 640px) {
+      .diptych-images { grid-template-columns: 1fr; }
+    }
   </style>
 </head>
 <body>
@@ -305,6 +373,7 @@
     <div class="arts-tabs">
       <button class="arts-tab active" onclick="switchArtsTab('env',this)" data-i18n="arts.tab.env">M&M's — Environnements</button>
       <button class="arts-tab" onclick="switchArtsTab('elements',this)" data-i18n="arts.tab.elements">M&M's — Éléments</button>
+      <button class="arts-tab" onclick="switchArtsTab('corr',this)" data-i18n="arts.tab.corr">M&M's — Correspondances</button>
     </div>
 
     <!-- PANEL 1 : ENVIRONNEMENTS -->
@@ -455,6 +524,7 @@
               <span class="meta-chip" data-i18n="arts.chip.medium">Impression sur aluminium</span>
               <span class="meta-chip" data-i18n="arts.chip.s2">Série II</span>
             </div>
+            <a class="rendering-btn" onclick="openLightbox('assets/mm-elem-air-rendering.jpg','M&amp;M\'s — Air · En situation')" data-i18n="arts.rendering.btn">🏠 Voir en situation →</a>
           </div>
         </div>
 
@@ -473,6 +543,7 @@
               <span class="meta-chip" data-i18n="arts.chip.medium">Impression sur aluminium</span>
               <span class="meta-chip" data-i18n="arts.chip.s2">Série II</span>
             </div>
+            <a class="rendering-btn" onclick="openLightbox('assets/mm-elem-terre-rendering.jpg','M&amp;M\'s — Terre · En situation')" data-i18n="arts.rendering.btn">🏠 Voir en situation →</a>
           </div>
         </div>
 
@@ -491,6 +562,7 @@
               <span class="meta-chip" data-i18n="arts.chip.medium">Impression sur aluminium</span>
               <span class="meta-chip" data-i18n="arts.chip.s2">Série II</span>
             </div>
+            <a class="rendering-btn" onclick="openLightbox('assets/mm-elem-feu-rendering.jpg','M&amp;M\'s — Feu · En situation')" data-i18n="arts.rendering.btn">🏠 Voir en situation →</a>
           </div>
         </div>
 
@@ -509,6 +581,7 @@
               <span class="meta-chip" data-i18n="arts.chip.medium">Impression sur aluminium</span>
               <span class="meta-chip" data-i18n="arts.chip.s2">Série II</span>
             </div>
+            <a class="rendering-btn" onclick="openLightbox('assets/mm-elem-eau-rendering.jpg','M&amp;M\'s — Eau · En situation')" data-i18n="arts.rendering.btn">🏠 Voir en situation →</a>
           </div>
         </div>
 
@@ -527,11 +600,129 @@
               <span class="meta-chip" data-i18n="arts.chip.medium">Impression sur aluminium</span>
               <span class="meta-chip" data-i18n="arts.chip.s2">Série II</span>
             </div>
+            <a class="rendering-btn" onclick="openLightbox('assets/mm-elem-espace-rendering.jpg','M&amp;M\'s — Espace · En situation')" data-i18n="arts.rendering.btn">🏠 Voir en situation →</a>
           </div>
         </div>
 
       </div>
     </div><!-- /panel-elements -->
+
+    <!-- PANEL 3 : CORRESPONDANCES -->
+    <div class="arts-panel" id="panel-corr">
+
+      <div class="corr-intro">
+        <div class="ai-label" data-i18n="arts.corr.label">Lecture transversale — 2026</div>
+        <h2 data-i18n="arts.corr.title">M&M's — Correspondances</h2>
+        <p data-i18n="arts.corr.desc">Chaque M&M apparaît dans deux séries — un Environnement, un Élément. Loin d'être anecdotique, ce doublement compose une grammaire secrète : c'est dans le passage d'un cadre à l'autre, dans l'écho silencieux entre les deux visages d'un même personnage, que se révèle le véritable propos de l'œuvre. Cinq couleurs, cinq diptyques, cinq vertiges.</p>
+        <div class="corr-tag" data-i18n="arts.corr.tag">◈ 5 diptyques · Lecture transversale · Séries I &amp; II</div>
+      </div>
+
+      <!-- JAUNE — Désert × Espace -->
+      <div class="diptych">
+        <div class="diptych-images">
+          <div class="diptych-img-wrap" onclick="openLightbox('assets/mm-desert.jpg','M&amp;M\'s — Désert')">
+            <img src="assets/mm-desert.jpg" alt="M&M's — Désert" />
+            <div class="diptych-badge env" data-i18n="arts.chip.s1">Série I</div>
+            <div class="diptych-dot" style="background:#f5c800;"></div>
+          </div>
+          <div class="diptych-img-wrap" onclick="openLightbox('assets/mm-elem-espace.jpg','M&amp;M\'s — Espace')">
+            <img src="assets/mm-elem-espace.jpg" alt="M&M's — Espace" />
+            <div class="diptych-badge elem" data-i18n="arts.chip.s2">Série II</div>
+            <div class="diptych-dot" style="background:#f5c800;"></div>
+          </div>
+        </div>
+        <div class="diptych-body">
+          <div class="diptych-title" data-i18n="arts.corr.jaune.title">Jaune — Du Désert à l'Espace</div>
+          <div class="diptych-subtitle" style="color:#f5c800;" data-i18n="arts.corr.jaune.sub">Désert · Espace · Deux silences absolus</div>
+          <p class="diptych-desc" data-i18n="arts.corr.jaune.desc">Deux déserts. Voilà la traversée vertigineuse que propose le Jaune en juxtaposant ses deux apparitions. Dans la série <em>Environnements</em>, il foule les dunes brûlantes du Sahara ; dans <em>Éléments</em>, il flotte dans le vide sidéral. Géographiquement, tout les sépare. Métaphysiquement, rien. Ce sont deux étendues où la vie refuse de s'épanouir, deux silences absolus, deux hostilités fondamentales. Le sable et le vide partagent cette même qualité ontologique : ils sont ce qui reste quand tout le reste a renoncé. Le sourire candide du Jaune, identique dans les deux œuvres, prend alors valeur de manifeste — l'ignorance comme dernière stratégie de survie face à l'inhabitable.</p>
+        </div>
+      </div>
+
+      <!-- ROUGE — Ville × Terre -->
+      <div class="diptych">
+        <div class="diptych-images">
+          <div class="diptych-img-wrap" onclick="openLightbox('assets/mm-ville.jpg','M&amp;M\'s — Ville')">
+            <img src="assets/mm-ville.jpg" alt="M&M's — Ville" />
+            <div class="diptych-badge env" data-i18n="arts.chip.s1">Série I</div>
+            <div class="diptych-dot" style="background:#ef4444;"></div>
+          </div>
+          <div class="diptych-img-wrap" onclick="openLightbox('assets/mm-elem-terre.jpg','M&amp;M\'s — Terre')">
+            <img src="assets/mm-elem-terre.jpg" alt="M&M's — Terre" />
+            <div class="diptych-badge elem" data-i18n="arts.chip.s2">Série II</div>
+            <div class="diptych-dot" style="background:#ef4444;"></div>
+          </div>
+        </div>
+        <div class="diptych-body">
+          <div class="diptych-title" data-i18n="arts.corr.rouge.title">Rouge — De la Ville aux Civilisations Perdues</div>
+          <div class="diptych-subtitle" style="color:#ef4444;" data-i18n="arts.corr.rouge.sub">Ville · Terre · Des millénaires en un regard</div>
+          <p class="diptych-desc" data-i18n="arts.corr.rouge.desc">Le Rouge propose ici la plus longue traversée temporelle de la série. D'un côté, la métropole contemporaine, ses néons, son vacarme. De l'autre, la grotte et sa statue précolombienne, témoin muet d'un monde englouti. Entre les deux, des millénaires — et pourtant, la même obstination humaine à laisser des traces. Les gratte-ciels d'aujourd'hui ne sont que les pyramides de demain ; les statues d'hier furent les selfies de leur temps. L'œuvre interroge cette continuité troublante : tout ce que nous bâtissons est déjà ruine en puissance. Le Rouge, indifférent, traverse les âges avec la même assurance tranquille — comme s'il savait, lui, que les civilisations passent mais que le besoin de civiliser, lui, demeure.</p>
+        </div>
+      </div>
+
+      <!-- BLEU — Forêt × Feu -->
+      <div class="diptych">
+        <div class="diptych-images">
+          <div class="diptych-img-wrap" onclick="openLightbox('assets/mm-foret.jpg','M&amp;M\'s — Forêt')">
+            <img src="assets/mm-foret.jpg" alt="M&M's — Forêt" />
+            <div class="diptych-badge env" data-i18n="arts.chip.s1">Série I</div>
+            <div class="diptych-dot" style="background:#3b82f6;"></div>
+          </div>
+          <div class="diptych-img-wrap" onclick="openLightbox('assets/mm-elem-feu.jpg','M&amp;M\'s — Feu')">
+            <img src="assets/mm-elem-feu.jpg" alt="M&M's — Feu" />
+            <div class="diptych-badge elem" data-i18n="arts.chip.s2">Série II</div>
+            <div class="diptych-dot" style="background:#3b82f6;"></div>
+          </div>
+        </div>
+        <div class="diptych-body">
+          <div class="diptych-title" data-i18n="arts.corr.bleu.title">Bleu — De la Forêt au Volcan</div>
+          <div class="diptych-subtitle" style="color:#3b82f6;" data-i18n="arts.corr.bleu.sub">Forêt · Feu · Le souffle de Brahma</div>
+          <p class="diptych-desc" data-i18n="arts.corr.bleu.desc">La forêt et le feu. La création et la destruction. Le Bleu incarne à lui seul ce battement cosmique dont les Hindous font le souffle même de Brahma. Dans l'environnement forestier, il évolue parmi les arbres — biomasse, oxygène, photosynthèse, l'usine secrète du vivant. Dans l'environnement volcanique, il porte le seau de lave, ce même vivant rendu à l'état de cendre. Forêt et feu ne sont pas opposés : ils sont les deux temps d'un même mouvement. Toute forêt finira par brûler. Toute terre brûlée finira par reverdir. Le Bleu, en passant de l'une à l'autre, n'est pas un personnage qui change de décor : il est le témoin du cycle.</p>
+        </div>
+      </div>
+
+      <!-- VERT — Montagne × Eau -->
+      <div class="diptych">
+        <div class="diptych-images">
+          <div class="diptych-img-wrap" onclick="openLightbox('assets/mm-montagne.jpg','M&amp;M\'s — Montagne')">
+            <img src="assets/mm-montagne.jpg" alt="M&M's — Montagne" />
+            <div class="diptych-badge env" data-i18n="arts.chip.s1">Série I</div>
+            <div class="diptych-dot" style="background:#22c55e;"></div>
+          </div>
+          <div class="diptych-img-wrap" onclick="openLightbox('assets/mm-elem-eau.jpg','M&amp;M\'s — Eau')">
+            <img src="assets/mm-elem-eau.jpg" alt="M&M's — Eau" />
+            <div class="diptych-badge elem" data-i18n="arts.chip.s2">Série II</div>
+            <div class="diptych-dot" style="background:#22c55e;"></div>
+          </div>
+        </div>
+        <div class="diptych-body">
+          <div class="diptych-title" data-i18n="arts.corr.vert.title">Vert — Des Montagnes à l'Eau</div>
+          <div class="diptych-subtitle" style="color:#22c55e;" data-i18n="arts.corr.vert.sub">Montagne · Eau · Le principe nourricier</div>
+          <p class="diptych-desc" data-i18n="arts.corr.vert.desc">L'eau partout. Voilà le message obstiné du Vert. En montagne, elle dort sous forme de glace, court en torrents, suinte des parois rocheuses. Au lac, elle s'étale, généreuse, accueillante, miroir du ciel. De l'altitude la plus austère à la vallée la plus paisible, c'est la même substance qui circule, la même promesse de vie qui se renouvelle. Le cheval blanc qui hante les deux décors n'est peut-être que la mémoire incarnée de ce nomadisme aquatique — créature de plaine et d'altitude à la fois, abreuvée partout. Le Vert, seule M&M féminine, devient ici l'incarnation du principe nourricier : là où il y a de l'eau, il y a la vie ; là où il y a la vie, il y a une mère qui l'a portée.</p>
+        </div>
+      </div>
+
+      <!-- ORANGE — Océan × Air -->
+      <div class="diptych">
+        <div class="diptych-images">
+          <div class="diptych-img-wrap" onclick="openLightbox('assets/mm-ocean.jpg','M&amp;M\'s — Océan')">
+            <img src="assets/mm-ocean.jpg" alt="M&M's — Océan" />
+            <div class="diptych-badge env" data-i18n="arts.chip.s1">Série I</div>
+            <div class="diptych-dot" style="background:#f97316;"></div>
+          </div>
+          <div class="diptych-img-wrap" onclick="openLightbox('assets/mm-elem-air.jpg','M&amp;M\'s — Air')">
+            <img src="assets/mm-elem-air.jpg" alt="M&M's — Air" />
+            <div class="diptych-badge elem" data-i18n="arts.chip.s2">Série II</div>
+            <div class="diptych-dot" style="background:#f97316;"></div>
+          </div>
+        </div>
+        <div class="diptych-body">
+          <div class="diptych-title" data-i18n="arts.corr.orange.title">Orange — De la Mer à l'Air</div>
+          <div class="diptych-subtitle" style="color:#f97316;" data-i18n="arts.corr.orange.sub">Océan · Air · Deux conquêtes, une même précarité</div>
+          <p class="diptych-desc" data-i18n="arts.corr.orange.desc">Deux conquêtes. Voilà ce que célèbre — et ce qu'interroge — l'Orange. La mer et l'air sont, sur cette planète, les deux milieux que l'homme ne pouvait pas habiter ; ils sont aussi les deux qu'il a fini par traverser. Le navire et l'avion sont les jumeaux improbables d'une même audace prométhéenne. Pourtant, l'Orange ne triomphe jamais. Dans l'environnement maritime, il navigue — fragile point coloré sur l'immensité. Dans l'élément aérien, il chute — point coloré sur le vide. La même fragilité, le même bleu hostile, la même précarité fondamentale. L'Orange nous rappelle que conquérir n'est pas habiter, et que toute victoire sur les éléments reste, en dernière instance, une trêve fragile.</p>
+        </div>
+      </div>
+
+    </div><!-- /panel-corr -->
 
   </section>
 
