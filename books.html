@@ -3,13 +3,136 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Books — Tonton Gug Studio</title>
+  <title>Limouze Books — Tonton Gug Studio</title>
+  <meta name="description" content="Limouze Books — notre maison d'édition indépendante. Daisy Harper Gray-Lane et William Loxford." />
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet" />
   <style>
+    /* ── AUTHOR TABS ── */
+    .lb-page-header {
+      padding: 3.5rem 2rem 0;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .lb-page-header .section-label { margin-bottom: 0.5rem; }
+    .lb-page-header h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      color: var(--text);
+      margin-bottom: 0.75rem;
+      line-height: 1.15;
+    }
+    .lb-page-header h1 em { color: var(--orange); font-style: italic; }
+    .lb-page-header p { color: var(--muted); font-size: 0.95rem; max-width: 580px; }
+
+    /* Author tab nav */
+    .author-tabs-nav {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid var(--border);
+      max-width: 1100px;
+      margin: 2.5rem auto 0;
+      padding: 0 2rem;
+    }
+    .author-tab-btn {
+      display: flex;
+      align-items: center;
+      gap: 0.65rem;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.9rem 1.75rem;
+      color: var(--muted);
+      font-family: 'Inter', sans-serif;
+      font-size: 0.85rem;
+      font-weight: 500;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: color 0.2s, border-color 0.2s;
+    }
+    .author-tab-btn .tab-avatar {
+      width: 28px; height: 28px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 1.5px solid var(--border);
+      flex-shrink: 0;
+    }
+    .author-tab-btn:hover { color: var(--text); }
+    .author-tab-btn.active {
+      color: var(--orange);
+      border-bottom-color: var(--orange);
+    }
+    .author-tab-btn.active .tab-avatar { border-color: var(--orange); }
+
+    /* Tab panels */
+    .author-tab-panel { display: none; }
+    .author-tab-panel.active { display: block; }
+
+    /* ── AUTHOR HERO (inside each tab) ── */
+    .author-hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 3rem 2rem 2.5rem;
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 2.5rem;
+      align-items: start;
+      border-bottom: 1px solid var(--border);
+    }
+    .author-portrait-wrap {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: var(--radius);
+      overflow: hidden;
+      background: var(--card);
+      border: 1px solid var(--border);
+    }
+    .author-portrait-wrap img {
+      width: 100%; height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .author-portrait-placeholder {
+      width: 100%; height: 100%;
+      display: flex; align-items: center; justify-content: center;
+      color: var(--muted); font-size: 3rem;
+    }
+    .author-info { display: flex; flex-direction: column; gap: 0.7rem; padding-top: 0.25rem; }
+    .author-role {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--orange);
+    }
+    .author-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.8rem, 3.5vw, 2.5rem);
+      font-weight: 300; color: var(--text); line-height: 1.1;
+    }
+    .author-bio {
+      color: var(--muted); font-size: 0.92rem; line-height: 1.8;
+      max-width: 600px; margin-top: 0.25rem;
+    }
+    .author-external {
+      display: inline-flex; align-items: center; gap: 0.4rem;
+      margin-top: 0.5rem; padding: 0.45rem 1.1rem;
+      background: var(--orange); color: #0a0f1e;
+      border-radius: 6px; font-size: 0.8rem; font-weight: 700;
+      text-decoration: none; transition: opacity 0.2s;
+    }
+    .author-external:hover { opacity: 0.85; }
+    .author-external-outline {
+      background: transparent;
+      color: var(--orange);
+      border: 1px solid var(--orange);
+    }
+
+    /* ── SERIES INTRO (Daisy) ── */
     .series-intro {
       background: linear-gradient(135deg, #0a0f1e 0%, #1a0a00 100%);
       border-radius: var(--radius); padding: 2.5rem 3rem;
-      margin-bottom: 3rem; position: relative; overflow: hidden;
+      margin-bottom: 2.5rem; position: relative; overflow: hidden;
     }
     .series-intro::before {
       content: ''; position: absolute; top: -60px; right: -60px;
@@ -36,7 +159,12 @@
       padding: 0.35rem 1rem; border-radius: 999px; margin-top: 1.25rem;
     }
 
-    /* Books grid */
+    /* ── BOOKS GRID ── */
+    .books-section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 2rem 5rem;
+    }
     .books-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -63,7 +191,6 @@
       transition: transform 0.5s ease;
     }
     .book-card:hover .book-cover img { transform: scale(1.04); }
-
     .book-info { padding: 1.1rem 1.2rem; flex: 1; display: flex; flex-direction: column; }
     .book-name {
       font-family: 'Montserrat', sans-serif; font-weight: 800;
@@ -82,8 +209,37 @@
       background: rgba(255,255,255,0.04); border: 1px solid var(--border);
       border-radius: 999px; padding: 0.18rem 0.55rem;
     }
-
-    /* Pen name badge */
+    .book-buy {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 0.85rem; padding: 0.4rem 1rem;
+      background: var(--orange); color: #0a0f1e;
+      border-radius: 999px; font-size: 0.76rem; font-weight: 700;
+      text-decoration: none; transition: opacity 0.2s, transform 0.15s;
+      white-space: nowrap;
+    }
+    .book-buy:hover { opacity: 0.82; transform: translateY(-1px); }
+    .book-buy-soon {
+      display: inline-flex; align-items: center; gap: 5px;
+      margin-top: 0.85rem; padding: 0.4rem 1rem;
+      border: 1px dashed rgba(255,255,255,0.18); color: rgba(255,255,255,0.3);
+      border-radius: 999px; font-size: 0.76rem; font-weight: 600;
+      white-space: nowrap;
+    }
+    .book-cs-overlay {
+      position: absolute; inset: 0;
+      display: flex; flex-direction: column; align-items: center; justify-content: center;
+      background: rgba(10,15,30,0.45);
+    }
+    .book-cs-overlay .cs-initial {
+      font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 800;
+      color: rgba(255,255,255,0.12); margin-bottom: 0.75rem; line-height: 1;
+    }
+    .book-cs-overlay .cs-label {
+      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.22em;
+      text-transform: uppercase; color: var(--orange);
+      background: rgba(245,166,35,0.15); border: 1px solid rgba(245,166,35,0.4);
+      padding: 0.22rem 0.75rem; border-radius: 999px;
+    }
     .pen-name-badge {
       display: inline-flex; align-items: center; gap: 0.5rem;
       background: rgba(245,166,35,0.08); border: 1px solid rgba(245,166,35,0.25);
@@ -93,6 +249,24 @@
       transition: background 0.2s, border-color 0.2s;
     }
     .pen-name-badge:hover { background: rgba(245,166,35,0.18); border-color: var(--orange); }
+
+    /* William books: 2-col grid since only 2 books */
+    .books-grid-wl {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.75rem;
+      max-width: 500px;
+    }
+
+    /* About box */
+    .about-books {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem 2.5rem;
+      margin-top: 3rem; display: flex; gap: 1.5rem; align-items: flex-start;
+    }
+    .about-books .icon { font-size: 2rem; flex-shrink: 0; margin-top: 0.2rem; }
+    .about-books h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 0.5rem; }
+    .about-books p { color: var(--muted); font-size: 0.92rem; line-height: 1.75; }
 
     /* Lightbox */
     .lightbox {
@@ -113,50 +287,18 @@
       width: 42px; height: 42px; display: flex; align-items: center; justify-content: center;
     }
 
-    /* Coming Soon overlay on book covers */
-    .book-cs-overlay {
-      position: absolute; inset: 0;
-      display: flex; flex-direction: column; align-items: center; justify-content: center;
-      background: rgba(10,15,30,0.45);
+    /* Responsive */
+    @media (max-width: 900px) {
+      .books-grid { grid-template-columns: repeat(2, 1fr); }
+      .author-hero { grid-template-columns: 1fr; }
+      .author-portrait-wrap { max-width: 200px; }
     }
-    .book-cs-overlay .cs-initial {
-      font-family: 'Montserrat', sans-serif; font-size: 3.5rem; font-weight: 800;
-      color: rgba(255,255,255,0.12); margin-bottom: 0.75rem; line-height: 1; letter-spacing: 0.05em;
+    @media (max-width: 600px) {
+      .books-grid { grid-template-columns: 1fr 1fr; }
+      .books-grid-wl { grid-template-columns: 1fr; max-width: 100%; }
+      .author-tabs-nav { padding: 0 1rem; }
+      .author-tab-btn { padding: 0.75rem 1rem; font-size: 0.78rem; }
     }
-    .book-cs-overlay .cs-label {
-      font-size: 0.62rem; font-weight: 800; letter-spacing: 0.22em;
-      text-transform: uppercase; color: var(--orange);
-      background: rgba(245,166,35,0.15); border: 1px solid rgba(245,166,35,0.4);
-      padding: 0.22rem 0.75rem; border-radius: 999px;
-    }
-
-    /* Buy buttons */
-    .book-buy {
-      display: inline-flex; align-items: center; gap: 5px;
-      margin-top: 0.85rem; padding: 0.4rem 1rem;
-      background: var(--orange); color: #0a0f1e;
-      border-radius: 999px; font-size: 0.76rem; font-weight: 700;
-      text-decoration: none; transition: opacity 0.2s, transform 0.15s;
-      white-space: nowrap;
-    }
-    .book-buy:hover { opacity: 0.82; transform: translateY(-1px); }
-    .book-buy-soon {
-      display: inline-flex; align-items: center; gap: 5px;
-      margin-top: 0.85rem; padding: 0.4rem 1rem;
-      border: 1px dashed rgba(255,255,255,0.18); color: rgba(255,255,255,0.3);
-      border-radius: 999px; font-size: 0.76rem; font-weight: 600;
-      white-space: nowrap;
-    }
-
-    /* About box */
-    .about-books {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 2rem 2.5rem;
-      margin-top: 3rem; display: flex; gap: 1.5rem; align-items: flex-start;
-    }
-    .about-books .icon { font-size: 2rem; flex-shrink: 0; margin-top: 0.2rem; }
-    .about-books h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 0.5rem; }
-    .about-books p { color: var(--muted); font-size: 0.92rem; line-height: 1.75; }
   </style>
 </head>
 <body>
@@ -179,7 +321,7 @@
     <ul class="nav-links" id="navLinks">
       <li><a href="index.html" data-i18n="nav.home">Accueil</a></li>
       <li><a href="finance.html" data-i18n="nav.finance">Finance</a></li>
-      <li><a href="books.html" class="active" data-i18n="nav.books">Livres</a></li>
+      <li><a href="books.html" class="active" data-i18n="nav.books">Limouze Books</a></li>
       <li><a href="newsbeats.html" data-i18n="nav.newsbeats">Newsbeats</a></li>
       <li><a href="arts.html" data-i18n="nav.arts">Arts</a></li>
       <li><a href="bio.html" data-i18n="nav.bio">Bio</a></li>
@@ -192,144 +334,257 @@
     </div>
   </nav>
 
-  <section>
-    <p class="section-label" data-i18n="books.label">Publications</p>
-    <h1 class="section-title" data-i18n="books.title">Livres jeunesse</h1>
-    <p class="section-sub" data-i18n="books.subtitle">Des histoires illustrées pour les petites filles — publiées sous pen name, avec amour et intention.</p>
+  <!-- PAGE HEADER -->
+  <div class="lb-page-header">
+    <p class="section-label">Limouze Books</p>
+    <h1>Stories that <em>stay</em> with you.</h1>
+    <p>Notre maison d'édition indépendante — livres jeunesse, fiction et non-fiction littéraire, publiés avec intention.</p>
+  </div>
 
-    <div class="series-intro">
-      <div class="si-label" data-i18n="books.series.label">Série — Femmes qui ont changé le monde</div>
-      <h2 data-i18n="books.series.title">Grandes femmes, petites héroïnes</h2>
-      <p data-i18n="books.series.desc">Huit portraits de femmes extraordinaires, racontés pour les enfants. Des scientifiques, des aventurières, des résistantes, des reines — des figures qui ont bousculé leur époque et dont l'histoire mérite d'être transmise dès le plus jeune âge. Chaque livre, une vie. Chaque vie, une leçon.</p>
-      <div class="series-tag" data-i18n="books.series.tag">📚 8 livres · Illustré · Sous pen name</div>
-    </div>
+  <!-- AUTHOR TABS NAV -->
+  <div class="author-tabs-nav">
+    <button class="author-tab-btn active" id="tab-daisy" onclick="switchAuthor('daisy')">
+      <img src="assets/daisy-portrait.png" alt="Daisy Harper Gray-Lane" class="tab-avatar" />
+      Daisy Harper Gray-Lane
+    </button>
+    <button class="author-tab-btn" id="tab-william" onclick="switchAuthor('william')">
+      <img src="assets/william-loxford.jpg" alt="William Loxford" class="tab-avatar" />
+      William Loxford
+    </button>
+  </div>
 
-    <a class="pen-name-badge" href="https://daisy-harper-gray-lane.vercel.app" target="_blank" rel="noopener" data-i18n="books.pen-name">✍️ Publié sous le nom de Daisy Harper Gray Lane — Visiter le site →</a>
+  <!-- ══════════════════════════════ DAISY TAB ══════════════════════════════ -->
+  <div class="author-tab-panel active" id="panel-daisy">
 
-    <div class="books-grid">
-
-      <!-- 1. Ada Lovelace -->
-      <div class="book-card">
-        <div class="book-cover" onclick="openLightbox('assets/books/ada-lovelace.png','Ada Lovelace')">
-          <img src="assets/books/ada-lovelace.png" alt="Ada Lovelace" />
-        </div>
-        <div class="book-info">
-          <div class="book-name" data-i18n="book.ada.name">Ada Lovelace</div>
-          <div class="book-era" data-i18n="book.ada.era">1815 – 1852 · Mathématiques</div>
-          <p class="book-desc" data-i18n="book.ada.desc">Elle a écrit le premier algorithme de l'histoire — un siècle avant l'invention de l'ordinateur. Ada ne voulait pas qu'on lui dise ce qu'une femme ne pouvait pas faire.</p>
-          <span class="book-tag" data-i18n="book.tag.science">Science & Innovation</span>
-          <a href="https://shop.ingramspark.com/b/084?params=3JnPKHHS2jpt4BT8TM4rCjQZBtddoZW2Mf1omFhbI9W" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
-        </div>
+    <!-- Author hero -->
+    <div class="author-hero">
+      <div class="author-portrait-wrap">
+        <img src="assets/daisy-portrait.png" alt="Daisy Harper Gray-Lane" />
       </div>
-
-      <!-- 2. Marie Curie -->
-      <div class="book-card">
-        <div class="book-cover" onclick="openLightbox('assets/books/marie-curie.png','Marie Curie')">
-          <img src="assets/books/marie-curie.png" alt="Marie Curie" />
+      <div class="author-info">
+        <p class="author-role">Littérature Jeunesse · Limouze Books</p>
+        <h2 class="author-name">Daisy Harper<br/>Gray-Lane</h2>
+        <p class="author-bio">
+          Daisy Harper Gray-Lane est l'auteure de la série <em>Brilliant Women, Remarkable Stories</em> —
+          huit biographies illustrées célébrant des femmes remarquables à travers l'histoire et les cultures.
+          Ses livres sont conçus pour inspirer les jeunes lecteurs de 5 à 9 ans.
+        </p>
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:0.5rem;">
+          <a href="https://daisy-harper-gray-lane.vercel.app" target="_blank" rel="noopener" class="author-external">
+            Visiter le site →
+          </a>
         </div>
-        <div class="book-info">
-          <div class="book-name" data-i18n="book.marie.name">Marie Curie</div>
-          <div class="book-era" data-i18n="book.marie.era">1867 – 1934 · Physique & Chimie</div>
-          <p class="book-desc" data-i18n="book.marie.desc">Deux prix Nobel. Une seule personne. Marie a découvert la radioactivité dans un laboratoire qu'on lui refusait, dans une époque qui lui fermait ses portes. Elle les a toutes ouvertes.</p>
-          <span class="book-tag" data-i18n="book.tag.science">Science & Innovation</span>
-          <a href="https://shop.ingramspark.com/b/084?params=TbLeVsWd64GmqGkGvm5bgBJlTbf87RkeKjNBkBFmB8q" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
-        </div>
-      </div>
-
-      <!-- 3. Rosa Parks -->
-      <div class="book-card">
-        <div class="book-cover" onclick="openLightbox('assets/books/rosa-parks.png','Rosa Parks')">
-          <img src="assets/books/rosa-parks.png" alt="Rosa Parks" />
-        </div>
-        <div class="book-info">
-          <div class="book-name" data-i18n="book.rosa.name">Rosa Parks</div>
-          <div class="book-era" data-i18n="book.rosa.era">1913 – 2005 · Droits civiques</div>
-          <p class="book-desc" data-i18n="book.rosa.desc">Le 1er décembre 1955, Rosa a refusé de se lever dans un bus. Ce geste simple a déclenché un mouvement. On n'a pas besoin de crier pour changer le monde — parfois, il suffit de rester assis.</p>
-          <span class="book-tag" data-i18n="book.tag.courage">Courage & Justice</span>
-          <a href="https://shop.ingramspark.com/b/084?params=jiOEXz9cOBUoLqmDUFrWp1QVTXXnKuQ5HdiBFWy8hEL" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
-        </div>
-      </div>
-
-      <!-- 4. Amelia Earhart -->
-      <div class="book-card">
-        <div class="book-cover" onclick="openLightbox('assets/books/amelia-earhart.png','Amelia Earhart')">
-          <img src="assets/books/amelia-earhart.png" alt="Amelia Earhart" />
-        </div>
-        <div class="book-info">
-          <div class="book-name" data-i18n="book.amelia.name">Amelia Earhart</div>
-          <div class="book-era" data-i18n="book.amelia.era">1897 – 1937 · Aviation</div>
-          <p class="book-desc" data-i18n="book.amelia.desc">La première femme à traverser l'Atlantique en avion, seule. Amelia regardait le ciel comme d'autres regardent le sol — comme quelque chose qui lui appartenait.</p>
-          <span class="book-tag" data-i18n="book.tag.adventure">Aventure & Pionnière</span>
-          <a href="https://shop.ingramspark.com/b/084?params=ST2w9G4k2vSE6LTng28ueLPOT2IVWlzahM2rUONIP7v" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
-        </div>
-      </div>
-
-      <!-- 5. Cléopâtre -->
-      <div class="book-card">
-        <div class="book-cover" onclick="openLightbox('assets/books/cleopatra.png','Cléopâtre')">
-          <img src="assets/books/cleopatra.png" alt="Cléopâtre" />
-        </div>
-        <div class="book-info">
-          <div class="book-name" data-i18n="book.cleo.name">Cléopâtre</div>
-          <div class="book-era" data-i18n="book.cleo.era">69 – 30 av. J.-C. · Egypte</div>
-          <p class="book-desc" data-i18n="book.cleo.desc">Reine d'Égypte à 18 ans, polyglotte, stratège, philosophe. Cléopâtre n'était pas seulement belle — elle était la femme la plus puissante et la plus instruite de son temps.</p>
-          <span class="book-tag" data-i18n="book.tag.power">Pouvoir & Diplomatie</span>
-          <a href="https://shop.ingramspark.com/b/084?params=iYpCa0giEfOv5NQnMzSvBGp06gUhhVVDBrapfSlisGR" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
-        </div>
-      </div>
-
-      <!-- 6. Sacagawea -->
-      <div class="book-card">
-        <div class="book-cover" onclick="openLightbox('assets/books/sacagawea.png','Sacagawea')">
-          <img src="assets/books/sacagawea.png" alt="Sacagawea" />
-        </div>
-        <div class="book-info">
-          <div class="book-name" data-i18n="book.saca.name">Sacagawea</div>
-          <div class="book-era" data-i18n="book.saca.era">~1788 – 1812 · Exploration</div>
-          <p class="book-desc" data-i18n="book.saca.desc">Guide de l'expédition Lewis & Clark, elle a traversé l'Amérique sauvage avec un nourrisson dans les bras. Sans elle, l'une des plus grandes explorations de l'histoire aurait échoué.</p>
-          <span class="book-tag" data-i18n="book.tag.adventure">Aventure & Pionnière</span>
-          <a href="https://shop.ingramspark.com/b/084?params=SwrR5ikHtRGpwGpZ2elZeXfQIagsYyP56oIlr5gbc9v" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
-        </div>
-      </div>
-
-      <!-- 7. Frida Kahlo -->
-      <div class="book-card">
-        <div class="book-cover" onclick="openLightbox('assets/books/frida-kahlo.png','Frida Kahlo')">
-          <img src="assets/books/frida-kahlo.png" alt="Frida Kahlo" />
-        </div>
-        <div class="book-info">
-          <div class="book-name" data-i18n="book.frida.name">Frida Kahlo</div>
-          <div class="book-era" data-i18n="book.frida.era">1907 – 1954 · Art</div>
-          <p class="book-desc" data-i18n="book.frida.desc">Elle a peint sa douleur et sa force avec des couleurs éclatantes. Frida a transformé chaque épreuve en chef-d'œuvre — et le monde n'a jamais oublié son regard.</p>
-          <span class="book-tag" data-i18n="book.tag.art">Art & Résilience</span>
-          <a href="https://shop.ingramspark.com/b/084?params=kmapzVzRz85uni5zyYzQfPBErgcbz7668uoPrTWILAX" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
-        </div>
-      </div>
-
-      <!-- 8. Zelda Fitzgerald -->
-      <div class="book-card">
-        <div class="book-cover" onclick="openLightbox('assets/books/zelda-fitzgerald.png','Zelda Fitzgerald')">
-          <img src="assets/books/zelda-fitzgerald.png" alt="Zelda Fitzgerald" />
-        </div>
-        <div class="book-info">
-          <div class="book-name" data-i18n="book.zelda.name">Zelda Fitzgerald</div>
-          <div class="book-era" data-i18n="book.zelda.era">1900 – 1948 · Écriture & Art</div>
-          <p class="book-desc" data-i18n="book.zelda.desc">Danseuse, écrivaine, peintre — Zelda fut longtemps l'ombre d'un grand nom. Elle était, en réalité, une lumière à part entière.</p>
-          <span class="book-tag" data-i18n="book.tag.literature">Écriture & Émancipation</span>
-          <a href="https://shop.ingramspark.com/b/084?params=N9TXbCcHNXxkQUzGgshOqltvY1Jc9tf8S9xMDdDWSC1" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
-        </div>
-      </div>
-
-    </div>
-
-    <div class="about-books">
-      <div class="icon">💡</div>
-      <div>
-        <h3 data-i18n="books.about.title">Pourquoi ces livres ?</h3>
-        <p data-i18n="books.about.desc">Parce que les petites filles méritent des histoires qui leur ressemblent — des héroïnes courageuses, des univers colorés, des messages qui restent. Ces huit femmes ont changé le monde. Ces huit livres sont là pour s'en souvenir.</p>
       </div>
     </div>
-  </section>
+
+    <!-- Books section -->
+    <div class="books-section">
+
+      <div class="series-intro">
+        <div class="si-label" data-i18n="books.series.label">Série — Femmes qui ont changé le monde</div>
+        <h2 data-i18n="books.series.title">Brilliant Women, Remarkable Stories</h2>
+        <p data-i18n="books.series.desc">Huit portraits de femmes extraordinaires, racontés pour les enfants. Des scientifiques, des aventurières, des résistantes, des reines — des figures qui ont bousculé leur époque et dont l'histoire mérite d'être transmise dès le plus jeune âge.</p>
+        <div class="series-tag" data-i18n="books.series.tag">📚 8 livres · Illustré · Sous pen name</div>
+      </div>
+
+      <a class="pen-name-badge" href="https://daisy-harper-gray-lane.vercel.app" target="_blank" rel="noopener" data-i18n="books.pen-name">✍️ Publié sous le nom de Daisy Harper Gray Lane — Visiter le site →</a>
+
+      <div class="books-grid">
+
+        <div class="book-card">
+          <div class="book-cover" onclick="openLightbox('assets/books/ada-lovelace.png','Ada Lovelace')">
+            <img src="assets/books/ada-lovelace.png" alt="Ada Lovelace" />
+          </div>
+          <div class="book-info">
+            <div class="book-name" data-i18n="book.ada.name">Ada Lovelace</div>
+            <div class="book-era" data-i18n="book.ada.era">1815 – 1852 · Mathématiques</div>
+            <p class="book-desc" data-i18n="book.ada.desc">Elle a écrit le premier algorithme de l'histoire — un siècle avant l'invention de l'ordinateur.</p>
+            <span class="book-tag" data-i18n="book.tag.science">Science & Innovation</span>
+            <a href="https://shop.ingramspark.com/b/084?params=3JnPKHHS2jpt4BT8TM4rCjQZBtddoZW2Mf1omFhbI9W" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover" onclick="openLightbox('assets/books/marie-curie.png','Marie Curie')">
+            <img src="assets/books/marie-curie.png" alt="Marie Curie" />
+          </div>
+          <div class="book-info">
+            <div class="book-name" data-i18n="book.marie.name">Marie Curie</div>
+            <div class="book-era" data-i18n="book.marie.era">1867 – 1934 · Physique & Chimie</div>
+            <p class="book-desc" data-i18n="book.marie.desc">Deux prix Nobel. Une seule personne. Marie a découvert la radioactivité dans un laboratoire qu'on lui refusait.</p>
+            <span class="book-tag" data-i18n="book.tag.science">Science & Innovation</span>
+            <a href="https://shop.ingramspark.com/b/084?params=TbLeVsWd64GmqGkGvm5bgBJlTbf87RkeKjNBkBFmB8q" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover" onclick="openLightbox('assets/books/rosa-parks.png','Rosa Parks')">
+            <img src="assets/books/rosa-parks.png" alt="Rosa Parks" />
+          </div>
+          <div class="book-info">
+            <div class="book-name" data-i18n="book.rosa.name">Rosa Parks</div>
+            <div class="book-era" data-i18n="book.rosa.era">1913 – 2005 · Droits civiques</div>
+            <p class="book-desc" data-i18n="book.rosa.desc">Le 1er décembre 1955, Rosa a refusé de se lever dans un bus. Ce geste simple a déclenché un mouvement.</p>
+            <span class="book-tag" data-i18n="book.tag.courage">Courage & Justice</span>
+            <a href="https://shop.ingramspark.com/b/084?params=jiOEXz9cOBUoLqmDUFrWp1QVTXXnKuQ5HdiBFWy8hEL" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover" onclick="openLightbox('assets/books/amelia-earhart.png','Amelia Earhart')">
+            <img src="assets/books/amelia-earhart.png" alt="Amelia Earhart" />
+          </div>
+          <div class="book-info">
+            <div class="book-name" data-i18n="book.amelia.name">Amelia Earhart</div>
+            <div class="book-era" data-i18n="book.amelia.era">1897 – 1937 · Aviation</div>
+            <p class="book-desc" data-i18n="book.amelia.desc">La première femme à traverser l'Atlantique en avion, seule.</p>
+            <span class="book-tag" data-i18n="book.tag.adventure">Aventure & Pionnière</span>
+            <a href="https://shop.ingramspark.com/b/084?params=ST2w9G4k2vSE6LTng28ueLPOT2IVWlzahM2rUONIP7v" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover" onclick="openLightbox('assets/books/cleopatra.png','Cléopâtre')">
+            <img src="assets/books/cleopatra.png" alt="Cléopâtre" />
+          </div>
+          <div class="book-info">
+            <div class="book-name" data-i18n="book.cleo.name">Cléopâtre</div>
+            <div class="book-era" data-i18n="book.cleo.era">69 – 30 av. J.-C. · Egypte</div>
+            <p class="book-desc" data-i18n="book.cleo.desc">Reine d'Égypte à 18 ans, polyglotte, stratège, philosophe.</p>
+            <span class="book-tag" data-i18n="book.tag.power">Pouvoir & Diplomatie</span>
+            <a href="https://shop.ingramspark.com/b/084?params=iYpCa0giEfOv5NQnMzSvBGp06gUhhVVDBrapfSlisGR" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover" onclick="openLightbox('assets/books/sacagawea.png','Sacagawea')">
+            <img src="assets/books/sacagawea.png" alt="Sacagawea" />
+          </div>
+          <div class="book-info">
+            <div class="book-name" data-i18n="book.saca.name">Sacagawea</div>
+            <div class="book-era" data-i18n="book.saca.era">~1788 – 1812 · Exploration</div>
+            <p class="book-desc" data-i18n="book.saca.desc">Guide de l'expédition Lewis & Clark, elle a traversé l'Amérique sauvage avec un nourrisson dans les bras.</p>
+            <span class="book-tag" data-i18n="book.tag.adventure">Aventure & Pionnière</span>
+            <a href="https://shop.ingramspark.com/b/084?params=SwrR5ikHtRGpwGpZ2elZeXfQIagsYyP56oIlr5gbc9v" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover" onclick="openLightbox('assets/books/frida-kahlo.png','Frida Kahlo')">
+            <img src="assets/books/frida-kahlo.png" alt="Frida Kahlo" />
+          </div>
+          <div class="book-info">
+            <div class="book-name" data-i18n="book.frida.name">Frida Kahlo</div>
+            <div class="book-era" data-i18n="book.frida.era">1907 – 1954 · Art</div>
+            <p class="book-desc" data-i18n="book.frida.desc">Elle a peint sa douleur et sa force avec des couleurs éclatantes. Frida a transformé chaque épreuve en chef-d'œuvre.</p>
+            <span class="book-tag" data-i18n="book.tag.art">Art & Résilience</span>
+            <a href="https://shop.ingramspark.com/b/084?params=kmapzVzRz85uni5zyYzQfPBErgcbz7668uoPrTWILAX" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover" onclick="openLightbox('assets/books/zelda-fitzgerald.png','Zelda Fitzgerald')">
+            <img src="assets/books/zelda-fitzgerald.png" alt="Zelda Fitzgerald" />
+          </div>
+          <div class="book-info">
+            <div class="book-name" data-i18n="book.zelda.name">Zelda Fitzgerald</div>
+            <div class="book-era" data-i18n="book.zelda.era">1900 – 1948 · Écriture & Art</div>
+            <p class="book-desc" data-i18n="book.zelda.desc">Danseuse, écrivaine, peintre — Zelda fut longtemps l'ombre d'un grand nom. Elle était, en réalité, une lumière à part entière.</p>
+            <span class="book-tag" data-i18n="book.tag.literature">Écriture & Émancipation</span>
+            <a href="https://shop.ingramspark.com/b/084?params=N9TXbCcHNXxkQUzGgshOqltvY1Jc9tf8S9xMDdDWSC1" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
+          </div>
+        </div>
+
+      </div><!-- end books-grid -->
+
+      <div class="about-books">
+        <div class="icon">💡</div>
+        <div>
+          <h3 data-i18n="books.about.title">Pourquoi ces livres ?</h3>
+          <p data-i18n="books.about.desc">Parce que les petites filles méritent des histoires qui leur ressemblent — des héroïnes courageuses, des univers colorés, des messages qui restent. Ces huit femmes ont changé le monde. Ces huit livres sont là pour s'en souvenir.</p>
+        </div>
+      </div>
+
+    </div><!-- end books-section -->
+  </div><!-- end panel-daisy -->
+
+
+  <!-- ══════════════════════════════ WILLIAM TAB ══════════════════════════════ -->
+  <div class="author-tab-panel" id="panel-william">
+
+    <!-- Author hero -->
+    <div class="author-hero">
+      <div class="author-portrait-wrap">
+        <img src="assets/william-loxford.jpg" alt="William Loxford" />
+      </div>
+      <div class="author-info">
+        <p class="author-role">Fiction & Non-Fiction Littéraire · Limouze Books</p>
+        <h2 class="author-name">William<br/>Loxford</h2>
+        <p class="author-bio">
+          William Loxford est né en Nouvelle-Zélande dans une famille française — une enfance qui lui a donné
+          très tôt le sens de l'appartenance et de la distance. Ayant vécu au Royaume-Uni, en Espagne, en France
+          et à Hong Kong, il développe une fascination profonde pour la façon dont le langage évolue à travers
+          les cultures et les générations. Son écriture se déplace librement entre les styles et les genres —
+          mêlant réflexion, narration, humour et exploration sans jamais se fixer dans une seule catégorie.
+        </p>
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:0.5rem;">
+          <a href="https://william-loxford.vercel.app" target="_blank" rel="noopener" class="author-external">
+            Site de l'auteur →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Books section -->
+    <div class="books-section">
+
+      <div class="series-intro" style="background: linear-gradient(135deg, #0d1520 0%, #1a1000 100%);">
+        <div class="si-label">Fiction · Limouze Books</div>
+        <h2>Œuvres de William Loxford</h2>
+        <p>Un univers littéraire qui joue avec l'architecture du langage — les calembours, les doubles sens, les références cachées, le rythme. Deux titres disponibles, d'autres à venir.</p>
+        <div class="series-tag">✍️ Fiction · Sous pen name · Limouze Books</div>
+      </div>
+
+      <div class="books-grid-wl">
+
+        <div class="book-card">
+          <div class="book-cover" onclick="openLightbox('assets/books/william-loxford/book-the-anagram-stories.jpg','The Anagram Stories')">
+            <img src="assets/books/william-loxford/book-the-anagram-stories.jpg" alt="The Anagram Stories" />
+          </div>
+          <div class="book-info">
+            <div class="book-name">The Anagram Stories</div>
+            <div class="book-era">Fiction · Limouze Books</div>
+            <p class="book-desc">Une collection inventive et ludique qui cache de nouveaux mondes à l'intérieur de mots familiers. Chaque histoire commence par un anagramme — et part dans quelque chose d'entièrement inattendu.</p>
+            <span class="book-tag">Fiction & Langage</span>
+            <span class="book-buy-soon">Bientôt disponible →</span>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover" onclick="openLightbox('assets/books/william-loxford/book-the-vanishing-alphabet.jpg','The Vanishing Alphabet')">
+            <img src="assets/books/william-loxford/book-the-vanishing-alphabet.jpg" alt="The Vanishing Alphabet" />
+          </div>
+          <div class="book-info">
+            <div class="book-name">The Vanishing Alphabet</div>
+            <div class="book-era">Fiction · Limouze Books</div>
+            <p class="book-desc">Une méditation sur le langage, la perte et le pouvoir silencieux des lettres qui disparaissent de la page. À mi-chemin entre la fable et l'essai.</p>
+            <span class="book-tag">Fiction Littéraire</span>
+            <span class="book-buy-soon">Bientôt disponible →</span>
+          </div>
+        </div>
+
+      </div><!-- end books-grid-wl -->
+
+      <div class="about-books">
+        <div class="icon">✍️</div>
+        <div>
+          <h3>L'écriture selon Loxford</h3>
+          <p>Il croit que l'écriture ne devrait jamais se sentir enfermée par des règles ou des étiquettes. Pour lui, le style est moins une destination qu'une conversation entre voix, idées et instants. Son œuvre puise l'inspiration partout et n'appartient nulle part entièrement — à l'image de la vie qui l'a façonné.</p>
+        </div>
+      </div>
+
+    </div><!-- end books-section -->
+  </div><!-- end panel-william -->
 
   <footer>
     <p data-i18n-html="footer.text">© 2025 <span>Tonton Gug Studio</span>. Tous droits réservés.</p>
@@ -350,6 +605,18 @@
       document.body.style.overflow = '';
     }
     document.addEventListener('keydown', e => { if (e.key === 'Escape') closeLightbox(); });
+
+    function switchAuthor(author) {
+      // Panels
+      document.querySelectorAll('.author-tab-panel').forEach(p => p.classList.remove('active'));
+      document.getElementById('panel-' + author).classList.add('active');
+      // Buttons
+      document.querySelectorAll('.author-tab-btn').forEach(b => b.classList.remove('active'));
+      document.getElementById('tab-' + author).classList.add('active');
+    }
+
+    // Auto-switch to William if hash present
+    if (window.location.hash === '#william') switchAuthor('william');
   </script>
 </body>
 </html>

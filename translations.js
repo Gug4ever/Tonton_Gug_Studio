@@ -1,7 +1,7 @@
 const LANG_DATA = {
   fr: {
     'nav.home': 'Accueil', 'nav.contact': 'Contact',
-    'nav.finance': 'Finance', 'nav.books': 'Livres', 'nav.newsbeats': 'Newsbeats', 'nav.arts': 'Arts', 'nav.bio': 'Bio',
+    'nav.finance': 'Finance', 'nav.books': 'Limouze Books', 'nav.newsbeats': 'Newsbeats', 'nav.arts': 'Arts', 'nav.bio': 'Bio',
     'finance.seminar.title': 'Finance Fundamentals — Cours de 2 semaines',
     'finance.stat.weeks': 'Semaines', 'finance.stat.decks': 'Decks', 'finance.stat.slides': 'Slides', 'finance.stat.perdeck': 'Par deck',
     'finance.deck': 'Deck 01', 'finance.deck2': 'Deck 02', 'finance.deck3': 'Deck 03', 'finance.deck4': 'Deck 04', 'finance.deck5': 'Deck 05',
@@ -42,11 +42,11 @@ const LANG_DATA = {
     'projects.title': 'Ce que nous créons',
     'projects.subtitle': 'Un collectif de créateurs — finance, littérature jeunesse, tech, arts plastiques. Chaque projet, sa propre identité.',
 
-    'card.finance.title': 'Finance', 'card.newsbeats.title': 'Newsbeats', 'card.books.title': 'Livres', 'card.arts.title': 'Arts', 'card.bio.title': 'Bio',
+    'card.finance.title': 'Finance', 'card.newsbeats.title': 'Newsbeats', 'card.books.title': 'Limouze Books', 'card.arts.title': 'Arts', 'card.bio.title': 'Bio',
     'card.newsbeats.desc': "L'actualité rencontre la musique. Une app qui transforme les news en expérience sonore unique.",
     'card.newsbeats.link': 'Découvrir →',
-    'card.books.desc': 'Des livres illustrés pour les petites filles, publiés sous pen name. Des histoires qui inspirent et font rêver.',
-    'card.books.link': 'Voir les livres →',
+    'card.books.desc': 'Notre maison d'édition — livres jeunesse, fiction et non-fiction littéraire. Daisy Harper Gray-Lane & William Loxford.',
+    'card.books.link': 'Explorer →',
     'card.finance.desc': 'Des cours et slides pour démocratiser la finance. Comprendre les marchés, investir intelligemment.',
     'card.finance.link': 'Voir les cours →',
     'card.bio.desc': 'Qui est le fondateur du studio ? Un profil, un parcours, une vision — tout est là.',
@@ -247,7 +247,7 @@ const LANG_DATA = {
 
   en: {
     'nav.home': 'Home', 'nav.contact': 'Contact',
-    'nav.finance': 'Finance', 'nav.books': 'Books', 'nav.newsbeats': 'Newsbeats', 'nav.arts': 'Arts', 'nav.bio': 'Bio',
+    'nav.finance': 'Finance', 'nav.books': 'Limouze Books', 'nav.newsbeats': 'Newsbeats', 'nav.arts': 'Arts', 'nav.bio': 'Bio',
     'finance.seminar.title': 'Finance Fundamentals — 2-Week Course',
     'finance.stat.weeks': 'Weeks', 'finance.stat.decks': 'Decks', 'finance.stat.slides': 'Slides', 'finance.stat.perdeck': 'Per deck',
     'finance.deck': 'Deck 01', 'finance.deck2': 'Deck 02', 'finance.deck3': 'Deck 03', 'finance.deck4': 'Deck 04', 'finance.deck5': 'Deck 05',
@@ -288,11 +288,11 @@ const LANG_DATA = {
     'projects.title': 'What we create',
     'projects.subtitle': 'A collective of creators — finance, children\'s books, tech, visual arts. Each project, its own identity.',
 
-    'card.finance.title': 'Finance', 'card.newsbeats.title': 'Newsbeats', 'card.books.title': 'Books', 'card.arts.title': 'Arts', 'card.bio.title': 'Bio',
+    'card.finance.title': 'Finance', 'card.newsbeats.title': 'Newsbeats', 'card.books.title': 'Limouze Books', 'card.arts.title': 'Arts', 'card.bio.title': 'Bio',
     'card.newsbeats.desc': 'News meets music. An app that transforms current events into a unique audio experience.',
     'card.newsbeats.link': 'Discover →',
-    'card.books.desc': 'Illustrated books for little girls, published under a pen name. Stories that inspire and ignite dreams.',
-    'card.books.link': 'See the books →',
+    'card.books.desc': 'Our publishing imprint — children\'s books, literary fiction and non-fiction. Daisy Harper Gray-Lane & William Loxford.',
+    'card.books.link': 'Explore →',
     'card.finance.desc': 'Courses and slides to democratize finance. Understand markets, invest wisely.',
     'card.finance.link': 'See the courses →',
     'card.bio.desc': "Who founded the studio? A profile, a journey, a vision — it's all here.",
@@ -486,7 +486,7 @@ const LANG_DATA = {
 
   es: {
     'nav.home': 'Inicio', 'nav.contact': 'Contacto',
-    'nav.finance': 'Finanzas', 'nav.books': 'Libros', 'nav.newsbeats': 'Newsbeats', 'nav.arts': 'Arte', 'nav.bio': 'Bio',
+    'nav.finance': 'Finanzas', 'nav.books': 'Limouze Books', 'nav.newsbeats': 'Newsbeats', 'nav.arts': 'Arte', 'nav.bio': 'Bio',
     'finance.seminar.title': 'Finance Fundamentals — Curso de 2 semanas',
     'finance.stat.weeks': 'Semanas', 'finance.stat.decks': 'Decks', 'finance.stat.slides': 'Diapositivas', 'finance.stat.perdeck': 'Por deck',
     'finance.deck': 'Deck 01', 'finance.deck2': 'Deck 02', 'finance.deck3': 'Deck 03', 'finance.deck4': 'Deck 04', 'finance.deck5': 'Deck 05',
@@ -527,11 +527,11 @@ const LANG_DATA = {
     'projects.title': 'Lo que creamos',
     'projects.subtitle': 'Un colectivo de creadores — finanzas, literatura infantil, tech, artes plásticas. Cada proyecto, su propia identidad.',
 
-    'card.finance.title': 'Finanzas', 'card.newsbeats.title': 'Newsbeats', 'card.books.title': 'Libros', 'card.arts.title': 'Arte', 'card.bio.title': 'Bio',
+    'card.finance.title': 'Finanzas', 'card.newsbeats.title': 'Newsbeats', 'card.books.title': 'Limouze Books', 'card.arts.title': 'Arte', 'card.bio.title': 'Bio',
     'card.newsbeats.desc': 'Las noticias se encuentran con la música. Una app que transforma la actualidad en una experiencia sonora única.',
     'card.newsbeats.link': 'Descubrir →',
-    'card.books.desc': 'Libros ilustrados para niñas, publicados bajo seudónimo. Historias que inspiran y hacen soñar.',
-    'card.books.link': 'Ver los libros →',
+    'card.books.desc': 'Nuestra editorial independiente — libros infantiles, ficción y no ficción literaria. Daisy Harper Gray-Lane & William Loxford.',
+    'card.books.link': 'Explorar →',
     'card.finance.desc': 'Cursos y diapositivas para democratizar las finanzas. Entender los mercados, invertir con inteligencia.',
     'card.finance.link': 'Ver los cursos →',
     'card.bio.desc': '¿Quién fundó el estudio? Un perfil, un recorrido, una visión — todo está aquí.',
