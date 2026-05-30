@@ -248,18 +248,18 @@
     </button>
     <ul class="nav-links" id="navLinks">
       <li><a href="../index.html">Limouze Books</a></li>
-      <li><a href="../books.html">Books</a></li>
-      <li><a href="william-loxford.html" class="active">Authors</a></li>
-      <li><a href="../finance.html">Finance</a></li>
-      <li><a href="../newsbeats.html">Newsbeats</a></li>
-      <li><a href="../arts.html">Arts</a></li>
-      <li><a href="../bio.html">Bio</a></li>
-      <li><a href="../index.html#contact">Contact</a></li>
+      <li><a href="../books.html" data-i18n="wl.nav.books">Books</a></li>
+      <li><a href="william-loxford.html" class="active" data-i18n="wl.authors">Authors</a></li>
+      <li><a href="../finance.html" data-i18n="nav.finance">Finance</a></li>
+      <li><a href="../newsbeats.html" data-i18n="nav.newsbeats">Newsbeats</a></li>
+      <li><a href="../arts.html" data-i18n="nav.arts">Arts</a></li>
+      <li><a href="../bio.html" data-i18n="nav.bio">Bio</a></li>
+      <li><a href="../index.html#contact" data-i18n="nav.contact">Contact</a></li>
     </ul>
     <div class="lang-switcher">
-      <button class="lang-btn active" onclick="">FR</button>
-      <button class="lang-btn" onclick="">EN</button>
-      <button class="lang-btn" onclick="">ES</button>
+      <button class="lang-btn" data-lang="fr" onclick="setLang('fr')">FR</button>
+      <button class="lang-btn" data-lang="en" onclick="setLang('en')">EN</button>
+      <button class="lang-btn" data-lang="es" onclick="setLang('es')">ES</button>
     </div>
   </nav>
 
@@ -268,7 +268,7 @@
     <p class="wl-eyebrow">
       <a href="../index.html">Limouze Books</a>
       <span class="sep">›</span>
-      Authors
+      <span data-i18n="wl.authors">Authors</span>
       <span class="sep">›</span>
       William Loxford
     </p>
@@ -285,51 +285,25 @@
 
     <!-- Text -->
     <div class="wl-bio">
-      <p class="wl-role">Literary Fiction &amp; Non-Fiction · Limouze Books</p>
+      <p class="wl-role" data-i18n="lb.william.role">Literary Fiction &amp; Non-Fiction · Limouze Books</p>
       <h1 class="wl-name">William Loxford</h1>
       <div class="wl-rule"></div>
 
-      <p>
-        William Loxford was born in New Zealand to a French family, an upbringing that gave him an early
-        sense of both belonging and distance — never entirely from one place, yet at home in many. Having
-        lived across the United Kingdom, Spain, France, and Hong Kong, he developed a fascination with
-        the way language evolves across cultures, identities, and generations.
-      </p>
+      <p data-i18n="wl.bio.p1">William Loxford was born in New Zealand to a French family, an upbringing that gave him an early sense of both belonging and distance — never entirely from one place, yet at home in many. Having lived across the United Kingdom, Spain, France, and Hong Kong, he developed a fascination with the way language evolves across cultures, identities, and generations.</p>
 
-      <div class="wl-pull-quote">
-        A lifelong lover of words, Loxford is particularly drawn to the playful architecture of
-        language: puns, double meanings, hidden references, rhythm, and the quiet pleasure of a
-        sentence that reveals more the second time it is read.
-      </div>
+      <div class="wl-pull-quote" data-i18n="wl.pull.1">A lifelong lover of words, Loxford is particularly drawn to the playful architecture of language: puns, double meanings, hidden references, rhythm, and the quiet pleasure of a sentence that reveals more the second time it is read.</div>
 
-      <p>
-        His writing moves freely between styles and genres, blending reflection, storytelling, humour,
-        observation, and essay-like exploration without ever settling into a single category.
-      </p>
+      <p data-i18n="wl.bio.p2">His writing moves freely between styles and genres, blending reflection, storytelling, humour, observation, and essay-like exploration without ever settling into a single category.</p>
 
-      <p>
-        Influenced as much by long London conversations and Mediterranean cafés as by the restless
-        energy of Hong Kong, his work reflects a deeply international perspective — curious, layered,
-        and shaped by movement between worlds.
-      </p>
+      <p data-i18n="wl.bio.p3">Influenced as much by long London conversations and Mediterranean cafés as by the restless energy of Hong Kong, his work reflects a deeply international perspective — curious, layered, and shaped by movement between worlds.</p>
 
-      <div class="wl-pull-quote">
-        He believes writing should never feel confined by rules or labels. For him, style is less a
-        destination than a conversation between voices, ideas, and moments.
-      </div>
+      <div class="wl-pull-quote" data-i18n="wl.pull.2">He believes writing should never feel confined by rules or labels. For him, style is less a destination than a conversation between voices, ideas, and moments.</div>
 
-      <p>
-        His work draws inspiration from everywhere and belongs nowhere entirely — much like the life
-        that shaped it.
-      </p>
+      <p data-i18n="wl.bio.p4">His work draws inspiration from everywhere and belongs nowhere entirely — much like the life that shaped it.</p>
 
-      <p>
-        When he is not writing, William can often be found skydiving, scuba diving, or chasing the
-        next adventure somewhere across the globe. Above all, however, he treasures time with the
-        single most important part of his life: his lovely wife and their two children, Eva and Raphael.
-      </p>
+      <p data-i18n="wl.bio.p5">When he is not writing, William can often be found skydiving, scuba diving, or chasing the next adventure somewhere across the globe. Above all, however, he treasures time with the single most important part of his life: his lovely wife and their two children, Eva and Raphael.</p>
 
-      <a href="https://william-loxford.vercel.app" class="wl-external-btn" target="_blank" rel="noopener">
+      <a href="https://william-loxford.vercel.app" class="wl-external-btn" target="_blank" rel="noopener" data-i18n="wl.visit.btn">
         Visit author site →
       </a>
     </div>
@@ -338,8 +312,8 @@
 
   <!-- BOOKS -->
   <section class="wl-books">
-    <p class="wl-books-eyebrow">Books by William Loxford</p>
-    <h2>Works &amp; Titles</h2>
+    <p class="wl-books-eyebrow" data-i18n="wl.books.eyebrow">Books by William Loxford</p>
+    <h2 data-i18n="wl.books.title">Works &amp; Titles</h2>
 
     <div class="wl-books-grid">
 
@@ -359,16 +333,16 @@
 
       <div class="wl-book-card">
         <div class="wl-book-cover">
-          <div class="wl-book-coming-soon">Coming Soon — New Title</div>
+          <div class="wl-book-coming-soon" data-i18n="wl.coming.soon">Coming Soon — New Title</div>
         </div>
-        <div class="wl-book-title" style="opacity:0.4; font-style:italic;">Coming Soon</div>
+        <div class="wl-book-title" style="opacity:0.4; font-style:italic;" data-i18n="wl.coming.soon.short">Coming Soon</div>
       </div>
 
     </div>
   </section>
 
   <footer>
-    <p>© 2025 <span>Limouze Books</span> · An imprint of <a href="../bio.html">Studio Tonton Gug</a>. All rights reserved.</p>
+    <p data-i18n-html="wl.footer.text">© 2025 <span>Limouze Books</span> · An imprint of <a href="../bio.html">Studio Tonton Gug</a>. All rights reserved.</p>
   </footer>
 
   <script src="../translations.js"></script>
