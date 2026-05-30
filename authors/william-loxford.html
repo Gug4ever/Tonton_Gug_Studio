@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>William Loxford — Limouze Books</title>
+  <meta name="description" content="William Loxford — New Zealand-born, internationally raised writer of fiction, non-fiction, and literary essay. Published by Limouze Books." />
+  <link rel="stylesheet" href="../style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --lb-cream:        #F7F3ED;
+      --lb-charcoal:     #1C1917;
+      --lb-copper:       #B5541A;
+      --lb-copper-light: #D4713A;
+      --lb-sage:         #7A9475;
+    }
+
+    body { background: var(--lb-cream); }
+
+    /* Nav overrides */
+    nav {
+      background: var(--lb-cream);
+      border-bottom: 1px solid rgba(181,84,26,0.2);
+    }
+    .nav-logo-text { color: var(--lb-charcoal); }
+    .nav-logo-text span { color: var(--lb-copper); }
+    .nav-links a { color: #4b5563; }
+    .nav-links a:hover, .nav-links a.active { color: var(--lb-copper); background: rgba(181,84,26,0.07); }
+    .lang-btn:hover, .lang-btn.active { border-color: var(--lb-copper); color: var(--lb-copper); background: rgba(181,84,26,0.07); }
+    .nav-toggle { color: var(--lb-charcoal); }
+
+    /* ── PAGE LAYOUT ── */
+    .wl-header {
+      padding: 4rem 2rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .wl-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--lb-copper);
+      margin-bottom: 0.75rem;
+    }
+    .wl-eyebrow a {
+      color: var(--lb-copper);
+      text-decoration: none;
+      opacity: 0.7;
+    }
+    .wl-eyebrow a:hover { opacity: 1; }
+    .wl-eyebrow .sep { margin: 0 0.5rem; opacity: 0.4; }
+
+    /* ── BIO GRID ── */
+    .wl-bio-grid {
+      display: grid;
+      grid-template-columns: 1fr 2fr;
+      gap: 4rem;
+      align-items: start;
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2rem 2rem 5rem;
+    }
+
+    .wl-portrait {
+      width: 100%;
+      aspect-ratio: 3/4;
+      border-radius: 2px;
+      overflow: hidden;
+      background: #E8E0D5;
+      border: 1px solid rgba(181,84,26,0.15);
+      position: sticky;
+      top: 5rem;
+    }
+    .wl-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+
+    .wl-bio { color: var(--lb-charcoal); }
+
+    .wl-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2.5rem, 5vw, 3.5rem);
+      font-weight: 300;
+      line-height: 1.1;
+      color: var(--lb-charcoal);
+      margin-bottom: 0.5rem;
+    }
+
+    .wl-role {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--lb-copper);
+      margin-bottom: 1.5rem;
+    }
+
+    .wl-rule {
+      height: 1px;
+      width: 48px;
+      background: var(--lb-copper);
+      opacity: 0.4;
+      margin-bottom: 2rem;
+    }
+
+    .wl-bio p {
+      font-size: 1rem;
+      line-height: 1.85;
+      opacity: 0.8;
+      margin-bottom: 1.25rem;
+    }
+
+    .wl-pull-quote {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 1.4rem;
+      font-style: italic;
+      line-height: 1.55;
+      color: var(--lb-charcoal);
+      border-left: 2px solid var(--lb-copper);
+      padding-left: 1.25rem;
+      margin: 2rem 0;
+      opacity: 0.9;
+    }
+
+    .wl-external-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.7rem 1.75rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.72rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: var(--lb-copper);
+      color: var(--lb-cream);
+      border-radius: 2px;
+      margin-top: 1.5rem;
+      transition: background 0.2s;
+    }
+    .wl-external-btn:hover { background: var(--lb-copper-light); }
+
+    /* ── BOOKS SECTION ── */
+    .wl-books {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0 2rem 5rem;
+      border-top: 1px solid rgba(181,84,26,0.15);
+      padding-top: 3rem;
+    }
+    .wl-books-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--lb-copper);
+      margin-bottom: 0.75rem;
+    }
+    .wl-books h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.8rem, 3vw, 2.5rem);
+      font-weight: 300;
+      color: var(--lb-charcoal);
+      margin-bottom: 2.5rem;
+    }
+
+    .wl-books-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .wl-book-card {
+      background: #F0EBE3;
+      border: 1px solid rgba(181,84,26,0.12);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .wl-book-card:hover { transform: translateY(-4px); }
+
+    .wl-book-cover {
+      width: 100%;
+      aspect-ratio: 2/3;
+      overflow: hidden;
+      position: relative;
+    }
+    .wl-book-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .wl-book-coming-soon {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #E8E0D5;
+      color: rgba(181,84,26,0.35);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.62rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.75rem;
+      text-align: center;
+    }
+
+    .wl-book-title {
+      padding: 0.6rem 0.75rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.9rem;
+      color: var(--lb-charcoal);
+      opacity: 0.85;
+    }
+
+    /* ── FOOTER ── */
+    footer {
+      background: var(--lb-charcoal);
+      border-top: 1px solid rgba(181,84,26,0.25);
+      color: rgba(247,243,237,0.6);
+    }
+    footer span { color: var(--lb-copper); }
+    footer a { color: var(--lb-copper); text-decoration: none; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .wl-bio-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .wl-portrait { max-width: 260px; aspect-ratio: 1; position: static; }
+      .wl-books-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+  <nav>
+    <a href="../index.html" class="nav-logo">
+      <img src="../assets/tgs-icon-new.jpeg" alt="Tonton Gug Studio" />
+      <div class="nav-logo-text">Limouze <span>Books</span></div>
+    </a>
+    <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
+      <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/>
+      </svg>
+    </button>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="../index.html">Limouze Books</a></li>
+      <li><a href="../books.html">Books</a></li>
+      <li><a href="william-loxford.html" class="active">Authors</a></li>
+      <li><a href="../finance.html">Finance</a></li>
+      <li><a href="../newsbeats.html">Newsbeats</a></li>
+      <li><a href="../arts.html">Arts</a></li>
+      <li><a href="../bio.html">Bio</a></li>
+      <li><a href="../index.html#contact">Contact</a></li>
+    </ul>
+    <div class="lang-switcher">
+      <button class="lang-btn active" onclick="">FR</button>
+      <button class="lang-btn" onclick="">EN</button>
+      <button class="lang-btn" onclick="">ES</button>
+    </div>
+  </nav>
+
+  <!-- BREADCRUMB -->
+  <div class="wl-header">
+    <p class="wl-eyebrow">
+      <a href="../index.html">Limouze Books</a>
+      <span class="sep">›</span>
+      Authors
+      <span class="sep">›</span>
+      William Loxford
+    </p>
+  </div>
+
+  <!-- BIO -->
+  <div class="wl-bio-grid">
+
+    <!-- Portrait -->
+    <div class="wl-portrait">
+      <!-- TODO: william-loxford.jpg is in /assets/ — swap for a different portrait if preferred -->
+      <img src="../assets/william-loxford.jpg" alt="William Loxford, author" loading="lazy" />
+    </div>
+
+    <!-- Text -->
+    <div class="wl-bio">
+      <p class="wl-role">Literary Fiction &amp; Non-Fiction · Limouze Books</p>
+      <h1 class="wl-name">William Loxford</h1>
+      <div class="wl-rule"></div>
+
+      <p>
+        William Loxford was born in New Zealand to a French family, an upbringing that gave him an early
+        sense of both belonging and distance — never entirely from one place, yet at home in many. Having
+        lived across the United Kingdom, Spain, France, and Hong Kong, he developed a fascination with
+        the way language evolves across cultures, identities, and generations.
+      </p>
+
+      <div class="wl-pull-quote">
+        A lifelong lover of words, Loxford is particularly drawn to the playful architecture of
+        language: puns, double meanings, hidden references, rhythm, and the quiet pleasure of a
+        sentence that reveals more the second time it is read.
+      </div>
+
+      <p>
+        His writing moves freely between styles and genres, blending reflection, storytelling, humour,
+        observation, and essay-like exploration without ever settling into a single category.
+      </p>
+
+      <p>
+        Influenced as much by long London conversations and Mediterranean cafés as by the restless
+        energy of Hong Kong, his work reflects a deeply international perspective — curious, layered,
+        and shaped by movement between worlds.
+      </p>
+
+      <div class="wl-pull-quote">
+        He believes writing should never feel confined by rules or labels. For him, style is less a
+        destination than a conversation between voices, ideas, and moments.
+      </div>
+
+      <p>
+        His work draws inspiration from everywhere and belongs nowhere entirely — much like the life
+        that shaped it.
+      </p>
+
+      <p>
+        When he is not writing, William can often be found skydiving, scuba diving, or chasing the
+        next adventure somewhere across the globe. Above all, however, he treasures time with the
+        single most important part of his life: his lovely wife and their two children, Eva and Raphael.
+      </p>
+
+      <!-- TODO: update href with live William Loxford author site URL once deployed -->
+      <a href="#" class="wl-external-btn">
+        Visit author site →
+      </a>
+    </div>
+
+  </div>
+
+  <!-- BOOKS -->
+  <section class="wl-books">
+    <p class="wl-books-eyebrow">Books by William Loxford</p>
+    <h2>Works &amp; Titles</h2>
+
+    <div class="wl-books-grid">
+
+      <div class="wl-book-card">
+        <div class="wl-book-cover">
+          <img src="../assets/books/william-loxford/book-the-anagram-stories.jpg" alt="The Anagram Stories" loading="lazy" />
+        </div>
+        <div class="wl-book-title">The Anagram Stories</div>
+      </div>
+
+      <div class="wl-book-card">
+        <div class="wl-book-cover">
+          <img src="../assets/books/william-loxford/book-the-vanishing-alphabet.jpg" alt="The Vanishing Alphabet" loading="lazy" />
+        </div>
+        <div class="wl-book-title">The Vanishing Alphabet</div>
+      </div>
+
+      <div class="wl-book-card">
+        <div class="wl-book-cover">
+          <div class="wl-book-coming-soon">Coming Soon — New Title</div>
+        </div>
+        <div class="wl-book-title" style="opacity:0.4; font-style:italic;">Coming Soon</div>
+      </div>
+
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2025 <span>Limouze Books</span> · An imprint of <a href="../bio.html">Studio Tonton Gug</a>. All rights reserved.</p>
+  </footer>
+
+  <script src="../translations.js"></script>
+  <script src="../main.js"></script>
+</body>
+</html>

@@ -1,17 +1,330 @@
 <!DOCTYPE html>
-<html lang="fr">
+<html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Tonton Gug Studio</title>
-  <meta name="description" content="Tonton Gug Studio — créateur de projets : Newsbeats, livres jeunesse, cours de finance et plus encore." />
+  <title>Limouze Books — Stories that stay with you.</title>
+  <meta name="description" content="Limouze Books is an independent imprint dedicated to stories and ideas that linger. Children's biographies, literary non-fiction, and author-led projects." />
+  <meta property="og:title" content="Limouze Books — Stories that stay with you." />
+  <meta property="og:description" content="An independent imprint dedicated to stories and ideas that linger." />
+  <meta property="og:type" content="website" />
   <link rel="stylesheet" href="style.css" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet" />
+  <style>
+    /* ── LIMOUZE BOOKS WARM LAYER ── */
+    :root {
+      --lb-cream:   #F7F3ED;
+      --lb-charcoal:#1C1917;
+      --lb-copper:  #B5541A;
+      --lb-copper-light: #D4713A;
+      --lb-sage:    #7A9475;
+    }
+
+    /* Override body bg for this page */
+    body { background: var(--lb-cream); }
+
+    /* Cormorant display override for headings on this page */
+    .lb-display { font-family: 'Cormorant Garamond', Georgia, serif; }
+    .lb-mono    { font-family: 'DM Mono', monospace; }
+
+    /* ── NAV OVERRIDES ── */
+    nav {
+      background: var(--lb-cream);
+      border-bottom: 1px solid rgba(181,84,26,0.2);
+    }
+    .nav-logo-text { color: var(--lb-charcoal); }
+    .nav-logo-text span { color: var(--lb-copper); }
+    .nav-links a { color: #4b5563; }
+    .nav-links a:hover, .nav-links a.active { color: var(--lb-copper); background: rgba(181,84,26,0.07); }
+    .lang-btn:hover, .lang-btn.active { border-color: var(--lb-copper); color: var(--lb-copper); background: rgba(181,84,26,0.07); }
+    .nav-toggle { color: var(--lb-charcoal); }
+
+    /* ── HERO ── */
+    .lb-hero {
+      min-height: 80vh;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 5rem 2rem 4rem;
+      background: var(--lb-cream);
+      position: relative;
+      overflow: hidden;
+    }
+    .lb-hero::before {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='300' height='300'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='300' height='300' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+      pointer-events: none;
+    }
+    .lb-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--lb-copper);
+      margin-bottom: 1.25rem;
+    }
+    .lb-hero h1 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(3rem, 7vw, 5.5rem);
+      font-weight: 300;
+      line-height: 1.05;
+      color: var(--lb-charcoal);
+      margin-bottom: 0.75rem;
+    }
+    .lb-hero h1 em {
+      font-style: italic;
+      color: var(--lb-copper);
+    }
+    .lb-rule {
+      width: 48px;
+      height: 1px;
+      background: var(--lb-copper);
+      opacity: 0.5;
+      margin: 1.5rem auto;
+    }
+    .lb-hero p {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(1.1rem, 2vw, 1.4rem);
+      color: var(--lb-charcoal);
+      opacity: 0.75;
+      max-width: 520px;
+      line-height: 1.7;
+      margin-bottom: 2.5rem;
+    }
+    .lb-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.5rem;
+      padding: 0.8rem 2rem;
+      font-family: 'DM Mono', monospace;
+      font-size: 0.8rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      text-decoration: none;
+      background: var(--lb-copper);
+      color: var(--lb-cream);
+      border-radius: 2px;
+      transition: background 0.2s;
+    }
+    .lb-btn:hover { background: var(--lb-copper-light); }
+    .lb-btn-outline {
+      background: transparent;
+      color: var(--lb-copper);
+      border: 1px solid var(--lb-copper);
+    }
+    .lb-btn-outline:hover { background: rgba(181,84,26,0.07); }
+
+    /* ── SECTIONS ── */
+    .lb-section {
+      padding: 5rem 2rem;
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+    .lb-section-rule {
+      height: 1px;
+      background: rgba(181,84,26,0.2);
+      margin: 0 2rem;
+    }
+    .lb-section-eyebrow {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.68rem;
+      letter-spacing: 0.22em;
+      text-transform: uppercase;
+      color: var(--lb-copper);
+      margin-bottom: 0.75rem;
+    }
+    .lb-section h2 {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: clamp(2rem, 4vw, 3rem);
+      font-weight: 300;
+      color: var(--lb-charcoal);
+      margin-bottom: 1rem;
+      line-height: 1.15;
+    }
+    .lb-section p.lead {
+      color: var(--lb-charcoal);
+      opacity: 0.7;
+      font-size: 1.05rem;
+      line-height: 1.8;
+      max-width: 680px;
+      margin-bottom: 3rem;
+    }
+
+    /* ── AUTHOR TABS ── */
+    .lb-tabs-nav {
+      display: flex;
+      gap: 0;
+      border-bottom: 1px solid rgba(181,84,26,0.2);
+      margin-bottom: 3rem;
+    }
+    .lb-tab-btn {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      background: none;
+      border: none;
+      cursor: pointer;
+      padding: 0.75rem 1.75rem;
+      color: var(--lb-charcoal);
+      opacity: 0.45;
+      border-bottom: 2px solid transparent;
+      margin-bottom: -1px;
+      transition: opacity 0.2s, border-color 0.2s;
+    }
+    .lb-tab-btn:hover { opacity: 0.8; }
+    .lb-tab-btn.active { opacity: 1; border-bottom-color: var(--lb-copper); color: var(--lb-copper); }
+
+    .lb-tab-panel { display: none; }
+    .lb-tab-panel.active { display: block; }
+
+    /* ── AUTHOR LAYOUT (inside tab) ── */
+    .lb-author-layout {
+      display: grid;
+      grid-template-columns: 260px 1fr;
+      gap: 3.5rem;
+      align-items: start;
+      margin-bottom: 3.5rem;
+    }
+    .lb-author-portrait {
+      width: 100%;
+      aspect-ratio: 3/4;
+      background: #E8E0D5;
+      border-radius: 2px;
+      overflow: hidden;
+      border: 1px solid rgba(181,84,26,0.12);
+      position: sticky;
+      top: 5rem;
+    }
+    .lb-author-portrait img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      object-position: top center;
+    }
+    .lb-author-info { display: flex; flex-direction: column; gap: 0.75rem; }
+    .lb-author-role {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: var(--lb-copper);
+    }
+    .lb-author-name {
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 2rem;
+      font-weight: 400;
+      color: var(--lb-charcoal);
+      line-height: 1.15;
+      margin-bottom: 0.25rem;
+    }
+    .lb-author-rule {
+      height: 1px; width: 40px;
+      background: var(--lb-copper); opacity: 0.4;
+      margin-bottom: 0.5rem;
+    }
+    .lb-author-bio {
+      font-size: 0.95rem;
+      color: var(--lb-charcoal);
+      opacity: 0.75;
+      line-height: 1.85;
+    }
+    .lb-author-link {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.7rem;
+      letter-spacing: 0.12em;
+      color: var(--lb-copper);
+      text-decoration: none;
+      margin-top: 0.5rem;
+      display: inline-block;
+    }
+    .lb-author-link:hover { opacity: 0.8; }
+
+    /* ── BOOKS GRID (inside tab) ── */
+    .lb-tab-books-label {
+      font-family: 'DM Mono', monospace;
+      font-size: 0.65rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: var(--lb-copper);
+      margin-bottom: 1.25rem;
+      padding-top: 1.5rem;
+      border-top: 1px solid rgba(181,84,26,0.12);
+    }
+    .lb-books-strip {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(130px, 1fr));
+      gap: 1.25rem;
+    }
+    .lb-book-card {
+      background: #F0EBE3;
+      border: 1px solid rgba(181,84,26,0.12);
+      border-radius: 2px;
+      overflow: hidden;
+      transition: transform 0.2s;
+    }
+    .lb-book-card:hover { transform: translateY(-4px); }
+    .lb-book-cover {
+      width: 100%;
+      aspect-ratio: 3/4;
+      overflow: hidden;
+    }
+    .lb-book-cover img { width: 100%; height: 100%; object-fit: cover; }
+    .lb-book-coming-soon {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #E8E0D5;
+      color: rgba(181,84,26,0.35);
+      font-family: 'DM Mono', monospace;
+      font-size: 0.58rem;
+      text-transform: uppercase;
+      letter-spacing: 0.1em;
+      padding: 0.75rem;
+      text-align: center;
+    }
+    .lb-book-title {
+      padding: 0.55rem 0.7rem;
+      font-family: 'Cormorant Garamond', Georgia, serif;
+      font-size: 0.85rem;
+      color: var(--lb-charcoal);
+      opacity: 0.85;
+      line-height: 1.3;
+    }
+
+    /* ── FOOTER OVERRIDE ── */
+    footer {
+      background: var(--lb-charcoal);
+      border-top: 1px solid rgba(181,84,26,0.25);
+      color: rgba(247,243,237,0.6);
+    }
+    footer span { color: var(--lb-copper); }
+    footer a { color: var(--lb-copper); text-decoration: none; }
+    footer a:hover { opacity: 0.8; }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 768px) {
+      .lb-author-layout { grid-template-columns: 1fr; gap: 1.75rem; }
+      .lb-author-portrait { max-width: 220px; aspect-ratio: 1/1; position: static; }
+      .lb-books-strip { grid-template-columns: repeat(auto-fill, minmax(110px, 1fr)); }
+      .lb-tab-btn { padding: 0.65rem 1rem; font-size: 0.62rem; }
+    }
+  </style>
 </head>
 <body>
 
   <nav>
     <a href="index.html" class="nav-logo">
-      <img src="assets/tgs-icon-new.jpeg" alt="Tonton Gug Studio" /><div class="nav-logo-text">Tonton Gug <span>Studio</span></div>
+      <img src="assets/tgs-icon-new.jpeg" alt="Tonton Gug Studio" />
+      <div class="nav-logo-text">Limouze <span>Books</span></div>
     </a>
     <button class="nav-toggle" onclick="toggleNav()" aria-label="Menu">
       <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -19,13 +332,14 @@
       </svg>
     </button>
     <ul class="nav-links" id="navLinks">
-      <li><a href="index.html" class="active" data-i18n="nav.home">Accueil</a></li>
-      <li><a href="finance.html" data-i18n="nav.finance">Finance</a></li>
-      <li><a href="books.html" data-i18n="nav.books">Livres</a></li>
-      <li><a href="newsbeats.html" data-i18n="nav.newsbeats">Newsbeats</a></li>
-      <li><a href="arts.html" data-i18n="nav.arts">Arts</a></li>
-      <li><a href="bio.html" data-i18n="nav.bio">Bio</a></li>
-      <li><a href="#contact" data-i18n="nav.contact">Contact</a></li>
+      <li><a href="index.html" class="active">Limouze Books</a></li>
+      <li><a href="books.html">Books</a></li>
+      <li><a href="authors/william-loxford.html">Authors</a></li>
+      <li><a href="finance.html">Finance</a></li>
+      <li><a href="newsbeats.html">Newsbeats</a></li>
+      <li><a href="arts.html">Arts</a></li>
+      <li><a href="bio.html">Bio</a></li>
+      <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="lang-switcher">
       <button class="lang-btn active" data-lang="fr" onclick="setLang('fr')">FR</button>
@@ -34,82 +348,156 @@
     </div>
   </nav>
 
-  <!-- HERO -->
-  <section class="hero">
-    <h1 data-i18n-html="hero.title">Des projets créés<br/>avec <em>passion</em> &amp; vision.</h1>
-    <p data-i18n="hero.subtitle">Musique, livres, finance, tech — un studio pour rassembler tout ce qui prend forme.</p>
-    <div class="hero-cta">
-      <a href="#projects" class="btn btn-primary" data-i18n="hero.cta.primary">Découvrir les projets</a>
-      <a href="bio.html" class="btn btn-outline" data-i18n="hero.cta.secondary">Qui suis-je ?</a>
+  <!-- ── HERO ── -->
+  <section class="lb-hero">
+    <p class="lb-eyebrow">An independent literary imprint</p>
+    <h1 class="lb-display">Stories that <em>stay</em><br/>with you.</h1>
+    <div class="lb-rule"></div>
+    <p>Limouze Books — children's biographies, literary non-fiction,<br/>and author-led projects that cross borders.</p>
+    <a href="#books" class="lb-btn">Explore our books</a>
+  </section>
+
+  <div class="lb-section-rule"></div>
+
+  <!-- ── ABOUT ── -->
+  <section class="lb-section" id="about">
+    <p class="lb-section-eyebrow">The Imprint</p>
+    <h2>About Limouze Books</h2>
+    <p class="lead">
+      Limouze Books is an independent imprint dedicated to stories and ideas that linger. We publish
+      children's biographies, literary non-fiction, and author-led projects that cross borders —
+      in language, genre, and imagination. Every book we publish is a deliberate act of curiosity.
+    </p>
+  </section>
+
+  <div class="lb-section-rule"></div>
+
+  <!-- ── AUTHORS + BOOKS (tabbed) ── -->
+  <section class="lb-section" id="authors">
+    <p class="lb-section-eyebrow">Our Authors</p>
+    <h2>The Voices Behind the Books</h2>
+
+    <!-- Tab nav -->
+    <div class="lb-tabs-nav" role="tablist">
+      <button class="lb-tab-btn active" role="tab" aria-selected="true"  aria-controls="tab-daisy"   onclick="switchTab('daisy')">Daisy Harper Gray-Lane</button>
+      <button class="lb-tab-btn"        role="tab" aria-selected="false" aria-controls="tab-william" onclick="switchTab('william')">William Loxford</button>
+    </div>
+
+    <!-- ── TAB: DAISY ── -->
+    <div class="lb-tab-panel active" id="tab-daisy" role="tabpanel">
+      <div class="lb-author-layout">
+        <div class="lb-author-portrait">
+          <img src="assets/daisy-portrait.png" alt="Daisy Harper Gray-Lane, author" loading="lazy" />
+        </div>
+        <div class="lb-author-info">
+          <p class="lb-author-role">Children's Biography Series</p>
+          <h3 class="lb-author-name">Daisy Harper<br/>Gray-Lane</h3>
+          <div class="lb-author-rule"></div>
+          <p class="lb-author-bio">
+            Daisy Harper Gray-Lane is the author of the <em>Brilliant Women, Remarkable Stories</em>
+            series — eight illustrated biographies celebrating remarkable women across history and
+            culture. Her books are designed to inspire young readers aged 5–9, bringing history to
+            life through warm, accessible storytelling and vibrant illustration.
+          </p>
+          <a href="books.html" class="lb-author-link">View full series →</a>
+        </div>
+      </div>
+
+      <p class="lb-tab-books-label">Books — Brilliant Women, Remarkable Stories</p>
+      <div class="lb-books-strip">
+        <div class="lb-book-card">
+          <div class="lb-book-cover"><img src="assets/books/marie-curie.png" alt="Marie Curie" loading="lazy" /></div>
+          <div class="lb-book-title">Marie Curie</div>
+        </div>
+        <div class="lb-book-card">
+          <div class="lb-book-cover"><img src="assets/books/amelia-earhart.png" alt="Amelia Earhart" loading="lazy" /></div>
+          <div class="lb-book-title">Amelia Earhart</div>
+        </div>
+        <div class="lb-book-card">
+          <div class="lb-book-cover"><img src="assets/books/frida-kahlo.png" alt="Frida Kahlo" loading="lazy" /></div>
+          <div class="lb-book-title">Frida Kahlo</div>
+        </div>
+        <div class="lb-book-card">
+          <div class="lb-book-cover"><img src="assets/books/cleopatra.png" alt="Cleopatra" loading="lazy" /></div>
+          <div class="lb-book-title">Cleopatra</div>
+        </div>
+        <div class="lb-book-card">
+          <div class="lb-book-cover"><img src="assets/books/rosa-parks.png" alt="Rosa Parks" loading="lazy" /></div>
+          <div class="lb-book-title">Rosa Parks</div>
+        </div>
+        <div class="lb-book-card">
+          <div class="lb-book-cover"><img src="assets/books/ada-lovelace.png" alt="Ada Lovelace" loading="lazy" /></div>
+          <div class="lb-book-title">Ada Lovelace</div>
+        </div>
+        <div class="lb-book-card">
+          <div class="lb-book-cover"><img src="assets/books/sacagawea.png" alt="Sacagawea" loading="lazy" /></div>
+          <div class="lb-book-title">Sacagawea</div>
+        </div>
+        <div class="lb-book-card">
+          <div class="lb-book-cover"><img src="assets/books/zelda-fitzgerald.png" alt="Zelda Fitzgerald" loading="lazy" /></div>
+          <div class="lb-book-title">Zelda Fitzgerald</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── TAB: WILLIAM ── -->
+    <div class="lb-tab-panel" id="tab-william" role="tabpanel">
+      <div class="lb-author-layout">
+        <div class="lb-author-portrait">
+          <img src="assets/william-loxford.jpg" alt="William Loxford, author" loading="lazy" />
+        </div>
+        <div class="lb-author-info">
+          <p class="lb-author-role">Literary Fiction &amp; Non-Fiction</p>
+          <h3 class="lb-author-name">William<br/>Loxford</h3>
+          <div class="lb-author-rule"></div>
+          <p class="lb-author-bio">
+            William Loxford is a New Zealand-born, internationally raised writer whose work moves
+            freely between reflection, storytelling, and essay — shaped by a life lived across the
+            United Kingdom, Spain, France, and Hong Kong. His writing blends humour, observation,
+            and literary curiosity without ever settling into a single category.
+          </p>
+          <!-- TODO: update href with live William Loxford site URL once deployed -->
+          <a href="#" class="lb-author-link">Visit author site →</a>
+          <a href="authors/william-loxford.html" class="lb-author-link" style="margin-left:1.25rem; opacity:0.65;">Full author page →</a>
+        </div>
+      </div>
+
+      <p class="lb-tab-books-label">Books by William Loxford</p>
+      <div class="lb-books-strip">
+        <div class="lb-book-card">
+          <div class="lb-book-cover"><img src="assets/books/william-loxford/book-the-anagram-stories.jpg" alt="The Anagram Stories" loading="lazy" /></div>
+          <div class="lb-book-title">The Anagram Stories</div>
+        </div>
+        <div class="lb-book-card">
+          <div class="lb-book-cover"><img src="assets/books/william-loxford/book-the-vanishing-alphabet.jpg" alt="The Vanishing Alphabet" loading="lazy" /></div>
+          <div class="lb-book-title">The Vanishing Alphabet</div>
+        </div>
+        <div class="lb-book-card">
+          <div class="lb-book-cover"><div class="lb-book-coming-soon">Coming Soon — New Title</div></div>
+          <div class="lb-book-title" style="opacity:0.4; font-style:italic;">Coming Soon</div>
+        </div>
+      </div>
     </div>
   </section>
 
-  <div class="divider"></div>
-
-  <!-- PROJECTS -->
-  <section id="projects">
-    <p class="section-label" data-i18n="projects.label">Projets</p>
-    <h2 class="section-title" data-i18n="projects.title">Ce que je crée</h2>
-    <p class="section-sub" data-i18n="projects.subtitle">Un ensemble de projets variés, chacun avec sa propre identité et son propre univers.</p>
-
-    <div class="cards-grid">
-
-      <a href="finance.html" class="card">
-        <div class="card-icon">📈</div>
-        <h3 data-i18n="card.finance.title">Finance</h3>
-        <p data-i18n="card.finance.desc">Des cours et slides pour démocratiser la finance. Comprendre les marchés, investir intelligemment.</p>
-        <span class="card-arrow" data-i18n="card.finance.link">Voir les cours →</span>
-      </a>
-
-      <a href="newsbeats.html" class="card">
-        <div class="card-icon">🎵</div>
-        <h3 data-i18n="card.newsbeats.title">Newsbeats</h3>
-        <p data-i18n="card.newsbeats.desc">L'actualité rencontre la musique. Une app qui transforme les news en expérience sonore unique.</p>
-        <span class="card-arrow" data-i18n="card.newsbeats.link">Découvrir →</span>
-      </a>
-
-      <a href="books.html" class="card">
-        <div class="card-icon">📚</div>
-        <h3 data-i18n="card.books.title">Livres</h3>
-        <p data-i18n="card.books.desc">Des livres illustrés pour les petites filles, publiés sous pen name. Des histoires qui inspirent et font rêver.</p>
-        <span class="card-arrow" data-i18n="card.books.link">Voir les livres →</span>
-      </a>
-
-      <a href="arts.html" class="card">
-        <div class="card-icon">🎨</div>
-        <h3 data-i18n="card.arts.title">Arts</h3>
-        <p data-i18n="card.arts.desc">Cinq œuvres sur aluminium — une série sur les grands paysages, intégrant la boîte M&M's en relief.</p>
-        <span class="card-arrow" data-i18n="card.arts.link">Voir les œuvres →</span>
-      </a>
-
-      <a href="bio.html" class="card">
-        <div class="card-icon">👤</div>
-        <h3 data-i18n="card.bio.title">Bio</h3>
-        <p data-i18n="card.bio.desc">Qui est derrière tout ça ? Un profil, un parcours, une vision — tout est là.</p>
-        <span class="card-arrow" data-i18n="card.bio.link">En savoir plus →</span>
-      </a>
-
-    </div>
-  </section>
-
-  <div class="divider"></div>
+  <div class="lb-section-rule"></div>
 
   <!-- CONTACT -->
   <div class="contact-section" id="contact">
     <div class="contact-inner">
-      <p class="section-label" data-i18n="contact.label">Contact</p>
-      <h2 class="section-title" data-i18n="contact.title">On se parle ?</h2>
-      <p class="section-sub" data-i18n="contact.subtitle">Une idée, une collaboration, une question — envoie un message.</p>
+      <p class="section-label">Contact</p>
+      <h2 class="section-title" style="font-family:'Cormorant Garamond',Georgia,serif; font-weight:300; color:var(--lb-cream);">Get in touch</h2>
+      <p class="section-sub">A manuscript, a collaboration, or a question — we'd love to hear from you.</p>
 
       <form class="form" id="contactForm">
         <div class="form-row">
-          <input type="text"  name="name"    data-i18n-ph="form.name"    placeholder="Ton prénom"  required />
-          <input type="email" name="email"   data-i18n-ph="form.email"   placeholder="Ton email"    required />
+          <input type="text"  name="name"    placeholder="Your name"    required />
+          <input type="email" name="email"   placeholder="Your email"   required />
         </div>
-        <input type="text" name="subject" data-i18n-ph="form.subject" placeholder="Sujet" />
-        <textarea name="message" data-i18n-ph="form.message" placeholder="Ton message..." required></textarea>
-        <button type="submit" class="btn btn-primary" style="align-self:center; min-width:180px;">
-          <span data-i18n="form.submit">Envoyer le message</span>
+        <input type="text" name="subject" placeholder="Subject" />
+        <textarea name="message" placeholder="Your message..." required></textarea>
+        <button type="submit" class="btn btn-primary" style="align-self:center; min-width:180px; background:var(--lb-copper);">
+          Send message
         </button>
         <p class="form-status" id="formStatus"></p>
       </form>
@@ -117,10 +505,24 @@
   </div>
 
   <footer>
-    <p data-i18n-html="footer.text">© 2025 <span>Tonton Gug Studio</span>. Tous droits réservés.</p>
+    <p>© 2025 <span>Limouze Books</span> · An imprint of <a href="bio.html">Studio Tonton Gug</a>. All rights reserved.</p>
   </footer>
 
   <script src="translations.js"></script>
   <script src="main.js"></script>
+  <script>
+    function switchTab(author) {
+      document.querySelectorAll('.lb-tab-btn').forEach(btn => {
+        btn.classList.remove('active');
+        btn.setAttribute('aria-selected', 'false');
+      });
+      document.querySelectorAll('.lb-tab-panel').forEach(panel => panel.classList.remove('active'));
+
+      const activeBtn = document.querySelector(`.lb-tab-btn[onclick="switchTab('${author}')"]`);
+      const activePanel = document.getElementById(`tab-${author}`);
+      if (activeBtn) { activeBtn.classList.add('active'); activeBtn.setAttribute('aria-selected', 'true'); }
+      if (activePanel) activePanel.classList.add('active');
+    }
+  </script>
 </body>
 </html>
