@@ -412,7 +412,7 @@
         <div class="nw-icon"><img src="assets/notchwork-logo.jpeg" alt="NotchWork" style="height:56px;border-radius:10px;" /></div>
         <div style="flex:1">
           <h2 data-i18n="nw.title">NotchWork</h2>
-          <p data-i18n="nw.desc">Plateforme de shadow rating multi-agence alimentée par l'IA — moteur Claude Sonnet 4.5. Le shadow rating S&P (méthodologie complète, 18 PDFs ingérés en 1 144 chunks RAG) est l'engine principal, cross-checké par deux shadow ratings high-level Moody's (44 scorecards sectorielles verbatim) et Fitch (58 sector navigators verbatim). Réconciliation 3-way silencieuse en background si l'écart entre deux agences dépasse 2 notches. Upload un rapport annuel, génère trois shadow ratings parallèles et un mémo IB complet en moins de 10 minutes.</p>
+          <p data-i18n="nw.desc">Plateforme de shadow rating multi-agence alimentée par l'IA — moteur Claude Sonnet 4.5 avec extended thinking. Le shadow rating S&P (méthodologie complète, 18 PDFs ingérés en 1 144 chunks RAG) est l'engine principal, cross-checké par deux shadow ratings high-level Moody's (44 scorecards sectorielles verbatim) et Fitch (58 sector navigators verbatim). Réconciliation 3-way silencieuse en background si l'écart entre deux agences dépasse 3 notches. Upload un rapport annuel, génère trois shadow ratings parallèles et un mémo IB complet. Accès par compte utilisateur (abonnement mensuel).</p>
           <div class="nw-stats">
             <div class="nw-stat"><div class="nw-stat-n">3</div><div class="nw-stat-l" data-i18n="nw.stat.agencies">Agences en parallèle (S&P + Moody's + Fitch)</div></div>
             <div class="nw-stat"><div class="nw-stat-n">44 + 58</div><div class="nw-stat-l" data-i18n="nw.stat.scorecards">Scorecards Moody's + navigators Fitch</div></div>
@@ -425,7 +425,7 @@
         <div class="nw-feature">
           <div class="nw-feature-icon">🤖</div>
           <div class="nw-feature-title" data-i18n="nw.f1.title">Triple moteur S&P + Moody's + Fitch</div>
-          <p class="nw-feature-desc" data-i18n="nw.f1.desc">Claude Sonnet 4.5 applique le framework S&P (CICRA → BRP × FRP → Anchor → Modifiers → ICR) en moteur principal, complété par les scorecards sectorielles Moody's et le Sector Navigator Fitch en cross-check parallèle. Sortie JSON structurée avec forces, faiblesses, sensibilités, narrative IB-style.</p>
+          <p class="nw-feature-desc" data-i18n="nw.f1.desc">Claude Sonnet 4.5 avec extended thinking applique le framework S&P (CICRA → BRP × FRP → Anchor → Modifiers → ICR) en moteur principal, complété par les scorecards sectorielles Moody's et le Sector Navigator Fitch en cross-check parallèle. Sortie JSON structurée avec forces, faiblesses, sensibilités, narrative IB-style.</p>
         </div>
         <div class="nw-feature">
           <div class="nw-feature-icon">📚</div>
@@ -435,7 +435,7 @@
         <div class="nw-feature">
           <div class="nw-feature-icon">⚖️</div>
           <div class="nw-feature-title" data-i18n="nw.f3.title">Réconciliation 3-way cross-agence</div>
-          <p class="nw-feature-desc" data-i18n="nw.f3.desc">Échelle unifiée S&P ↔ Moody's ↔ Fitch. Si l'écart entre n'importe quelle paire dépasse 2 notches (rare en pratique), les trois moteurs se relancent automatiquement avec les ratings des autres agences en contexte — sanity-check méthodologie / sector inclus. Le user ne voit pas ce check, juste les ratings finaux.</p>
+          <p class="nw-feature-desc" data-i18n="nw.f3.desc">Échelle unifiée S&P ↔ Moody's ↔ Fitch. Si l'écart entre n'importe quelle paire dépasse 3 notches, les trois moteurs se relancent automatiquement avec les ratings des autres agences en contexte — sanity-check méthodologie / sector inclus. Exécution sur worker dédié (Render) pour lever la limite des timeouts serverless. Le user ne voit pas ce check, juste les ratings finaux.</p>
         </div>
         <div class="nw-feature">
           <div class="nw-feature-icon">📄</div>
