@@ -203,6 +203,105 @@
     .arts-panel { display: none; }
     .arts-panel.active { display: block; }
 
+    /* ---- ZABIERU FŌKON (artiste invité) ---- */
+    .arts-tab.tab-zab.active { color: #c7cbd1; border-bottom-color: #c7cbd1; }
+
+    .zab-intro {
+      background: linear-gradient(135deg, #0a0f1e 0%, #1c2026 55%, #0d1117 100%);
+      border-radius: var(--radius); padding: 2.5rem 3rem;
+      margin-bottom: 3rem; position: relative; overflow: hidden;
+    }
+    .zab-intro::before {
+      content: ''; position: absolute;
+      top: -70px; right: -70px; width: 260px; height: 260px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(199,203,209,0.14) 0%, transparent 70%);
+    }
+    .zab-hero { display: grid; grid-template-columns: 1fr 220px; gap: 2.5rem; align-items: center; position: relative; }
+    .zab-hero-img { border-radius: 10px; overflow: hidden; cursor: zoom-in; border: 1px solid rgba(255,255,255,0.12); }
+    .zab-hero-img img { width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; }
+    .zab-intro .ai-label {
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: #c7cbd1; font-weight: 700; margin-bottom: 0.75rem;
+    }
+    .zab-intro h2 {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: clamp(1.4rem, 3vw, 2rem); color: white;
+      margin-bottom: 0.35rem; line-height: 1.3;
+    }
+    .zab-jp { font-size: 0.85rem; letter-spacing: 0.22em; color: var(--muted); margin-bottom: 1rem; }
+    .zab-intro p:not(.zab-jp) {
+      color: rgba(255,255,255,0.65); font-size: 0.95rem; line-height: 1.75;
+      max-width: 680px; font-style: italic;
+    }
+    .zab-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      background: rgba(199,203,209,0.08); border: 1px solid rgba(199,203,209,0.28);
+      color: #c7cbd1; font-size: 0.8rem; font-weight: 600;
+      padding: 0.35rem 1rem; border-radius: 999px; margin-top: 1.25rem;
+    }
+    .zab-cta {
+      display: inline-block; margin-top: 1.25rem; margin-left: 0.75rem;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+      color: #e2e8f0; background: rgba(255,255,255,0.06);
+      border: 1px solid rgba(255,255,255,0.18); border-radius: 999px;
+      padding: 0.45rem 1.1rem; text-decoration: none;
+      transition: background 0.2s, border-color 0.2s;
+    }
+    .zab-cta:hover { background: rgba(255,255,255,0.13); border-color: rgba(255,255,255,0.4); }
+
+    .zab-series-head {
+      display: flex; align-items: baseline; gap: 1rem; flex-wrap: wrap;
+      padding-bottom: 0.75rem; border-bottom: 1px solid var(--border);
+      margin-bottom: 1.25rem;
+    }
+    .zab-numeral {
+      font-size: 0.7rem; font-weight: 800; letter-spacing: 0.2em; text-transform: uppercase;
+      color: #c8452f;
+    }
+    .zab-series-head h3 { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.35rem; color: var(--text); }
+    .zab-sub { font-style: italic; color: var(--muted); font-size: 0.92rem; }
+    .zab-series-desc { color: var(--muted); font-size: 0.9rem; line-height: 1.8; max-width: 820px; margin-bottom: 2rem; font-style: italic; }
+
+    .zab-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.25rem; }
+    .zab-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); overflow: hidden;
+      display: flex; flex-direction: column;
+      transition: transform 0.3s, border-color 0.3s, box-shadow 0.3s;
+    }
+    .zab-card:hover { transform: translateY(-4px); border-color: rgba(199,203,209,0.35); box-shadow: 0 14px 34px rgba(0,0,0,0.5); }
+    .zab-img { position: relative; aspect-ratio: 1/1; overflow: hidden; cursor: zoom-in; background: #0a0f1e; }
+    .zab-img img { width: 100%; height: 100%; object-fit: cover; display: block; transition: transform 0.5s; }
+    .zab-card:hover .zab-img img { transform: scale(1.03); }
+    .zab-num {
+      position: absolute; top: 0.75rem; left: 0.9rem;
+      font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 0.72rem;
+      letter-spacing: 0.14em; color: white;
+      background: rgba(0,0,0,0.55); border: 1px solid rgba(255,255,255,0.22);
+      padding: 0.15rem 0.6rem; border-radius: 4px; backdrop-filter: blur(4px);
+    }
+    .zab-body { padding: 1.25rem 1.4rem 1.5rem; }
+    .zab-title { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.15rem; color: var(--text); }
+    .zab-after { font-style: italic; color: #c7cbd1; font-size: 0.82rem; margin: 0.2rem 0 0.75rem; opacity: 0.85; }
+    .zab-desc { color: var(--muted); font-size: 0.86rem; line-height: 1.75; }
+
+    .zab-outro {
+      margin-top: 3rem; background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 2rem 2.5rem;
+    }
+    .zab-outro p { color: var(--muted); font-size: 0.9rem; line-height: 1.8; font-style: italic; }
+    .zab-outro .zab-cta { margin-left: 0; }
+
+    @media (max-width: 900px) {
+      .zab-hero { grid-template-columns: 1fr; }
+      .zab-hero-img { max-width: 220px; }
+    }
+    @media (max-width: 700px) {
+      .zab-grid { grid-template-columns: 1fr; }
+      .zab-intro, .zab-outro { padding: 1.75rem 1.5rem; }
+    }
+
     /* ---- ELEMENTS (Série II) ---- */
     .elements-intro {
       background: linear-gradient(135deg, #0a0f1e 0%, #1a0826 100%);
@@ -374,6 +473,7 @@
       <button class="arts-tab active" onclick="switchArtsTab('env',this)" data-i18n="arts.tab.env">M&M's — Environnements</button>
       <button class="arts-tab" onclick="switchArtsTab('elements',this)" data-i18n="arts.tab.elements">M&M's — Éléments</button>
       <button class="arts-tab" onclick="switchArtsTab('corr',this)" data-i18n="arts.tab.corr">M&M's — Correspondances</button>
+      <button class="arts-tab tab-zab" onclick="switchArtsTab('zab',this)" data-i18n="arts.tab.zab">Zabieru Fōkon — Collisions</button>
     </div>
 
     <!-- PANEL 1 : ENVIRONNEMENTS -->
@@ -723,6 +823,148 @@
       </div>
 
     </div><!-- /panel-corr -->
+
+    <!-- PANEL 4 : ZABIERU FŌKON — COLLISIONS -->
+    <div class="arts-panel" id="panel-zab">
+
+      <div class="zab-intro">
+        <div class="zab-hero">
+          <div class="zab-hero-text">
+            <div class="ai-label" data-i18n="arts.zab.label">Artiste invité — 2026</div>
+            <h2 data-i18n-html="arts.zab.title">Zabieru Fōkon — <em>Collisions</em></h2>
+            <p class="zab-jp">ザビエル・フォーコン</p>
+            <p data-i18n="arts.zab.desc">Zabieru Fōkon (né à Wellington, Nouvelle-Zélande) est le nom sous lequel travaille un artiste d'origine française. Il défend la conviction peu à la mode que l'histoire de la peinture occidentale et l'âge d'or de l'animation japonaise forment une seule et même tradition, séparée par un accident de géographie et environ quatre cents ans. Sa pratique consiste à organiser les présentations. Chaque œuvre installe une figure animée à l'intérieur du style, de la palette et de l'iconographie d'un peintre canonique — non comme parodie, mais comme retour au pays.</p>
+            <div class="zab-tag" data-i18n="arts.zab.tag">◆ 8 œuvres · 2 séries · Impression directe sur aluminium brossé · 50 × 50 cm</div>
+            <a class="zab-cta" href="https://zabieru-fokon.vercel.app" target="_blank" rel="noopener" data-i18n="arts.zab.cta">Voir le site de l'artiste →</a>
+          </div>
+          <div class="zab-hero-img" onclick="openLightbox('assets/zabieru/artist.jpg','Zabieru Fōkon')">
+            <img src="assets/zabieru/artist.jpg" alt="Zabieru Fōkon" loading="lazy" />
+          </div>
+        </div>
+      </div>
+
+      <!-- SÉRIE I -->
+      <div class="zab-series-head">
+        <span class="zab-numeral" data-i18n="arts.zab.s1.num">Série I</span>
+        <h3 data-i18n="arts.zab.s1.title">Four Saiyan Masters</h3>
+        <span class="zab-sub" data-i18n="arts.zab.s1.sub">Une collision de canons</span>
+      </div>
+      <p class="zab-series-desc" data-i18n="arts.zab.s1.desc">Quatre images, quatre siècles, quatre écoles irréconciliables — et sous chacune, la même mythologie guerrière, importée du Japon de la fin du XXᵉ siècle et installée dans le cadre comme si elle y avait toujours appartenu. Les œuvres ne parodient pas leurs sources : elles soutiennent, sans sourciller, que la turbulence de Van Gogh et une transformation en Super Saiyan sont le même geste, séparé par cent ans et huit mille kilomètres.</p>
+
+      <div class="zab-grid">
+        <div class="zab-card">
+          <div class="zab-img" onclick="openLightbox('assets/zabieru/van-goku.jpg','Van Goku')">
+            <img src="assets/zabieru/van-goku.jpg" alt="Van Goku" loading="lazy" />
+            <div class="zab-num">I</div>
+          </div>
+          <div class="zab-body">
+            <div class="zab-title">Van Goku</div>
+            <div class="zab-after" data-i18n="arts.zab.w1.after">D'après Vincent van Gogh, « La Nuit étoilée » (1889)</div>
+            <p class="zab-desc" data-i18n="arts.zab.w1.desc">L'artiste abandonne totalement l'horizon. Ciel et énergie sont rendus comme un unique système de touches tourbillonnantes — la charge qui s'accumule dans les mains du guerrier n'est que la plus proche des étoiles, et la crinière dorée rime avec le cyprès qui lui fait face. En contrebas, le village dort, indifférent ; son clocher est la seule verticale qui ne soit pas en feu. Un refus, caractéristique de la série, de distinguer le temps qu'il fait de l'homme qui s'y tient.</p>
+          </div>
+        </div>
+
+        <div class="zab-card">
+          <div class="zab-img" onclick="openLightbox('assets/zabieru/frieza-kahlo.jpg','Frieza Kahlo')">
+            <img src="assets/zabieru/frieza-kahlo.jpg" alt="Frieza Kahlo" loading="lazy" />
+            <div class="zab-num">II</div>
+          </div>
+          <div class="zab-body">
+            <div class="zab-title">Frieza Kahlo</div>
+            <div class="zab-after" data-i18n="arts.zab.w2.after">D'après Frida Kahlo, « Autoportrait au collier d'épines et colibri » (1940)</div>
+            <p class="zab-desc" data-i18n="arts.zab.w2.desc">Frontal, symétrique, sans ciller. Le modèle n'offre au spectateur aucun angle d'approche et aucune invitation. Là où la tradition place des cheveux, l'artiste place hibiscus et œillets d'Inde ; là où elle place un collier d'épines, il place un collier d'épines, et laisse l'armure violette qui l'accompagne faire le travail. Le feuillage sature le plan jusqu'à ce que la figure soit moins représentée que pressée, comme un spécimen, contre la surface. Sur l'épaule, un petit compagnon cornu tend une fleur qui ne sera pas acceptée. La plus silencieuse des quatre images, et la moins indulgente.</p>
+          </div>
+        </div>
+
+        <div class="zab-card">
+          <div class="zab-img" onclick="openLightbox('assets/zabieru/jackson-piccollock.jpg','Jackson Piccollock')">
+            <img src="assets/zabieru/jackson-piccollock.jpg" alt="Jackson Piccollock" loading="lazy" />
+            <div class="zab-num">III</div>
+          </div>
+          <div class="zab-body">
+            <div class="zab-title">Jackson Piccollock</div>
+            <div class="zab-after" data-i18n="arts.zab.w3.after">D'après Jackson Pollock, « Autumn Rhythm (Number 30) » (1950)</div>
+            <p class="zab-desc" data-i18n="arts.zab.w3.desc">La figure à la cape ne se tient pas devant la composition : elle y est prise — maintenue debout par un filet all-over d'émeraude, de blanc d'os et de noir projetés, où les coulures se lisent aussi bien comme peinture que comme énergie déchargée. En bas à droite, les écheveaux convergent en une seule détonation d'orange et de blanc, le seul endroit où le réseau consent un centre. La critique s'est divisée : la figure produit-elle le tableau ou tente-t-elle d'en sortir ? L'artiste a toujours soutenu que la distinction était sans intérêt.</p>
+          </div>
+        </div>
+
+        <div class="zab-card">
+          <div class="zab-img" onclick="openLightbox('assets/zabieru/diego-velazqueta.jpg','Diego Velázqueta')">
+            <img src="assets/zabieru/diego-velazqueta.jpg" alt="Diego Velázqueta" loading="lazy" />
+            <div class="zab-num">IV</div>
+          </div>
+          <div class="zab-body">
+            <div class="zab-title">Diego Velázqueta</div>
+            <div class="zab-after" data-i18n="arts.zab.w4.after">D'après Diego Vélasquez, « Les Ménines » (1656)</div>
+            <p class="zab-desc" data-i18n="arts.zab.w4.desc">La plus orthodoxe et la plus ironique des quatre. Une cour qui n'existe plus, réassemblée dans un intérieur Habsbourg doré : le prince au centre, bras croisés, menton relevé, flanqué de ses guerriers et entouré des enfants de la lignée — tandis que des toiles encadrées à l'intérieur de la toile répètent la dynastie jusque dans l'ombre. Bruns chauds, lumière de fenêtre venue de la droite, tout l'appareil du portrait royal mis au service d'un royaume de neuf survivants peut-être. Le modèle n'en a pas été informé, et cela lui serait égal.</p>
+          </div>
+        </div>
+      </div>
+
+      <!-- SÉRIE II -->
+      <div class="zab-series-head" style="margin-top:3.5rem;">
+        <span class="zab-numeral" data-i18n="arts.zab.s2.num">Série II</span>
+        <h3 data-i18n="arts.zab.s2.title">The Pocket Pantheon</h3>
+        <span class="zab-sub" data-i18n="arts.zab.s2.sub">Quatre générations</span>
+      </div>
+      <p class="zab-series-desc" data-i18n="arts.zab.s2.desc">Si la première série soutenait que la peinture occidentale attendait ses guerriers, celle-ci avance une thèse plus étrange : elle attendait son bestiaire. Tout canon produit des animaux — les bêtes qui se pressent dans les marges des fresques, les poissons rouges de Matisse, les monstres que Goya annonçait pour le sommeil de la raison. Les créatures réunies ici sont simplement arrivées en retard, depuis une autre île, et ont trouvé les cadres déjà prêts.</p>
+
+      <div class="zab-grid">
+        <div class="zab-card">
+          <div class="zab-img" onclick="openLightbox('assets/zabieru/pikacco.jpg','Pikacco')">
+            <img src="assets/zabieru/pikacco.jpg" alt="Pikacco" loading="lazy" />
+            <div class="zab-num">I</div>
+          </div>
+          <div class="zab-body">
+            <div class="zab-title">Pikacco</div>
+            <div class="zab-after" data-i18n="arts.zab.w5.after">D'après Pablo Picasso, à la manière des portraits fracturés (v. 1937)</div>
+            <p class="zab-desc" data-i18n="arts.zab.w5.desc">L'image fondatrice de tout le projet. Le cubisme promettait de montrer tous les côtés d'une chose à la fois ; l'artiste prend la promesse au pied de la lettre et l'applique à une créature dont les deux joues rouges n'avaient jamais été visibles dans la même vue. Le crâne est brisé puis réassemblé, les oreilles rompues en éclats noirs à la dérive, la queue promue de l'anatomie à la géométrie. Ce qui survit à la fragmentation — ce que le cubisme, malgré toute sa violence, ne parvient pas à démonter — c'est la reconnaissabilité elle-même. La signature explique le reste.</p>
+          </div>
+        </div>
+
+        <div class="zab-card">
+          <div class="zab-img" onclick="openLightbox('assets/zabieru/mewchelangelo.jpg','Mewchelangelo')">
+            <img src="assets/zabieru/mewchelangelo.jpg" alt="Mewchelangelo" loading="lazy" />
+            <div class="zab-num">II</div>
+          </div>
+          <div class="zab-body">
+            <div class="zab-title">Mewchelangelo</div>
+            <div class="zab-after" data-i18n="arts.zab.w6.after">D'après Michel-Ange, « La Création d'Adam », plafond de la chapelle Sixtine (v. 1512)</div>
+            <p class="zab-desc" data-i18n="arts.zab.w6.desc">La plus révérencieuse et la plus troublante de la série. Une petite créature pâle dérive dans un manteau cramoisi gonflé, porté par des chérubins, un membre délicat tendu vers la figure grise allongée sur le rocher — un écho plus grand, fabriqué, d'elle-même, qui tend la main en retour sans toucher. Le craquelé de la fresque passe exactement dans l'écart entre les deux doigts, comme si le mur lui-même avait hésité là. Que le geste représente une création qui est aussi une duplication est laissé, délibérément, sans commentaire.</p>
+          </div>
+        </div>
+
+        <div class="zab-card">
+          <div class="zab-img" onclick="openLightbox('assets/zabieru/meowtisse.jpg','Meowtisse')">
+            <img src="assets/zabieru/meowtisse.jpg" alt="Meowtisse" loading="lazy" />
+            <div class="zab-num">III</div>
+          </div>
+          <div class="zab-body">
+            <div class="zab-title">Meowtisse</div>
+            <div class="zab-after" data-i18n="arts.zab.w7.after">D'après Henri Matisse, « L'Atelier rouge » et « Poissons rouges » (1911–1912)</div>
+            <p class="zab-desc" data-i18n="arts.zab.w7.desc">La platitude poursuivie sans excuse. Un chat crème, breloque dorée au front, médite devant un bocal de poissons orange, dans un intérieur où mur, table et sol se sont effondrés en un seul plan rouge saturé, tenu par des arabesques noires et des fleurs éparses. La profondeur est refusée ; c'est l'ornement qui assure tout le travail structurel. La fenêtre ouvre sur un ailleurs bleu et plat. L'image la plus purement jouissive de la série — et notez que le chat n'a encore rien décidé.</p>
+          </div>
+        </div>
+
+        <div class="zab-card">
+          <div class="zab-img" onclick="openLightbox('assets/zabieru/magrikarp.jpg','Magrikarp')">
+            <img src="assets/zabieru/magrikarp.jpg" alt="Magrikarp" loading="lazy" />
+            <div class="zab-num">IV</div>
+          </div>
+          <div class="zab-body">
+            <div class="zab-title">Magrikarp</div>
+            <div class="zab-after" data-i18n="arts.zab.w8.after">D'après René Magritte, « Golconde » (1953)</div>
+            <p class="zab-desc" data-i18n="arts.zab.w8.desc">Pince-sans-rire, et d'autant plus drôle. Au-dessus d'une rangée de maisons grises aux volets clos, des poissons orange sont suspendus, immobiles, en rangs ordonnés, diminuant vers l'horizon avec une parfaite logique administrative — bouche ouverte dans une surprise légère et permanente, sans projeter d'ombre, obéissant à une perspective que le ciel lui-même a contresignée. La facture est lisse et impersonnelle, la lumière bureaucratique. L'artiste refuse chaque occasion de signaler qu'une plaisanterie est en cours, ce qui est la seule raison pour laquelle la plaisanterie fonctionne.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="zab-outro">
+        <p data-i18n="arts.zab.outro">Fōkon ne peint pas. Les œuvres sont imprimées directement sur aluminium brossé, une surface qu'il décrit comme « honnête quant à son siècle ». La signature, toujours en bas à droite, fond deux noms en un seul : le peintre et le personnage partageant, enfin, une seule main. Il vit entre Londres et Madrid, et refuse d'en dire davantage.</p>
+        <a class="zab-cta" href="https://zabieru-fokon.vercel.app" target="_blank" rel="noopener" data-i18n="arts.zab.cta2">Catalogue complet sur zabieru-fokon →</a>
+      </div>
+
+    </div><!-- /panel-zab -->
 
   </section>
 
