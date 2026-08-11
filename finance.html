@@ -412,10 +412,10 @@
         <div class="nw-icon"><img src="assets/notchwork-logo.jpeg" alt="NotchWork" style="height:56px;border-radius:10px;" /></div>
         <div style="flex:1">
           <h2 data-i18n="nw.title">NotchWork</h2>
-          <p data-i18n="nw.desc">Plateforme de shadow rating multi-agence alimentée par l'IA — moteur Claude Sonnet 4.5 avec extended thinking. Le shadow rating S&P (méthodologie complète, 18 PDFs ingérés en 1 144 chunks RAG) est l'engine principal, cross-checké par deux shadow ratings high-level Moody's (44 scorecards sectorielles verbatim) et Fitch (58 sector navigators verbatim). Réconciliation 3-way silencieuse en background si l'écart entre deux agences dépasse 3 notches. Upload un rapport annuel, génère trois shadow ratings parallèles et un mémo IB complet. Accès par compte utilisateur (abonnement mensuel).</p>
+          <p data-i18n="nw.desc">Plateforme de shadow rating multi-agence alimentée par l'IA — architecture propriétaire de 35 agents spécialisés. Trois moteurs complets appliquent chacun leur méthodologie de bout en bout : S&P (CICRA → BRP × FRP → Anchor → Modifiers → ICR), Moody's (46 scorecards sectorielles verbatim) et Fitch (58 sector navigators). Trois agents d'ajustement appliquent le traitement comptable propre à chaque agence sur les mêmes chiffres reported, douze agents pre-pass (ESG, liquidité, financial policy, peer benchmarking) alimentent les moteurs, et les overlays GRE / groupe / subordination structurelle s'appliquent quand pertinents. Upload un rapport annuel, obtiens trois shadow ratings complets et un mémo IB 16:9. Paiement à l'usage.</p>
           <div class="nw-stats">
             <div class="nw-stat"><div class="nw-stat-n">3</div><div class="nw-stat-l" data-i18n="nw.stat.agencies">Agences en parallèle (S&P + Moody's + Fitch)</div></div>
-            <div class="nw-stat"><div class="nw-stat-n">44 + 58</div><div class="nw-stat-l" data-i18n="nw.stat.scorecards">Scorecards Moody's + navigators Fitch</div></div>
+            <div class="nw-stat"><div class="nw-stat-n">46 + 58</div><div class="nw-stat-l" data-i18n="nw.stat.scorecards">Scorecards Moody's + navigators Fitch</div></div>
             <div class="nw-stat"><div class="nw-stat-n">&lt; 10 min</div><div class="nw-stat-l" data-i18n="nw.stat.time">Rapport annuel → 3 ratings</div></div>
           </div>
         </div>
@@ -425,12 +425,12 @@
         <div class="nw-feature">
           <div class="nw-feature-icon">🤖</div>
           <div class="nw-feature-title" data-i18n="nw.f1.title">Triple moteur S&P + Moody's + Fitch</div>
-          <p class="nw-feature-desc" data-i18n="nw.f1.desc">Claude Sonnet 4.5 avec extended thinking applique le framework S&P (CICRA → BRP × FRP → Anchor → Modifiers → ICR) en moteur principal, complété par les scorecards sectorielles Moody's et le Sector Navigator Fitch en cross-check parallèle. Sortie JSON structurée avec forces, faiblesses, sensibilités, narrative IB-style.</p>
+          <p class="nw-feature-desc" data-i18n="nw.f1.desc">Trois moteurs indépendants et complets — pas un moteur principal avec des cross-checks : S&P déroule CICRA → BRP × FRP → Anchor → Modifiers → ICR, Moody's son scorecard sectoriel avec other considerations et uplift GRI, Fitch son Sector Navigator jusqu'à l'IDR. Chaque étape trace vers une référence méthodologique publiée. Sortie structurée avec forces, faiblesses, sensibilités, narrative IB-style.</p>
         </div>
         <div class="nw-feature">
           <div class="nw-feature-icon">📚</div>
           <div class="nw-feature-title" data-i18n="nw.f2.title">Méthodologies ingérées verbatim</div>
-          <p class="nw-feature-desc" data-i18n="nw.f2.desc">18 PDFs S&P + 44 scorecards Moody's (Regulated Networks, Utilities, Integrated O&G, Auto, Telecom, Pharma, REITs, Steel…) + 58 sector navigators Fitch (Sector Navigators Addendum, 264 pages) — tous extraits mot-à-mot des publications officielles. RAG via Supabase pgvector + prompt caching pour 10× de réduction du coût input.</p>
+          <p class="nw-feature-desc" data-i18n="nw.f2.desc">18 PDFs S&P + 46 scorecards Moody's (Regulated Networks, Utilities, Integrated O&G, Auto, Telecom, Pharma, REITs, Steel…) + 58 sector navigators Fitch — thresholds, poids et notching factors extraits mot-à-mot des publications officielles et vérifiés cellule par cellule contre les PDFs. RAG via Supabase pgvector + prompt caching.</p>
         </div>
         <div class="nw-feature">
           <div class="nw-feature-icon">⚖️</div>
@@ -440,7 +440,7 @@
         <div class="nw-feature">
           <div class="nw-feature-icon">📄</div>
           <div class="nw-feature-title" data-i18n="nw.f4.title">Mémo IB style + Beyond the Big 3</div>
-          <p class="nw-feature-desc" data-i18n="nw.f4.desc">Export PowerPoint mémo (cover, strengths/challenges, CICRA/BRP, matrice Anchor, financials triple-colonne reported/S&P-adjusted/Moody's-adjusted, scorecard Moody's, navigator Fitch, conclusion). Plus un deck de référence 40+ slides sur l'écosystème mondial du rating — ECAI, NAIC, USPP, agences régionales.</p>
+          <p class="nw-feature-desc" data-i18n="nw.f4.desc">Export PowerPoint mémo (cover, strengths/challenges, CICRA/BRP, matrice Anchor, financials quadruple-colonne reported / S&P / Moody's / Fitch-adjusted, scorecard Moody's, navigator Fitch, conclusion). Plus un deck de référence 40+ slides sur l'écosystème mondial du rating — ECAI, NAIC, USPP, agences régionales.</p>
         </div>
       </div>
 
@@ -449,7 +449,7 @@
           <h3 data-i18n="nw.cta.title">Accéder à la plateforme</h3>
           <p data-i18n="nw.cta.desc">NotchWork est en ligne — shadow rating en quelques minutes à partir d'un rapport annuel.</p>
         </div>
-        <a href="https://notchwork.vercel.app" target="_blank" rel="noopener" class="btn-teal" data-i18n="nw.cta.btn">Ouvrir NotchWork →</a>
+        <a href="https://notchwork.co.uk" target="_blank" rel="noopener" class="btn-teal" data-i18n="nw.cta.btn">Ouvrir NotchWork →</a>
       </div>
 
       <!-- PITCH DECK DOWNLOAD -->
@@ -458,7 +458,7 @@
           <span style="font-size:2rem;">📄</span>
           <div>
             <div style="font-family:'Montserrat',sans-serif; font-weight:700; color:var(--text); margin-bottom:0.25rem;" data-i18n="nw.pitch.title">Seed Pitch Deck — 2026</div>
-            <div style="color:var(--muted); font-size:0.85rem;" data-i18n="nw.pitch.desc">24 slides — vision, produit (S&P primary + Moody's & Fitch en cross-check), opportunité de marché, business model, GTM, équipe, roadmap. Levée £500K–£750K à £3.5M pre-money.</div>
+            <div style="color:var(--muted); font-size:0.85rem;" data-i18n="nw.pitch.desc">24 slides — vision, produit (trois moteurs complets S&P, Moody's & Fitch), opportunité de marché, business model, GTM, équipe, roadmap. Levée £500K–£750K à £3.5M pre-money.</div>
           </div>
         </div>
         <a href="assets/notchwork-pitch.pdf" class="btn-teal" download data-i18n="nw.pitch.btn">Télécharger le PDF →</a>
