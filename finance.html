@@ -412,7 +412,7 @@
         <div class="nw-icon"><img src="assets/notchwork-logo.jpeg" alt="NotchWork" style="height:56px;border-radius:10px;" /></div>
         <div style="flex:1">
           <h2 data-i18n="nw.title">NotchWork</h2>
-          <p data-i18n="nw.desc">Plateforme de shadow rating multi-agence alimentée par l'IA — architecture propriétaire de 35 agents spécialisés. Trois moteurs complets appliquent chacun leur méthodologie de bout en bout : S&P (CICRA → BRP × FRP → Anchor → Modifiers → ICR), Moody's (46 scorecards sectorielles verbatim) et Fitch (58 sector navigators). Trois agents d'ajustement appliquent le traitement comptable propre à chaque agence sur les mêmes chiffres reported, douze agents pre-pass (ESG, liquidité, financial policy, peer benchmarking) alimentent les moteurs, et les overlays GRE / groupe / subordination structurelle s'appliquent quand pertinents. Upload un rapport annuel, obtiens trois shadow ratings complets et un mémo IB 16:9. Paiement à l'usage.</p>
+          <p data-i18n="nw.desc">Plateforme de shadow rating multi-agence alimentée par l'IA — architecture propriétaire de 35 agents spécialisés. Trois moteurs complets appliquent chacun leur méthodologie de bout en bout : S&P (CICRA → BRP × FRP → Anchor → Modifiers → ICR), Moody's (46 scorecards sectorielles) et Fitch (58 sector navigators). Trois agents d'ajustement appliquent le traitement comptable propre à chaque agence sur les mêmes chiffres reported, douze agents pre-pass (ESG, liquidité, financial policy, peer benchmarking) alimentent les moteurs, et les overlays GRE / groupe / subordination structurelle s'appliquent quand pertinents. Upload un rapport annuel, obtiens trois shadow ratings complets et un mémo IB 16:9. Paiement à l'usage.</p>
           <div class="nw-stats">
             <div class="nw-stat"><div class="nw-stat-n">3</div><div class="nw-stat-l" data-i18n="nw.stat.agencies">Agences en parallèle (S&P + Moody's + Fitch)</div></div>
             <div class="nw-stat"><div class="nw-stat-n">46 + 58</div><div class="nw-stat-l" data-i18n="nw.stat.scorecards">Scorecards Moody's + navigators Fitch</div></div>
@@ -429,8 +429,8 @@
         </div>
         <div class="nw-feature">
           <div class="nw-feature-icon">📚</div>
-          <div class="nw-feature-title" data-i18n="nw.f2.title">Méthodologies ingérées verbatim</div>
-          <p class="nw-feature-desc" data-i18n="nw.f2.desc">18 PDFs S&P + 46 scorecards Moody's (Regulated Networks, Utilities, Integrated O&G, Auto, Telecom, Pharma, REITs, Steel…) + 58 sector navigators Fitch — thresholds, poids et notching factors extraits mot-à-mot des publications officielles et vérifiés cellule par cellule contre les PDFs. RAG via Supabase pgvector + prompt caching.</p>
+          <div class="nw-feature-title" data-i18n="nw.f2.title">Méthodologies ingérées depuis les publications officielles</div>
+          <p class="nw-feature-desc" data-i18n="nw.f2.desc">18 PDFs S&P + 46 scorecards Moody's (Regulated Networks, Utilities, Integrated O&G, Auto, Telecom, Pharma, REITs, Steel…) + les sector navigators Fitch (Addendum, 264 pages). Les matrices et seuils qui déterminent le rating — table Anchor, CICRA, BRP, risque sectoriel, grilles de support gouvernemental — sont extraits des PDFs et figés par des tests de non-régression. RAG via Supabase pgvector + prompt caching.</p>
         </div>
         <div class="nw-feature">
           <div class="nw-feature-icon">⚖️</div>
