@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Limouze Books — Tonton Gug Studio</title>
-  <meta name="description" content="Limouze Books — notre maison d'édition indépendante. Daisy Harper Gray-Lane et William Loxford." />
+  <meta name="description" content="Limouze Books — notre maison d'édition indépendante. Daisy Harper Gray-Lane, Name Fame et William Loxford." />
     <link rel="canonical" href="https://tonton-gug-studio.vercel.app/books.html">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tonton-gug-studio.vercel.app/books.html">
   <meta property="og:site_name" content="Tonton Gug Studio">
   <meta property="og:title" content="Limouze Books — Tonton Gug Studio">
-  <meta property="og:description" content="Limouze Books — notre maison d'édition indépendante. Daisy Harper Gray-Lane et William Loxford.">
+  <meta property="og:description" content="Limouze Books — notre maison d'édition indépendante. Daisy Harper Gray-Lane, Name Fame et William Loxford.">
   <meta property="og:image" content="https://tonton-gug-studio.vercel.app/assets/tgs-icon-new.jpeg">
   <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="style.css" />
@@ -294,6 +294,23 @@
       max-width: 500px;
     }
 
+    /* Name Fame collection chips */
+    .nf-collection { margin-top: 3rem; }
+    .nf-collection h3 { font-family: 'Montserrat', sans-serif; font-weight: 700; margin-bottom: 0.4rem; }
+    .nf-collection > p { color: var(--muted); font-size: 0.9rem; margin-bottom: 1.25rem; }
+    .nf-group-label {
+      font-size: 0.7rem; font-weight: 700; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--orange); margin: 1.25rem 0 0.7rem;
+    }
+    .nf-chips { display: flex; flex-wrap: wrap; gap: 0.45rem; }
+    .nf-chip {
+      font-size: 0.78rem; color: var(--text); text-decoration: none;
+      background: rgba(255,255,255,0.04); border: 1px solid var(--border);
+      border-radius: 999px; padding: 0.3rem 0.8rem;
+      transition: border-color 0.2s, color 0.2s;
+    }
+    .nf-chip:hover { border-color: var(--orange); color: var(--orange); }
+
     /* About box */
     .about-books {
       background: var(--card); border: 1px solid var(--border);
@@ -332,7 +349,8 @@
     @media (max-width: 600px) {
       .books-grid { grid-template-columns: 1fr 1fr; }
       .books-grid-wl { grid-template-columns: 1fr; max-width: 100%; }
-      .author-tabs-nav { padding: 0 1rem; }
+      .author-tabs-nav { padding: 0 1rem; overflow-x: auto; scrollbar-width: none; }
+      .author-tab-btn { flex-shrink: 0; }
       .author-tab-btn { padding: 0.75rem 1rem; font-size: 0.78rem; }
     }
   </style>
@@ -391,6 +409,10 @@
     <button class="author-tab-btn active" id="tab-daisy" onclick="switchAuthor('daisy')">
       <img src="assets/daisy-portrait.png" alt="Daisy Harper Gray-Lane" class="tab-avatar" />
       Daisy Harper Gray-Lane
+    </button>
+    <button class="author-tab-btn" id="tab-namefame" onclick="switchAuthor('namefame')">
+      <img src="assets/books/name-fame/name-fame-avatar.jpg" alt="Name Fame" class="tab-avatar" />
+      Name Fame
     </button>
     <button class="author-tab-btn" id="tab-william" onclick="switchAuthor('william')">
       <img src="assets/william-loxford.jpg" alt="William Loxford" class="tab-avatar" />
@@ -550,6 +572,191 @@
   </div><!-- end panel-daisy -->
 
 
+  <!-- ══════════════════════════════ NAME FAME TAB ══════════════════════════════ -->
+  <div class="author-tab-panel" id="panel-namefame">
+
+    <!-- Series hero -->
+    <div class="author-hero">
+      <div class="author-portrait-wrap">
+        <img src="assets/books/name-fame/cover-john-front.jpg" alt="Name Fame: John" />
+      </div>
+      <div class="author-info">
+        <p class="author-role" data-i18n="lb.nf.role">Livres-souvenirs illustrés · Collection</p>
+        <h2 class="author-name">Name<br/>Fame</h2>
+        <p class="author-bio" data-i18n="lb.nf.bio">Un prénom, un livre. Chaque volume de Name Fame est consacré à un seul prénom : ses origines et sa signification, son voyage à travers l'histoire, sa numérologie, ses symboles — puis dix personnalités remarquables qui l'ont porté, chacune illustrée à l'aquarelle. Un cadeau qui a du sens, un souvenir qui dure.</p>
+        <div style="display:flex; gap:0.75rem; flex-wrap:wrap; margin-top:0.5rem;">
+          <a href="https://namefame.vercel.app" target="_blank" rel="noopener" class="author-external" data-i18n="lb.nf.visit">
+            Visiter le site →
+          </a>
+          <a href="https://namefame.vercel.app/order.html" target="_blank" rel="noopener" class="author-external author-external-outline" data-i18n="lb.nf.order">
+            Commander sur Amazon →
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- Books section -->
+    <div class="books-section">
+
+      <div class="series-intro" style="background: linear-gradient(135deg, #0b1830 0%, #1b3a6b 100%);">
+        <div class="si-label" data-i18n="lb.nf.series.label">Collection — 100 prénoms, 100 livres</div>
+        <h2>10 Legends · 1 Name · Your Story</h2>
+        <p data-i18n="lb.nf.series.desc">Neuf voyages au cœur d'un prénom : son histoire, ses chiffres, ses premiers porteurs, ses traductions à travers le monde, sa numérologie, ses quatre emblèmes (planète, pierre, fleur, couleur), dix légendes, ses héros de fiction — et des pages dorées laissées libres pour écrire le chapitre suivant.</p>
+        <div class="series-tag" data-i18n="lb.nf.series.tag">📚 100 livres · Illustré à l'aquarelle · Disponible sur Amazon</div>
+      </div>
+
+      <div class="books-grid-wl">
+
+        <div class="book-card">
+          <div class="book-cover" onclick="openLightbox('assets/books/name-fame/cover-john-front.jpg','Name Fame: John')">
+            <img src="assets/books/name-fame/cover-john-front.jpg" alt="Name Fame: John — couverture" />
+          </div>
+          <div class="book-info">
+            <div class="book-name">Name Fame: John</div>
+            <div class="book-era" data-i18n="lb.nf.john.era">Couverture · Name Fame</div>
+            <p class="book-desc" data-i18n="lb.nf.john.desc">Chaque couverture est gravée des objets des dix légendes du prénom — lunettes, saxophone, raquette, micro…</p>
+            <span class="book-tag" data-i18n="lb.nf.tag">Livre-souvenir</span>
+            <a href="https://www.amazon.com/dp/B0HHJVRTNS" class="book-buy" target="_blank" rel="noopener"><svg xmlns="http://www.w3.org/2000/svg" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"/><circle cx="20" cy="21" r="1"/><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"/></svg><span data-i18n="book.buy">Acheter</span></a>
+          </div>
+        </div>
+
+        <div class="book-card">
+          <div class="book-cover" onclick="openLightbox('assets/books/name-fame/cover-john-back.jpg','Name Fame: John')">
+            <img src="assets/books/name-fame/cover-john-back.jpg" alt="Name Fame: John — quatrième de couverture" />
+          </div>
+          <div class="book-info">
+            <div class="book-name">Name Fame: John</div>
+            <div class="book-era" data-i18n="lb.nf.back.era">Quatrième de couverture</div>
+            <p class="book-desc" data-i18n="lb.nf.back.desc">Histoire, symboles, numérologie et dix vies remarquables — puis la dernière page, qui vous appartient.</p>
+            <span class="book-tag" data-i18n="lb.nf.tag">Livre-souvenir</span>
+          </div>
+        </div>
+
+      </div><!-- end books-grid-wl -->
+
+      <div class="nf-collection">
+        <h3 data-i18n="lb.nf.collection.title">La collection</h3>
+        <p data-i18n="lb.nf.collection.desc">Cliquez sur un prénom pour découvrir qui se trouve dans son livre.</p>
+        <div class="nf-group-label" data-i18n="lb.nf.him">Pour lui</div>
+        <div class="nf-chips">
+          <a class="nf-chip" href="https://namefame.vercel.app/names/john.html" target="_blank" rel="noopener">John</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/james.html" target="_blank" rel="noopener">James</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/william.html" target="_blank" rel="noopener">William</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/henry.html" target="_blank" rel="noopener">Henry</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/michael.html" target="_blank" rel="noopener">Michael</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/alexander.html" target="_blank" rel="noopener">Alexander</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/daniel.html" target="_blank" rel="noopener">Daniel</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/benjamin.html" target="_blank" rel="noopener">Benjamin</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/oliver.html" target="_blank" rel="noopener">Oliver</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/charles.html" target="_blank" rel="noopener">Charles</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/thomas.html" target="_blank" rel="noopener">Thomas</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/george.html" target="_blank" rel="noopener">George</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/edward.html" target="_blank" rel="noopener">Edward</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/arthur.html" target="_blank" rel="noopener">Arthur</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/david.html" target="_blank" rel="noopener">David</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/robert.html" target="_blank" rel="noopener">Robert</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/paul.html" target="_blank" rel="noopener">Paul</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/peter.html" target="_blank" rel="noopener">Peter</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/samuel.html" target="_blank" rel="noopener">Samuel</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/louis.html" target="_blank" rel="noopener">Louis</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/anthony.html" target="_blank" rel="noopener">Anthony</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/leonardo.html" target="_blank" rel="noopener">Leonardo</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/joseph.html" target="_blank" rel="noopener">Joseph</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/frederick.html" target="_blank" rel="noopener">Frederick</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/albert.html" target="_blank" rel="noopener">Albert</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/christopher.html" target="_blank" rel="noopener">Christopher</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/raphael.html" target="_blank" rel="noopener">Raphael</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/theodore.html" target="_blank" rel="noopener">Theodore</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/jack.html" target="_blank" rel="noopener">Jack</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/jose.html" target="_blank" rel="noopener">José</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/liam.html" target="_blank" rel="noopener">Liam</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/noah.html" target="_blank" rel="noopener">Noah</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/nicholas.html" target="_blank" rel="noopener">Nicholas</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/richard.html" target="_blank" rel="noopener">Richard</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/carlos.html" target="_blank" rel="noopener">Carlos</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/luis.html" target="_blank" rel="noopener">Luis</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/mark.html" target="_blank" rel="noopener">Mark</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/martin.html" target="_blank" rel="noopener">Martin</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/stephen.html" target="_blank" rel="noopener">Stephen</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/francis.html" target="_blank" rel="noopener">Francis</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/adam.html" target="_blank" rel="noopener">Adam</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/andrew.html" target="_blank" rel="noopener">Andrew</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/antonio.html" target="_blank" rel="noopener">Antonio</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/eric.html" target="_blank" rel="noopener">Eric</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/gabriel.html" target="_blank" rel="noopener">Gabriel</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/isaac.html" target="_blank" rel="noopener">Isaac</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/matthew.html" target="_blank" rel="noopener">Matthew</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/miguel.html" target="_blank" rel="noopener">Miguel</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/patrick.html" target="_blank" rel="noopener">Patrick</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/timothy.html" target="_blank" rel="noopener">Timothy</a>
+        </div>
+        <div class="nf-group-label" data-i18n="lb.nf.her">Pour elle</div>
+        <div class="nf-chips">
+          <a class="nf-chip" href="https://namefame.vercel.app/names/olivia.html" target="_blank" rel="noopener">Olivia</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/emma.html" target="_blank" rel="noopener">Emma</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/charlotte.html" target="_blank" rel="noopener">Charlotte</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/sophia.html" target="_blank" rel="noopener">Sophia</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/amelia.html" target="_blank" rel="noopener">Amelia</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/isabella.html" target="_blank" rel="noopener">Isabella</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/emily.html" target="_blank" rel="noopener">Emily</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/victoria.html" target="_blank" rel="noopener">Victoria</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/elizabeth.html" target="_blank" rel="noopener">Elizabeth</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/mary.html" target="_blank" rel="noopener">Mary</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/anne.html" target="_blank" rel="noopener">Anne</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/catherine.html" target="_blank" rel="noopener">Catherine</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/margaret.html" target="_blank" rel="noopener">Margaret</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/jane.html" target="_blank" rel="noopener">Jane</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/alice.html" target="_blank" rel="noopener">Alice</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/grace.html" target="_blank" rel="noopener">Grace</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/diane.html" target="_blank" rel="noopener">Diane</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/helen.html" target="_blank" rel="noopener">Helen</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/eleanor.html" target="_blank" rel="noopener">Eleanor</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/florence.html" target="_blank" rel="noopener">Florence</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/clara.html" target="_blank" rel="noopener">Clara</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/anna.html" target="_blank" rel="noopener">Anna</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/julia.html" target="_blank" rel="noopener">Julia</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/sarah.html" target="_blank" rel="noopener">Sarah</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/eva.html" target="_blank" rel="noopener">Eva</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/ella.html" target="_blank" rel="noopener">Ella</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/lucy.html" target="_blank" rel="noopener">Lucy</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/maria.html" target="_blank" rel="noopener">Maria</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/rose.html" target="_blank" rel="noopener">Rose</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/michelle.html" target="_blank" rel="noopener">Michelle</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/jennifer.html" target="_blank" rel="noopener">Jennifer</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/barbara.html" target="_blank" rel="noopener">Barbara</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/susan.html" target="_blank" rel="noopener">Susan</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/alexandra.html" target="_blank" rel="noopener">Alexandra</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/angela.html" target="_blank" rel="noopener">Angela</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/beatrice.html" target="_blank" rel="noopener">Beatrice</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/carmen.html" target="_blank" rel="noopener">Carmen</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/caroline.html" target="_blank" rel="noopener">Caroline</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/christine.html" target="_blank" rel="noopener">Christine</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/hannah.html" target="_blank" rel="noopener">Hannah</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/josephine.html" target="_blank" rel="noopener">Josephine</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/karen.html" target="_blank" rel="noopener">Karen</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/laura.html" target="_blank" rel="noopener">Laura</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/louise.html" target="_blank" rel="noopener">Louise</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/martha.html" target="_blank" rel="noopener">Martha</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/natalie.html" target="_blank" rel="noopener">Natalie</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/patricia.html" target="_blank" rel="noopener">Patricia</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/rachel.html" target="_blank" rel="noopener">Rachel</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/rebecca.html" target="_blank" rel="noopener">Rebecca</a>
+          <a class="nf-chip" href="https://namefame.vercel.app/names/teresa.html" target="_blank" rel="noopener">Teresa</a>
+        </div>
+      </div>
+
+      <div class="about-books">
+        <div class="icon">✒️</div>
+        <div>
+          <h3 data-i18n="lb.nf.about.title">Le dernier chapitre vous appartient</h3>
+          <p data-i18n="lb.nf.about.desc">Après l'histoire, les symboles, les chiffres et les dix vies remarquables, chaque livre Name Fame se termine de la même façon : des lignes dorées et des pages vides qui ne le sont pas vraiment. Une lettre de celui qui offre, une place pour les souvenirs, une page pour les rêves. Le lecteur devient la onzième légende.</p>
+        </div>
+      </div>
+
+    </div><!-- end books-section -->
+  </div><!-- end panel-namefame -->
+
+
   <!-- ══════════════════════════════ WILLIAM TAB ══════════════════════════════ -->
   <div class="author-tab-panel" id="panel-william">
 
@@ -652,6 +859,7 @@
 
     // Auto-switch to William if hash present
     if (window.location.hash === '#william') switchAuthor('william');
+    if (window.location.hash === '#namefame') switchAuthor('namefame');
   </script>
 </body>
 </html>
