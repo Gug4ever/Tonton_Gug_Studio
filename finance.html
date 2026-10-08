@@ -109,6 +109,17 @@
     .nw-stat-n { font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 1.8rem; color: #2CA5A8; }
     .nw-stat-l { font-size: 0.75rem; color: rgba(255,255,255,0.6); text-transform: uppercase; letter-spacing: 0.1em; }
 
+    .nw-film { max-width: 860px; margin: 0 auto 2.5rem; }
+    .nw-film-label {
+      font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 0.8rem;
+      letter-spacing: 0.08em; text-transform: uppercase; color: #3BBFC4;
+      margin-bottom: 0.75rem; text-align: center;
+    }
+    .nw-film video {
+      display: block; width: 100%; height: auto;
+      border-radius: 10px; border: 1px solid rgba(59, 191, 196, 0.45);
+      box-shadow: 0 14px 34px rgba(0, 0, 0, 0.4); background: #14233D;
+    }
     .nw-features { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 1.25rem; margin-bottom: 2.5rem; }
     .nw-feature {
       background: var(--card); border: 1px solid var(--border);
@@ -421,13 +432,21 @@
         <div class="nw-icon"><img src="assets/notchwork-logo.jpeg" alt="NotchWork" style="height:56px;border-radius:10px;" /></div>
         <div style="flex:1">
           <h2 data-i18n="nw.title">NotchWork</h2>
-          <p data-i18n="nw.desc">Plateforme de shadow rating multi-agence alimentée par l'IA — architecture propriétaire de 35 agents spécialisés. Trois moteurs complets appliquent chacun leur méthodologie de bout en bout : S&P (CICRA → BRP × FRP → Anchor → Modifiers → ICR), Moody's (46 scorecards sectorielles) et Fitch (58 sector navigators). Trois agents d'ajustement appliquent le traitement comptable propre à chaque agence sur les mêmes chiffres reported, douze agents pre-pass (ESG, liquidité, financial policy, peer benchmarking) alimentent les moteurs, et les overlays GRE / groupe / subordination structurelle s'appliquent quand pertinents. Upload un rapport annuel, obtiens trois shadow ratings complets et un mémo IB 16:9. Paiement à l'usage.</p>
+          <p data-i18n="nw.desc">Un shadow rating en minutes, pas en semaines. Upload le rapport annuel d'une société : trois shadow ratings complets — S&P, Moody's et Fitch, chacun déroulant sa méthodologie publiée de bout en bout — avec benchmarks sectoriels, sensibilités, mémo de crédit exportable et un chatbot co-analyste pour challenger l'analyse. Architecture propriétaire de 35 agents spécialisés en 6 phases (température 0), chaque étape traçable vers une référence méthodologique publiée. Sans abonnement, sans frais d'agence — paiement à l'usage.</p>
           <div class="nw-stats">
             <div class="nw-stat"><div class="nw-stat-n">3</div><div class="nw-stat-l" data-i18n="nw.stat.agencies">Agences en parallèle (S&P + Moody's + Fitch)</div></div>
-            <div class="nw-stat"><div class="nw-stat-n">46 + 58</div><div class="nw-stat-l" data-i18n="nw.stat.scorecards">Scorecards Moody's + navigators Fitch</div></div>
+            <div class="nw-stat"><div class="nw-stat-n">35 · 6</div><div class="nw-stat-l" data-i18n="nw.stat.scorecards">Agents spécialisés · phases — température 0</div></div>
             <div class="nw-stat"><div class="nw-stat-n">&lt; 10 min</div><div class="nw-stat-l" data-i18n="nw.stat.time">Rapport annuel → 3 ratings</div></div>
           </div>
         </div>
+      </div>
+
+      <div class="nw-film">
+        <div class="nw-film-label" data-i18n="nw.film.label">Le film · 3 min — démo complète sur une société anonymisée</div>
+        <video controls playsinline preload="none"
+               poster="https://www.notchwork.co.uk/video/notchwork-film-poster.jpg" width="1920" height="1080">
+          <source src="https://www.notchwork.co.uk/video/notchwork-film.mp4" type="video/mp4">
+        </video>
       </div>
 
       <div class="nw-features">
