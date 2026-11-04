@@ -4,13 +4,13 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Arts — Tonton Gug Studio</title>
-    <meta name="description" content="Les séries d'art du studio : M&M's imprimés sur aluminium et les Collisions de Zabieru Fōkon.">
+    <meta name="description" content="Les séries d'art du studio : les M&M's de Candice Shell imprimés sur aluminium et les Collisions de Zabieru Fōkon.">
   <link rel="canonical" href="https://tonton-gug-studio.vercel.app/arts.html">
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://tonton-gug-studio.vercel.app/arts.html">
   <meta property="og:site_name" content="Tonton Gug Studio">
   <meta property="og:title" content="Arts — Tonton Gug Studio">
-  <meta property="og:description" content="Les séries d'art du studio : M&M's imprimés sur aluminium et les Collisions de Zabieru Fōkon.">
+  <meta property="og:description" content="Les séries d'art du studio : les M&M's de Candice Shell imprimés sur aluminium et les Collisions de Zabieru Fōkon.">
   <meta property="og:image" content="https://tonton-gug-studio.vercel.app/assets/tgs-icon-new.jpeg">
   <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="style.css" />
@@ -437,6 +437,70 @@
     @media (max-width: 640px) {
       .diptych-images { grid-template-columns: 1fr; }
     }
+
+    /* ---- CANDICE SHELL (artiste représentée) ---- */
+    .arts-tab.tab-cs.active { color: #f5c800; border-bottom-color: #f5c800; }
+    .cs-intro {
+      background: #f5f1e7; color: #17140f;
+      border-radius: var(--radius); padding: 2.5rem 3rem; margin-bottom: 2rem;
+    }
+    .cs-hero { display: grid; grid-template-columns: 1fr 220px; gap: 2.5rem; align-items: center; }
+    .cs-hero-img { border-radius: 10px; overflow: hidden; cursor: zoom-in; border: 2px solid #17140f; }
+    .cs-hero-img img { width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; }
+    .cs-intro .ai-label {
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: #5e574b; font-weight: 700; margin-bottom: 0.75rem;
+    }
+    .cs-intro h2 {
+      font-family: 'Montserrat', sans-serif; font-weight: 800;
+      font-size: clamp(1.4rem, 3vw, 2rem); color: #17140f;
+      margin-bottom: 1rem; line-height: 1.3;
+    }
+    .cs-intro p.cs-desc { color: #17140f; font-size: 0.95rem; line-height: 1.75; max-width: 680px; }
+    .cs-tag {
+      display: inline-flex; align-items: center; gap: 0.5rem;
+      border: 1px solid #17140f; color: #17140f; font-size: 0.8rem; font-weight: 600;
+      padding: 0.35rem 1rem; border-radius: 999px; margin-top: 1.25rem;
+    }
+    .cs-cta {
+      display: inline-block; margin-top: 1.25rem; margin-left: 0.75rem;
+      font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
+      color: #f5f1e7; background: #17140f; border: 1px solid #17140f;
+      border-radius: 999px; padding: 0.45rem 1.1rem; text-decoration: none;
+      transition: opacity 0.2s;
+    }
+    .cs-cta:hover { opacity: 0.8; }
+    .cs-link {
+      display: inline-block; margin-top: 1.25rem; margin-left: 0.75rem;
+      font-size: 0.8rem; font-weight: 700; color: #f5c800; text-decoration: none;
+    }
+    .cs-link:hover { text-decoration: underline; }
+    .cs-studio-label {
+      font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
+      color: var(--muted); font-weight: 700; margin-bottom: 0.9rem;
+    }
+    .cs-studio { display: grid; grid-template-columns: repeat(12, 1fr); gap: 1rem; }
+    .cs-shot { grid-column: span 4; margin: 0; cursor: zoom-in; }
+    .cs-shot.wide { grid-column: span 8; }
+    .cs-shot img { width: 100%; height: 340px; object-fit: cover; object-position: 50% 25%; display: block; border-radius: 10px; }
+    .cs-shot figcaption { color: var(--muted); font-size: 0.75rem; margin-top: 0.45rem; }
+    .cs-quote {
+      margin: 2.5rem 0 0; padding-top: 1.5rem; border-top: 1px solid var(--border);
+      color: var(--text); font-size: 1.15rem; line-height: 1.5; max-width: 640px;
+    }
+    .cs-quote cite { display: block; margin-top: 0.4rem; font-style: normal; font-size: 0.8rem; color: var(--muted); }
+    .cs-note { color: var(--muted); font-size: 0.78rem; margin-top: 1.5rem; }
+    @media (max-width: 760px) {
+      .arts-tabs { overflow-x: auto; }
+      .arts-tab { flex: none; white-space: nowrap; }
+      .cs-intro { padding: 1.75rem 1.25rem; }
+      .cs-hero { grid-template-columns: 1fr; }
+      .cs-hero-img { max-width: 220px; }
+      .cs-cta { margin-left: 0; }
+      .cs-link { margin-left: 0; display: block; }
+      .cs-shot, .cs-shot.wide { grid-column: 1 / -1; }
+      .cs-shot img { height: auto; aspect-ratio: 4/3; }
+    }
   </style>
 </head>
 <body>
@@ -475,24 +539,72 @@
   <section>
     <p class="section-label" data-i18n="arts.label">Œuvres</p>
     <h1 class="section-title" data-i18n="arts.title">Arts Plastiques</h1>
-    <p class="section-sub" data-i18n="arts.subtitle">Une série d'impressions sur aluminium — images générées par IA, intégrant la boîte M&M's en relief pour créer cinq paysages habitables.</p>
+    <p class="section-sub" data-i18n="arts.subtitle">Impressions sur aluminium. Deux corpus : la série M&M's de Candice Shell — images générées par IA, boîte intégrée en relief — et Collisions, de l'artiste invité Zabieru Fōkon.</p>
 
     <!-- SERIES TABS -->
     <div class="arts-tabs">
-      <button class="arts-tab active" onclick="switchArtsTab('env',this)" data-i18n="arts.tab.env">M&M's — Environnements</button>
+      <button class="arts-tab tab-cs active" onclick="switchArtsTab('cs',this)" data-i18n="arts.tab.cs">Candice Shell</button>
+      <button class="arts-tab" onclick="switchArtsTab('env',this)" data-i18n="arts.tab.env">M&M's — Environnements</button>
       <button class="arts-tab" onclick="switchArtsTab('elements',this)" data-i18n="arts.tab.elements">M&M's — Éléments</button>
       <button class="arts-tab" onclick="switchArtsTab('corr',this)" data-i18n="arts.tab.corr">M&M's — Correspondances</button>
       <button class="arts-tab tab-zab" onclick="switchArtsTab('zab',this)" data-i18n="arts.tab.zab">Zabieru Fōkon — Collisions</button>
     </div>
 
+    <!-- PANEL 0 : CANDICE SHELL -->
+    <div class="arts-panel active" id="panel-cs">
+
+      <div class="cs-intro">
+        <div class="cs-hero">
+          <div>
+            <div class="ai-label" data-i18n="arts.cs.label">Artiste représentée en exclusivité</div>
+            <h2>Candice Shell</h2>
+            <p class="cs-desc" data-i18n="arts.cs.desc">Ancienne directrice artistique américaine, Candice Shell peint aujourd'hui les mascottes qu'elle a passé quinze ans à vendre. À Chicago, elle estime avoir dessiné quelque 40 000 sourires sur des emballages. Aucun n'avait le droit d'hésiter. Ses deux séries, Environnements et Éléments, rendent à ces personnages le droit d'avoir peur, de douter, de se perdre.</p>
+            <div class="cs-tag" data-i18n="arts.cs.tag">10 œuvres · 2 séries · Impression sur aluminium · Série limitée</div>
+            <a class="cs-cta" href="https://candice-shell.vercel.app" target="_blank" rel="noopener" data-i18n="arts.cs.cta">Voir le site de l'artiste →</a>
+          </div>
+          <div class="cs-hero-img" onclick="openLightbox('assets/candice/portrait.jpg','Candice Shell')">
+            <img src="assets/candice/portrait.jpg" alt="Candice Shell" />
+          </div>
+        </div>
+      </div>
+
+      <div class="cs-studio-label" data-i18n="arts.cs.studio">Dans l'atelier</div>
+      <div class="cs-studio">
+        <figure class="cs-shot" onclick="openLightbox('assets/candice/studio-desert.jpg','Candice Shell')">
+          <img src="assets/candice/studio-desert.jpg" alt="Candice Shell dans son atelier, Désert" loading="lazy" />
+          <figcaption data-i18n="arts.cs.cap.desert">Désert, toile en cours</figcaption>
+        </figure>
+        <figure class="cs-shot wide" onclick="openLightbox('assets/candice/studio-forest.jpg','Candice Shell')">
+          <img src="assets/candice/studio-forest.jpg" alt="Candice Shell dans son atelier, Forêt" loading="lazy" />
+          <figcaption data-i18n="arts.cs.cap.forest">Forêt, toile en cours</figcaption>
+        </figure>
+        <figure class="cs-shot wide" onclick="openLightbox('assets/candice/studio-earth.jpg','Candice Shell')">
+          <img src="assets/candice/studio-earth.jpg" alt="Candice Shell dans son atelier, Terre" loading="lazy" />
+          <figcaption data-i18n="arts.cs.cap.earth">Terre, toile en cours</figcaption>
+        </figure>
+        <figure class="cs-shot" onclick="openLightbox('assets/candice/studio-ocean.jpg','Candice Shell')">
+          <img src="assets/candice/studio-ocean.jpg" alt="Candice Shell dans son atelier, Océan" loading="lazy" />
+          <figcaption data-i18n="arts.cs.cap.ocean">Océan, toile en cours</figcaption>
+        </figure>
+      </div>
+
+      <blockquote class="cs-quote">
+        <span data-i18n="arts.cs.quote">Je n'explique pas mes œuvres. La galerie le fait très bien, et beaucoup trop.</span>
+        <cite>C. S.</cite>
+      </blockquote>
+      <p class="cs-note" data-i18n="arts.cs.note">Candice Shell est un personnage créé par Tonton Gug Studio.</p>
+
+    </div><!-- /panel-cs -->
+
     <!-- PANEL 1 : ENVIRONNEMENTS -->
-    <div class="arts-panel active" id="panel-env">
+    <div class="arts-panel" id="panel-env">
 
     <div class="arts-intro">
-      <div class="ai-label" data-i18n="arts.series.label">Série I — 2024/2025</div>
+      <div class="ai-label" data-i18n="arts.series.label">Série I — 2025</div>
       <h2 data-i18n="arts.series.title">M&M's in Their Natural Environment</h2>
       <p data-i18n="arts.series.desc">Cette première série interroge la tension fondamentale entre l'artifice du packaging industriel et la brutalité organique des grands paysages. Des images construites par intelligence artificielle, dans lesquelles la boîte M&M's est intégrée physiquement — en relief — sur un support aluminium. L'objet de consommation n'est plus représenté : il est présent. Chaque personnage — jaune, rouge, bleu, vert, orange — traverse un environnement qui le dépasse, l'absorbe, ou l'effraye. Chacun à sa manière.</p>
       <div class="series-tag" data-i18n="arts.series.tag">🎨 5 œuvres · Impression sur aluminium · Série limitée</div>
+      <a class="cs-link" href="https://candice-shell.vercel.app" target="_blank" rel="noopener" data-i18n="arts.cs.by">Par Candice Shell →</a>
     </div>
 
     <div class="works-grid">
@@ -614,6 +726,7 @@
         <h2 data-i18n="arts.elem.title">M&M's &amp; les Éléments</h2>
         <p data-i18n="arts.elem.desc">Cinq nouveaux personnages, cinq forces primordiales. Inspirée de la cosmologie chinoise des cinq éléments, cette série place les M&M's au cœur des grandes énergies qui structurent l'univers — l'Air, la Terre, le Feu, le Vent et l'Espace.</p>
         <div class="elements-tag" data-i18n="arts.elem.tag">✦ 5 œuvres · Série II · Impression sur aluminium · En préparation</div>
+        <a class="cs-link" href="https://candice-shell.vercel.app" target="_blank" rel="noopener" data-i18n="arts.cs.by">Par Candice Shell →</a>
       </div>
 
       <div class="works-grid">
@@ -724,6 +837,7 @@
         <h2 data-i18n="arts.corr.title">M&M's — Correspondances</h2>
         <p data-i18n="arts.corr.desc">Chaque M&M apparaît dans deux séries — un Environnement, un Élément. Loin d'être anecdotique, ce doublement compose une grammaire secrète : c'est dans le passage d'un cadre à l'autre, dans l'écho silencieux entre les deux visages d'un même personnage, que se révèle le véritable propos de l'œuvre. Cinq couleurs, cinq diptyques, cinq vertiges.</p>
         <div class="corr-tag" data-i18n="arts.corr.tag">◈ 5 diptyques · Lecture transversale · Séries I &amp; II</div>
+        <a class="cs-link" href="https://candice-shell.vercel.app" target="_blank" rel="noopener" data-i18n="arts.cs.by">Par Candice Shell →</a>
       </div>
 
       <!-- JAUNE — Désert × Espace -->
