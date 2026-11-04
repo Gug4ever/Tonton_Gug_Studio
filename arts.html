@@ -441,7 +441,7 @@
     /* ---- CANDICE SHELL (artiste représentée) ---- */
     .arts-tab.tab-cs.active { color: #f5c800; border-bottom-color: #f5c800; }
     .cs-intro {
-      background: #f5f1e7; color: #17140f;
+      background: linear-gradient(135deg, #d3ccbc 0%, #c2baa8 100%); color: #17140f;
       border-radius: var(--radius); padding: 2.5rem 3rem; margin-bottom: 3rem;
     }
     .cs-hero { display: grid; grid-template-columns: 1fr 220px; gap: 2.5rem; align-items: center; }
@@ -449,7 +449,7 @@
     .cs-hero-img img { width: 100%; aspect-ratio: 2/3; object-fit: cover; display: block; }
     .cs-intro .ai-label {
       font-size: 0.72rem; letter-spacing: 0.18em; text-transform: uppercase;
-      color: #5e574b; font-weight: 700; margin-bottom: 0.75rem;
+      color: #453f35; font-weight: 700; margin-bottom: 0.75rem;
     }
     .cs-intro h2 {
       font-family: 'Montserrat', sans-serif; font-weight: 800;
@@ -458,20 +458,24 @@
     }
     .cs-intro p.cs-desc { color: #17140f; font-size: 0.95rem; line-height: 1.75; max-width: 680px; }
     .cs-tag {
-      display: inline-flex; align-items: center; gap: 0.5rem;
-      border: 1px solid #17140f; color: #17140f; font-size: 0.8rem; font-weight: 600;
-      padding: 0.35rem 1rem; border-radius: 999px; margin-top: 1.25rem;
+      color: #17140f; font-size: 0.8rem; font-weight: 600; margin-top: 1rem;
     }
     .cs-cta {
-      display: inline-block; margin-top: 1.25rem; margin-left: 0.75rem;
+      display: inline-block; margin-top: 1rem;
       font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em;
       color: #f5f1e7; background: #17140f; border: 1px solid #17140f;
       border-radius: 999px; padding: 0.45rem 1.1rem; text-decoration: none;
       transition: opacity 0.2s;
     }
     .cs-cta:hover { opacity: 0.8; }
-    .cs-jump { display: flex; flex-wrap: wrap; gap: 0.4rem 1.25rem; margin-top: 1.25rem; }
-    .cs-jump a { color: #17140f; font-size: 0.8rem; font-weight: 700; text-underline-offset: 3px; }
+    .cs-jump { display: flex; flex-wrap: wrap; gap: 0.6rem; margin-top: 0.75rem; }
+    .cs-jump a {
+      display: inline-block; color: #17140f; font-size: 0.78rem; font-weight: 700;
+      letter-spacing: 0.06em; text-decoration: none;
+      border: 1.5px solid #17140f; border-radius: 999px; padding: 0.45rem 1.1rem;
+      transition: background 0.2s, color 0.2s;
+    }
+    .cs-jump a:hover, .cs-jump a:focus-visible { background: #17140f; color: #f5f1e7; }
     .cs-block { scroll-margin-top: 90px; }
     .cs-block + .cs-block { margin-top: 4.5rem; }
     .cs-outro-quote { color: var(--text) !important; font-style: normal !important; font-size: 1.05rem !important; }
@@ -482,7 +486,6 @@
     }
     @media (max-width: 700px) {
       .cs-intro { padding: 1.75rem 1.5rem; }
-      .cs-cta { margin-left: 0; }
     }
   </style>
 </head>
